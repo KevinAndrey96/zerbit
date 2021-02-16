@@ -1,4 +1,4 @@
-@extends('layouts.global')
+@extends('layouts.master')
 @section('title', 'Dashboard')
 @section('content')
     <div class="container-fluid page__container">
