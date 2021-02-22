@@ -12,12 +12,14 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 //import css files
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
+import Vuex from 'vuex'
+import VueSignaturePad from 'vue-signature-pad';
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
-
-
+Vue.use(Vuex)
+Vue.use(VueSignaturePad);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -31,6 +33,7 @@ Vue.use(IconsPlugin)
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('users-component', require('./components/UsersComponent.vue').default);
+Vue.component('signature-pad', require('./components/SignaturePad.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

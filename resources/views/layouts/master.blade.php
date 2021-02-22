@@ -12,19 +12,21 @@
     <meta name="robots" content="noindex">
 
     <!-- Simplebar -->
-    <link type="text/css" href="assets/vendor/simplebar.min.css" rel="stylesheet">
+    <link type="text/css" href="/assets/vendor/simplebar.min.css" rel="stylesheet">
 
     <!-- App CSS -->
-    <link type="text/css" href="assets/css/app.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/app.rtl.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/app.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/app.rtl.css" rel="stylesheet">
+
+    <link type="text/css" href="/assets/css/signature-pad.css" rel="stylesheet">
 
     <!-- Material Design Icons -->
-    <link type="text/css" href="assets/css/vendor-material-icons.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/vendor-material-icons.rtl.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-material-icons.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-material-icons.rtl.css" rel="stylesheet">
 
     <!-- Font Awesome FREE Icons -->
-    <link type="text/css" href="assets/css/vendor-fontawesome-free.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/vendor-fontawesome-free.rtl.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-fontawesome-free.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-fontawesome-free.rtl.css" rel="stylesheet">
 
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js" integrity="sha256-DrT5NfxfbHvMHux31Lkhxg42LY6of8TaYyK50jnxRnM=" crossorigin="anonymous"></script>
@@ -34,17 +36,16 @@
                    src="https://www.facebook.com/tr?id=327167911228268&ev=PageView&noscript=1"/></noscript>
     <!-- End Facebook Pixel Code -->
 
-
     <!-- Flatpickr -->
-    <link type="text/css" href="assets/css/vendor-flatpickr.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/vendor-flatpickr.rtl.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/vendor-flatpickr-airbnb.css" rel="stylesheet">
-    <link type="text/css" href="assets/css/vendor-flatpickr-airbnb.rtl.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-flatpickr.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-flatpickr.rtl.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-flatpickr-airbnb.css" rel="stylesheet">
+    <link type="text/css" href="/assets/css/vendor-flatpickr-airbnb.rtl.css" rel="stylesheet">
 
     <!-- Vector Maps -->
-    <link type="text/css" href="assets/vendor/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <link type="text/css" href="/assets/vendor/jqvmap/jqvmap.min.css" rel="stylesheet">
 
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
 </head>
 
@@ -74,7 +75,7 @@
 
                     <!-- Navbar Brand -->
                     <a href="index.html" class="navbar-brand ">
-                        <img class="navbar-brand-icon" src="assets/images/logo.png" width="70" alt="Stack">
+                        <img class="navbar-brand-icon" src="/assets/images/logo.png" width="70" alt="Stack">
                         <span>Zerbit Portal</span>
                     </a>
 
@@ -83,7 +84,7 @@
                         <li class="nav-item dropdown">
                             <a href="#account_menu" class="nav-link dropdown-toggle" data-toggle="dropdown"
                                data-caret="false">
-                                <img src="assets/images/user-icon.png" class="rounded-circle" width="32"
+                                <img src="/assets/images/user-icon.png" class="rounded-circle" width="32"
                                      alt="Frontted">
                                 <span class="ml-1 d-flex-inline">
                                         <span class="text-light"></span>
@@ -94,7 +95,7 @@
                                     <div><strong>Opciones</strong></div>
                                 </div>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item active" href="index.html">Perfil</a>
+                                <a class="dropdown-item active" href="index.html">Firma</a>
                                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                     Logout
                                 </a>
@@ -148,46 +149,49 @@
 </div>
 
 <!-- jQuery -->
-<script src="assets/vendor/jquery.min.js"></script>
+<script src="/assets/vendor/jquery.min.js"></script>
 
 <!-- Bootstrap -->
-<script src="assets/vendor/popper.min.js"></script>
-<script src="assets/vendor/bootstrap.min.js"></script>
+<script src="/assets/vendor/popper.min.js"></script>
+<script src="/assets/vendor/bootstrap.min.js"></script>
 
 <!-- Simplebar -->
-<script src="assets/vendor/simplebar.min.js"></script>
+<script src="/assets/vendor/simplebar.min.js"></script>
 
 <!-- DOM Factory -->
-<script src="assets/vendor/dom-factory.js"></script>
+<script src="/assets/vendor/dom-factory.js"></script>
 
 <!-- MDK -->
-<script src="assets/vendor/material-design-kit.js"></script>
+<script src="/assets/vendor/material-design-kit.js"></script>
 
 <!-- App -->
-<script src="assets/js/toggle-check-all.js"></script>
-<script src="assets/js/check-selected-row.js"></script>
-<script src="assets/js/dropdown.js"></script>
-<script src="assets/js/sidebar-mini.js"></script>
-<script src="assets/js/app.js"></script>
+<script src="/assets/js/toggle-check-all.js"></script>
+<script src="/assets/js/check-selected-row.js"></script>
+<script src="/assets/js/dropdown.js"></script>
+<script src="/assets/js/sidebar-mini.js"></script>
+<script src="/assets/js/app.js"></script>
 
 <!-- App Settings (safe to remove) -->
-<script src="assets/js/app-settings.js"></script>
+<script src="/assets/js/app-settings.js"></script>
 
 
 <!-- Flatpickr -->
-<script src="assets/vendor/flatpickr/flatpickr.min.js"></script>
-<script src="assets/js/flatpickr.js"></script>
+<script src="/assets/vendor/flatpickr/flatpickr.min.js"></script>
+<script src="/assets/js/flatpickr.js"></script>
 
 <!-- Global Settings -->
-<script src="assets/js/settings.js"></script>
+<script src="/assets/js/settings.js"></script>
 
 
 <!-- Vector Maps -->
-<script src="assets/vendor/jqvmap/jquery.vmap.min.js"></script>
-<script src="assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
-<script src="assets/js/vector-maps.js"></script>
+<script src="/assets/vendor/jqvmap/jquery.vmap.min.js"></script>
+<script src="/assets/vendor/jqvmap/maps/jquery.vmap.world.js"></script>
+<script src="/assets/js/vector-maps.js"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js" integrity="sha512-BkpSL20WETFylMrcirBahHfSnY++H2O1W+UnEEO4yNIl+jI2+zowyoGJpbtk6bx97fBXf++WJHSSK2MV4ghPcg==" crossorigin="anonymous"></script>
+
+
+
 </body>
 
 </html>

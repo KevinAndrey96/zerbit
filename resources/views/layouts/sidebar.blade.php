@@ -27,7 +27,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="staff.html">
+                                <a class="sidebar-menu-button" href="{{ route('users') }}">
                                     <span class="sidebar-menu-text">Administradores</span>
                                 </a>
                             </li>
