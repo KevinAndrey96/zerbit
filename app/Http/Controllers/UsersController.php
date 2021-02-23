@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class UsersController extends Controller
 {
+    //Prueba
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
