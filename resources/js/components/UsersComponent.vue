@@ -65,7 +65,7 @@
             <b-form-group
                 label="Contraseña"
                 label-for="newUser.password"
-                invalid-feedback="Contrasñea es requerido"
+                invalid-feedback="Contraseña es requerido"
             >
               <b-form-input
                   id="newUser.password"

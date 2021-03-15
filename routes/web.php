@@ -26,8 +26,23 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/signatures/{user}', [App\Http\Controllers\SignatureController::class, 'show'])->middleware("auth");
     Route::get('/signatures/create/{user}', [App\Http\Controllers\SignatureController::class, 'create'])->middleware("auth");
     Route::post('/signatures/{user}', [App\Http\Controllers\SignatureController::class, 'store'])->middleware("auth");
+
+    Route::get('/patients', [App\Http\Controllers\PatientsController::class, 'index'])->name('patients')->middleware("auth");
+    Route::get('/patients/create', [App\Http\Controllers\PatientsController::class, 'create'])->middleware("auth");
+    Route::post('/patients', [App\Http\Controllers\PatientsController::class, 'store'])->middleware("auth");
+    Route::delete('/patients/{patient}', [App\Http\Controllers\PatientsController::class, 'destroy'])->middleware("auth");
+
+    Route::get('/lab-samples/create', [App\Http\Controllers\LabSampleController::class, 'create'])->middleware("auth");
+    Route::get('/lab-samples', [App\Http\Controllers\LabSampleController::class, 'index'])->name('lab-samples')->middleware("auth");
+    Route::get('/lab-samples/{labSample}', [App\Http\Controllers\LabSampleController::class, 'show'])->middleware("auth");
+    Route::post('/lab-samples', [App\Http\Controllers\LabSampleController::class, 'store'])->middleware("auth");
+    Route::delete('/lab-samples/{labSample}', [App\Http\Controllers\LabSampleController::class, 'destroy'])->middleware("auth");
+
+    Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index'])->middleware("auth");
+    Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store'])->middleware("auth");
 });
 
+Route::get('/hello', [App\Http\Controllers\LabSampleController::class, 'hello'])->name('hello');
 Route::get('/', function () {
     return redirect('/login');
 });

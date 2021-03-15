@@ -22,7 +22,7 @@
                         </a>
                         <ul class="sidebar-submenu collapse show " id="dashboards_menu">
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="dashboard-quick-access.html">
+                                <a class="sidebar-menu-button" href="{{ route('patients') }}">
                                     <span class="sidebar-menu-text">Pacientes</span>
                                 </a>
                             </li>
@@ -42,8 +42,8 @@
                         </a>
                         <ul class="sidebar-submenu collapse" id="apps_menu">
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="app-trello.html">
-                                    <span class="sidebar-menu-text">Laboratorios</span>
+                                <a class="sidebar-menu-button" href="{{ route('lab-samples') }}">
+                                    <span class="sidebar-menu-text">Muestras de laboratorio</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">

@@ -14,12 +14,20 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import Vuex from 'vuex'
 import VueSignaturePad from 'vue-signature-pad';
+
+import VueFormWizard from 'vue-form-wizard'
+import 'vue-form-wizard/dist/vue-form-wizard.min.css';
+
+import ModalFullScreenVue from 'modal-fullscreen-vue'
 // Install BootstrapVue
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 Vue.use(Vuex)
 Vue.use(VueSignaturePad);
+Vue.use(VueFormWizard);
+Vue.use(ModalFullScreenVue)
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -34,6 +42,11 @@ Vue.use(VueSignaturePad);
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('users-component', require('./components/UsersComponent.vue').default);
 Vue.component('signature-pad', require('./components/SignaturePad.vue').default);
+Vue.component('generic-signature', require('./components/GenericSignature.vue').default);
+Vue.component('patients-component', require('./components/PatientsComponent.vue').default);
+Vue.component('samples-component', require('./components/SamplesComponent.vue').default);
+Vue.component('lab-signature', require('./components/LabSignature.vue').default);
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -48,4 +48,13 @@ class SignatureController extends Controller
         $user->save();
         return response()->json(["data" => "Firma actualizada correctamente"]);
     }
+
+    /**
+     * @param User $user
+     * @return View
+     */
+    public function createLabSample(User $user): View
+    {
+        return view("signatures.create", ["user" => $user]);
+    }
 }

@@ -26,7 +26,9 @@
     },
     "dependencies": {
         "bootstrap-vue": "^2.21.2",
+        "modal-fullscreen-vue": "^0.1.4",
         "signature_pad": "^3.0.0-beta.4",
+        "vue-form-wizard": "^0.8.4",
         "vue-laravel-csrf": "^1.0.0",
         "vue-signature-pad": "^2.0.2",
         "vuex": "^3.6.2"
