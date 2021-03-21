@@ -41,7 +41,12 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index'])->middleware("auth");
     Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store'])->middleware("auth");
 });
-
+Route::group(['middleware' => ['role:distribuidor']], function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users')->middleware("auth");
+    Route::post('/users', [App\Http\Controllers\UsersController::class, 'create'])->middleware("auth");
+    Route::delete('/users/{user}', [App\Http\Controllers\UsersController::class, 'destroy'])->middleware("auth");
+});
 Route::get('/hello', [App\Http\Controllers\LabSampleController::class, 'hello'])->name('hello');
 Route::get('/', function () {
     return redirect('/login');

@@ -139,7 +139,7 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "patient_id", "sample_type", "signature_date", "signature","actions"],
+      fields: ["id", "patient_id", "sample_type", "signature_date", "signature", "actions"],
       filter: "",
       samples: this.samples_list,
       createRoute: "/lab-samples",

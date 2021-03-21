@@ -47,7 +47,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="app-projects.html">
+                                <a class="sidebar-menu-button" href="#">
                                     <span class="sidebar-menu-text">Terapias físicas</span>
                                 </a>
                             </li>
