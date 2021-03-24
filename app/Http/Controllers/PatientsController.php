@@ -16,6 +16,7 @@ class PatientsController extends Controller
      */
     public function index(): View
     {
+        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
         $patients = Patient::all();
         return view("patients.index",["patients" => $patients]);
     }
