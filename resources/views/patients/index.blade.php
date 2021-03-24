@@ -1,6 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Pacientes')
 @section('content')
+    <script src="{{asset('js/app.js')}}"></script>
     <div class="container-fluid page__container">
         <div class="card">
             <div class="card-header card-header-large bg-white">
@@ -11,7 +12,7 @@
                 <div id="app" class="content">
                     <patients-component :patients_list="{{$patients}}" ></patients-component>
                 </div>
-                <script src="{{asset('js/app.js')}}"></script>
+
             </div>
 
         </div>
