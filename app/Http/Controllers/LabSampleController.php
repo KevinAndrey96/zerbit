@@ -106,14 +106,4 @@ class LabSampleController extends Controller
         } catch (Exception $e) { }
         return response()->redirectTo('/lab-samples');
     }
-
-    /**
-     * @return Application|Factory|View
-     */
-    public function hello(Request $request)
-    {
-        $a = 1 * 1;
-        $b = $a + 5;
-        return $b;
-    }
 }

@@ -42,5 +42,4 @@ class LabSample extends Model
     {
         return $this->belongsTo(Patient::class);
     }
-
 }

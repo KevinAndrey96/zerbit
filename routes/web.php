@@ -38,6 +38,12 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post('/lab-samples', [App\Http\Controllers\LabSampleController::class, 'store'])->middleware("auth");
     Route::delete('/lab-samples/{labSample}', [App\Http\Controllers\LabSampleController::class, 'destroy'])->middleware("auth");
 
+    Route::get('/physical-therapies/create', [App\Http\Controllers\PhysicalTherapyController::class, 'create'])->middleware("auth");
+    Route::get('/physical-therapies', [App\Http\Controllers\PhysicalTherapyController::class, 'index'])->name('physical-therapies')->middleware("auth");
+    Route::get('/physical-therapies/{physicalTherapy}', [App\Http\Controllers\PhysicalTherapyController::class, 'show'])->middleware("auth");
+    Route::post('/physical-therapies', [App\Http\Controllers\PhysicalTherapyController::class, 'store'])->middleware("auth");
+    Route::delete('/physical-therapies/{physicalTherapy}', [App\Http\Controllers\PhysicalTherapyController::class, 'destroy'])->middleware("auth");
+
     Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index'])->middleware("auth");
     Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store'])->middleware("auth");
 });
