@@ -11,12 +11,12 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class UsersController extends Controller
 {
-    //Prueba
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index(): View
     {
+        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
         $users = User::all();
         return view("users.index",["users" => $users]);
     }
@@ -34,6 +34,7 @@ class UsersController extends Controller
         ]);
         $role = Role::findByName('admin');
         $user->assignRole($role);
+        $user->syncRoles($role);
         return response()->redirectTo('/users');
     }
 
