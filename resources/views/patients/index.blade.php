@@ -9,7 +9,7 @@
             </div>
             <div style="padding-top: 15px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>
-                <div id="app" class="content">
+                <div class="content">
                     <patients-component :patients_list="{{$patients}}" ></patients-component>
                 </div>
 
