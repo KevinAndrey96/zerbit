@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('title', 'Pacientes')
 @section('content')
-    <script src="{{asset('js/app.js')}}"></script>
+
     <div class="container-fluid page__container">
         <div class="card">
             <div class="card-header card-header-large bg-white">
@@ -9,10 +9,10 @@
             </div>
             <div style="padding-top: 15px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>
-                <div class="content">
+                <div id="app" class="content">
                     <patients-component :patients_list="{{$patients}}" ></patients-component>
                 </div>
-
+                <script src="{{asset('js/app.js')}}"></script>
             </div>
 
         </div>
