@@ -37,7 +37,7 @@ class PatientsController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return RedirectResponse
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         $patient = Patient::create($request->toArray());
         return response()->redirectTo('/patients');

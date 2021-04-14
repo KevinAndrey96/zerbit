@@ -45,7 +45,7 @@
     <div style="position:absolute;left:30.00px;top:279.97px" class="cls_005"><span class="cls_005">y sería conveniente que expresara sus problemas emocionales para la correcta elaboración del juicio diagnóstico. Durante la exploración</span></div>
     <div style="position:absolute;left:30.00px;top:294.37px" class="cls_005"><span class="cls_005">y el tratamiento es necesario que el paciente descubra las zonas del cuerpo oportunas para la ejecución del paciente con el fin de</span></div>
     <div style="position:absolute;left:30.00px;top:308.77px" class="cls_005"><span class="cls_005">realizar las técnicas adecuadas para su mejoría.</span></div>
-    <div style="position:absolute;left:30.00px;top:340.17px" class="cls_005"><span class="cls_005">Yo {{$physicalTherapy->patient->name}},identificado/a con N.º de CC {{$physicalTherapy->patient->document}}. He</span></div>
+    <div style="position:absolute;left:30.00px;top:340.17px" class="cls_005"><span class="cls_005">Yo {{$physicalTherapy->patient->first_name . ' ' .$physicalTherapy->patient->second_name . ' '. $physicalTherapy->patient->first_surname . ' '. $physicalTherapy->patient->second_surname}},identificado/a con N.º de CC {{$physicalTherapy->patient->document}}. He</span></div>
     <div style="position:absolute;left:30.00px;top:354.17px" class="cls_005"><span class="cls_005">leído la información y me ha sido explicada. He tenido la oportunidad de hacer preguntas sobre mi examen, valoración y tratamiento.</span></div>
     <div style="position:absolute;left:30.00px;top:368.18px" class="cls_005"><span class="cls_005">Firmando abajo consiento que se me aplique el tratamiento que se me ha explicado de forma suficiente y comprensible.</span></div>
     <div style="position:absolute;left:30.00px;top:396.98px" class="cls_005"><span class="cls_005">Entiendo que tengo el derecho de rehusar parte o todo el tratamiento en cualquier momento. Entiendo mi plan de tratamiento y consien-</span></div>
@@ -58,7 +58,7 @@
     <div style="position:absolute;left:175.34px;top:514.98px" class="cls_007"><span class="cls_007"></span></div>
     <div style="position:absolute;left:30.00px;top:526.58px" class="cls_005"><span class="cls_005">NOMBRE DEL PACIENTE O PERSONA RESPONSABLE</span></div>
     <div style="position:absolute;left:450.14px;top:526.58px" class="cls_005"><span class="cls_005">NOMBRE DEL FISIOTERAPEUTA</span></div>
-    <div style="position:absolute;left:30.00px;top:555.38px" class="cls_005"><span class="cls_005">{{$physicalTherapy->patient->name}}</span></div>
+    <div style="position:absolute;left:30.00px;top:555.38px" class="cls_005"><span class="cls_005">{{$physicalTherapy->patient->first_name . ' ' .$physicalTherapy->patient->second_name . ' '. $physicalTherapy->patient->first_surname . ' '. $physicalTherapy->patient->second_surname}}</span></div>
     <div style="position:absolute;left:450.18px;top:555.38px" class="cls_005"><span class="cls_005">{{$physicalTherapy->therapist->name}}</span></div>
     <div style="position:absolute;left:30.00px;top:584.18px" class="cls_005"><span class="cls_005">FIRMA DEL PACIENTE O PERSONA RESPONSABLE</span></div>
     <div style="position:absolute;left:450.71px;top:584.18px" class="cls_005"><span class="cls_005">FIRMA DEL FISIOTERAPEUTA</span></div>

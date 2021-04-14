@@ -36,87 +36,76 @@
         <div class="d-block text-center">
           <form method="POST" v-bind:action="createPatientRoute">
             <input type="hidden" name="_token" v-bind:value="csrf">
-            <b-form-group
-                label="Nombre"
-                label-for="newPatient.name"
-                invalid-feedback="Nombre es requerido"
-            >
-              <b-form-input
-                  id="newPatient.name"
-                  name="name"
-                  required
-              ></b-form-input>
+            <b-form-group label="Primer Nombre" label-for="newPatient.first_name" invalid-feedback="Nombre es requerido">
+              <b-form-input id="newPatient.first_name" name="first_name" required></b-form-input>
             </b-form-group>
-            <b-form-group
-                label="Documento"
-                label-for="newPatient.document"
-                invalid-feedback="Documento es requerido"
-            >
-              <b-form-input
-                  id="newPatient.document"
-                  name="document"
-                  required
-              ></b-form-input>
+            <b-form-group label="Segundo Nombre" label-for="newPatient.second_name" invalid-feedback="Nombre es requerido">
+              <b-form-input id="newPatient.name" name="second_name" required></b-form-input>
             </b-form-group>
-            <b-form-group
-                label="Correo Electrónico"
-                label-for="newPatient.email"
-                invalid-feedback="Email es requerido"
-            >
-              <b-form-input
-                  id="newPatient.email"
-                  type="email"
-                  name="email"
-                  required
-              ></b-form-input>
+            <b-form-group label="Primer Apellido" label-for="newPatient.first_surname" invalid-feedback="Apellido es requerido">
+              <b-form-input id="newPatient.first_surname" name="first_surname" required></b-form-input>
             </b-form-group>
-            <b-form-group
-                label="Teléfono"
-                label-for="newPatient.phone"
-                invalid-feedback="Teléfono es requerido"
-            >
-              <b-form-input
-                  id="newUser.email"
-                  type="number"
-                  name="phone"
-                  required
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="Dirección"
-                label-for="newPatient.address"
-                invalid-feedback="Dirección es requerido"
-            >
-              <b-form-input
-                  id="newPatient.address"
-                  type="text"
-                  name="address"
-                  required
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="Acudiente (Opcional)"
-                label-for="newPatient.guardian"
-            >
-              <b-form-input
-                  id="newPatient.guardian"
-                  type="text"
-                  name="guardian"
-              ></b-form-input>
-            </b-form-group>
-            <b-form-group
-                label="Parentesco acudiente"
-                label-for="newPatient.guardian_relationship"
-            >
-              <b-form-input
-                  id="newPatient.guardian_relationship"
-                  type="text"
-                  name="guardian_relationship"
-              ></b-form-input>
+            <b-form-group label="Segundo Apellido" label-for="newPatient.second_surname" invalid-feedback="Apellido es requerido">
+              <b-form-input id="newPatient.second_surname" name="second_surname" required></b-form-input>
             </b-form-group>
 
+            <b-form-group label="Fecha de nacimiento" label-for="newPatient.birthdate" invalid-feedback="Fecha de nacimiento es requerido">
+              <b-form-datepicker id="newPatient.birthdate" name="birthdate" required></b-form-datepicker>
+            </b-form-group>
+
+            <b-form-group label="Estado civil" label-for="newPatient.civil_status" invalid-feedback="Apellido es requerido">
+              <b-form-input id="newPatient.civil_status" name="civil_status" required></b-form-input>
+            </b-form-group>
+
+            <b-form-group label="Genero" label-for="newPatient.gender" invalid-feedback="Genero es requerido">
+              <b-form-select v-model="selected" name="gender" class="mb-3">
+                <b-form-select-option :value="null">Seleccione una opción</b-form-select-option>
+                <b-form-select-option value="male">Masculino</b-form-select-option>
+                <b-form-select-option value="female">Femenino</b-form-select-option>
+                <b-form-select-option value="other">Otro</b-form-select-option>
+              </b-form-select>
+            </b-form-group>
+
+            <b-form-group label="EPS" label-for="newPatient.eps" invalid-feedback="EPS es requerida">
+              <b-form-input id="newPatient.eps" name="eps" required></b-form-input>
+            </b-form-group>
+
+            <b-form-group label="Ocupación" label-for="newPatient.occupation" invalid-feedback="Ocupación es requerida">
+              <b-form-input id="newPatient.occupation" name="occupation" required></b-form-input>
+            </b-form-group>
+
+            <b-form-group label="Tipo de documento" label-for="newPatient.document_type" invalid-feedback="Documento es requerido">
+              <b-form-select v-model="selected" name="document_type" class="mb-3">
+                <b-form-select-option :value="null">Seleccione una opción</b-form-select-option>
+                <b-form-select-option value="cc">CC</b-form-select-option>
+                <b-form-select-option value="ti">TI</b-form-select-option>
+                <b-form-select-option value="ce">CE</b-form-select-option>
+                <b-form-select-option value="other">Otro</b-form-select-option>
+              </b-form-select>
+            </b-form-group>
+
+            <b-form-group label="Documento" label-for="newPatient.document" invalid-feedback="Documento es requerido">
+              <b-form-input id="newPatient.document" name="document" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="Correo Electrónico" label-for="newPatient.email" invalid-feedback="Email es requerido">
+              <b-form-input id="newPatient.email" type="email" name="email" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="Teléfono" label-for="newPatient.phone" invalid-feedback="Teléfono es requerido">
+              <b-form-input id="newUser.email" type="number" name="phone" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="Dirección" label-for="newPatient.address" invalid-feedback="Dirección es requerido">
+              <b-form-input id="newPatient.address" type="text" name="address" required></b-form-input>
+            </b-form-group>
+            <b-form-group label="Acudiente (Opcional)" label-for="newPatient.guardian">
+              <b-form-input id="newPatient.guardian" type="text" name="guardian"></b-form-input>
+            </b-form-group>
+            <b-form-group label="Teléfono acudiente" label-for="newPatient.guardian_phone">
+              <b-form-input id="newPatient.guardian_phone" type="text" name="guardian_phone"></b-form-input>
+            </b-form-group>
+            <b-form-group label="Parentesco acudiente" label-for="newPatient.guardian_relationship">
+              <b-form-input id="newPatient.guardian_relationship" type="text" name="guardian_relationship"></b-form-input>
+            </b-form-group>
             <input type="submit" class="btn btn-primary form-control" value="Crear Paciente">
-
           </form>
         </div>
         <b-button class="mt-3" block @click="$bvModal.hide('bv-modal-example')">Cerrar</b-button>
@@ -135,7 +124,7 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "name", "document", "email", "phone", "address", "guardian", "guardian_relationship", "actions"],
+      fields: ["id", "first_name", "document", "email", "phone", "address", "guardian", "guardian_relationship", "actions"],
       filter: "",
       patients: this.patients_list,
       createPatientRoute: "/patients",

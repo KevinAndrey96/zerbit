@@ -9,7 +9,7 @@
             <div style="padding-top: 15px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>
                 <div id="app" class="content">
-                    <physical-component :list="{{$physicalTherapies}}" :csrf_token="{!! csrf_token() !!}"></physical-component>
+                    <physical-component :list="{{$physicalTherapies}}"></physical-component>
                 </div>
                 <script src="{{asset('js/app.js')}}"></script>
             </div>

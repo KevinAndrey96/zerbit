@@ -29,7 +29,7 @@ export default {
     },
     save() {
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
-
+      console.log("sending signature")
       axios.post('/generic-signature', {
         id: this.id,
         signatureType: this.stype,

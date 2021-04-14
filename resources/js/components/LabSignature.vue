@@ -16,7 +16,7 @@
       <div class="form-group">
         <label for="patient_id">Paciente</label><br>
         <select class="form-control selectpicker" v-model="labSampleForm.patientID" data-live-search="true" name="patient_id" id="patient_id">
-          <option v-for="patient in patients" :value="patient.id">{{patient.name}}</option>
+          <option v-for="patient in patients" :value="patient.id">{{patient.first_name +' '+ patient.first_surname}}</option>
         </select>
       </div>
     </tab-content>

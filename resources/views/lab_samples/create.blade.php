@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <div id="app" class="content">
-                <lab-signature :csrf_token="{!! csrf_token() !!}" :patients_list="{{$patients}}"></lab-signature>
+                <lab-signature :patients_list="{{$patients}}"></lab-signature>
             </div>
             <script src="{{asset('js/app.js')}}"></script>
         </div>

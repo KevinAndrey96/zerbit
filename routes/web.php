@@ -46,6 +46,10 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index'])->middleware("auth");
     Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store'])->middleware("auth");
+
+    Route::get('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth")->name('clinical-histories');
+    Route::get('/clinical-histories/create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
+
 });
 
 Route::get('/', function () {

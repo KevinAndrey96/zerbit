@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -29,6 +30,14 @@ class CreatePermissionTables extends Migration
             $table->unique(['name', 'guard_name']);
         });
 
+        DB::table($tableNames['permissions'])->insert(
+            array(
+                'id' => 1,
+                'name' => 'admin',
+                'guard_name' => 'web'
+            )
+        );
+
         Schema::create($tableNames['roles'], function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
@@ -37,6 +46,14 @@ class CreatePermissionTables extends Migration
 
             $table->unique(['name', 'guard_name']);
         });
+
+        DB::table('roles')->insert(
+            array(
+                'id' => 1,
+                'name' => 'admin',
+                'guard_name' => 'web'
+            )
+        );
 
         Schema::create($tableNames['model_has_permissions'], function (Blueprint $table) use ($tableNames, $columnNames) {
             $table->unsignedBigInteger('permission_id');
@@ -69,6 +86,13 @@ class CreatePermissionTables extends Migration
             $table->primary(['role_id', $columnNames['model_morph_key'], 'model_type'],
                     'model_has_roles_role_model_type_primary');
         });
+        DB::table('model_has_roles')->insert(
+            array(
+                'role_id' => 1,
+                'model_type' => 'App\Models\User',
+                $columnNames['model_morph_key'] => 1,
+            )
+        );
 
         Schema::create($tableNames['role_has_permissions'], function (Blueprint $table) use ($tableNames) {
             $table->unsignedBigInteger('permission_id');
@@ -87,9 +111,17 @@ class CreatePermissionTables extends Migration
             $table->primary(['permission_id', 'role_id'], 'role_has_permissions_permission_id_role_id_primary');
         });
 
+        DB::table($tableNames['role_has_permissions'])->insert(
+            array(
+                'permission_id' => 1,
+                'role_id' => 1
+            )
+        );
+
         app('cache')
             ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
+        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
     }
 
     /**

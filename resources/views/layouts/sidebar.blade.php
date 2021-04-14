@@ -61,12 +61,12 @@
                         </a>
                         <ul class="sidebar-submenu collapse" id="pages_menu">
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="companies.html">
+                                <a class="sidebar-menu-button" href="{{ route('clinical-histories') }}">
                                     <span class="sidebar-menu-text">Ver historias clínicas</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="companies.html">
+                                <a class="sidebar-menu-button" href="{{ route('clinical-histories-create') }}">
                                     <span class="sidebar-menu-text">Crear historia clínica</span>
                                 </a>
                             </li>

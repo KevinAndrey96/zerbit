@@ -32,7 +32,7 @@
     <div style="position:absolute;left:620.00px;top:83.57px" class="cls_004"><span class="cls_004">RESULTADOS LAB CLINICO</span></div>
     <div style="position:absolute;left:12.33px;top:95.23px" class="cls_002"><span class="cls_002">Yo</span></div>
     <div style="position:absolute;left:34.55px;top:95.23px" class="cls_002"><span class="cls_002">(nombre    de    paciente),</span></div>
-    <div style="position:absolute;left:150.02px;top:95.23px" class="cls_002"><span class="cls_002">{{$labSample->patient->name}}<span style="display:inline-block; width: 100px;"></span>,    documento    de    identidad N° {{$labSample->patient->document}}</span></div>
+    <div style="position:absolute;left:150.02px;top:95.23px" class="cls_002"><span class="cls_002">{{$labSample->patient->first_name.' '.$labSample->patient->second_name.' '.$labSample->patient->first_surname.' '.$labSample->patient->second_surname}}<span style="display:inline-block; width: 100px;"></span>,    documento    de    identidad N° {{$labSample->patient->document}}</span></div>
     <div style="position:absolute;left:670.28px;top:103.68px" class="cls_006"><span class="cls_006">Zerbit: teléfono</span></div>
     <div style="position:absolute;left:12.33px;top:107.23px" class="cls_002"><span class="cls_002"> en pleno uso de mis facultades mentales declaro que: he leído y/o me han explicado el documento “CONSENTIMIENTO INFORMADO </span></div>
     <div style="position:absolute;left:655.14px;top:112.68px" class="cls_006"><span class="cls_006">7517440-3178956464.</span></div>
