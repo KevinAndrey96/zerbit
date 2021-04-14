@@ -26,7 +26,7 @@
 <body>
 <div style="position:absolute;left:50%;margin-left:-400px;top:0px;width:1200px;height:396px;">
     <div style="position:absolute;left:0px;top:0px">
-        <img style="opacity: 0.7;" src="https://zerbit.co/portal/6958c0e6-765b-11eb-8b25-0cc47a792c0a_id_6958c0e6-765b-11eb-8b25-0cc47a792c0a_files/background1.png" width=775 height=396></div>
+        <img style="opacity: 0.7;" src="https://zerbit.co/portal/6958c0e6-765b-11eb-8b25-0cc47a792c0a_id_6958c0e6-765b-11eb-8b25-0cc47a792c0a_files/background1.jpg" width=775 height=396></div>
     <div style="position:absolute;left:5.62px;top:10.90px" class="cls_003"><span class="cls_003">CONSENTIMIENTO INFORMADO DE TOMA DE MUESTRAS DE LABORATORIO CLINICO ZERBIT SAS</span></div>
     <div style="position:absolute;left:12.33px;top:59.23px" class="cls_002"><span class="cls_002">Fecha: {{$date}}.</span></div>
     <div style="position:absolute;left:620.00px;top:83.57px" class="cls_004"><span class="cls_004">RESULTADOS LAB CLINICO</span></div>
