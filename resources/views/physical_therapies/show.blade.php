@@ -26,7 +26,7 @@
 <body>
 <div style="position:absolute;left:0px;top:0px">
     <div style="position:absolute;left:0px;top:0px">
-        <img style="opacity: 0.7;"  src="https://zerbit.co/portal/images/backgroundt.png" width=700 height=793></div>
+        <img style="opacity: 0.7;"  src="https://zerbit.co/portal/07309d28-8c61-11eb-8b25-0cc47a792c0a_id_07309d28-8c61-11eb-8b25-0cc47a792c0a_files/backgroundt.png" width=700 height=793></div>
     <div style="position:absolute;left:257.30px;top:48.61px" class="cls_002"><span class="cls_002">CONSENTIMIENTO INFORMADO INTERVENCIÓN FISIOTERAPÉUTICA.</span></div>
     <div style="position:absolute;left:32.10px;top:67.92px" class="cls_003"><span class="cls_003">I.P.S Zerbit</span></div>
     <div style="position:absolute;left:39.21px;top:79.96px" class="cls_004"><span class="cls_004">Servicios de Atención en Salud</span></div>
