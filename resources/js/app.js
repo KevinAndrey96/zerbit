@@ -47,6 +47,7 @@ Vue.component('patients-component', require('./components/PatientsComponent.vue'
 Vue.component('samples-component', require('./components/SamplesComponent.vue').default);
 Vue.component('lab-signature', require('./components/LabSignature.vue').default);
 Vue.component('physical-signature', require('./components/PhysicalSignature.vue').default);
+Vue.component('clinical-signature', require('./components/ClinicalSignature.vue').default);
 Vue.component('physical-component', require('./components/PhisycalComponent.vue').default);
 
 

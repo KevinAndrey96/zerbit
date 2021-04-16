@@ -37,18 +37,18 @@
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
-                            <span class="sidebar-menu-text">Formatos de consetimiento</span>
+                            <span class="sidebar-menu-text">Formatos de consentimiento</span>
                             <span class="ml-auto sidebar-menu-toggle-icon"></span>
                         </a>
                         <ul class="sidebar-submenu collapse" id="apps_menu">
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="{{ route('lab-samples') }}">
-                                    <span class="sidebar-menu-text">Muestras de laboratorio</span>
+                                <a class="sidebar-menu-button" href="{{ route('lab-samples-create') }}">
+                                    <span class="sidebar-menu-text">Crear muestra de laboratorio</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="{{ route('physical-therapies') }}">
-                                    <span class="sidebar-menu-text">Terapias físicas</span>
+                                <a class="sidebar-menu-button" href="{{ route('lab-samples') }}">
+                                    <span class="sidebar-menu-text">Ver muestras de laboratorio</span>
                                 </a>
                             </li>
                         </ul>
@@ -61,8 +61,13 @@
                         </a>
                         <ul class="sidebar-submenu collapse" id="pages_menu">
                             <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="{{ route('clinical-histories') }}">
-                                    <span class="sidebar-menu-text">Ver historias clínicas</span>
+                                <a class="sidebar-menu-button" href="{{ route('physical-therapies-create') }}">
+                                    <span class="sidebar-menu-text">Crear historial de terapia física</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="{{ route('physical-therapies') }}">
+                                    <span class="sidebar-menu-text">Ver historial de terapias físicas</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">
@@ -70,7 +75,11 @@
                                     <span class="sidebar-menu-text">Crear historia clínica</span>
                                 </a>
                             </li>
-
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="{{ route('clinical-histories') }}">
+                                    <span class="sidebar-menu-text">Ver historias clínicas</span>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li class="sidebar-menu-item">

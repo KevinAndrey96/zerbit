@@ -57,14 +57,12 @@ class PhysicalTherapyController extends Controller
      */
     public function show(PhysicalTherapy $physicalTherapy)
     {
-        //return view('physical_therapies.show');
         $physicalTherapy = PhysicalTherapy::find($physicalTherapy->id);
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('physical_therapies.show', [
                 "physicalTherapy" => $physicalTherapy,
                 "date" => Carbon::now()->format("Y m d")
             ]);
-        //return PDF::->loadView('reports.invoiceSell')->stream();
         return $pdf->stream();
     }
 

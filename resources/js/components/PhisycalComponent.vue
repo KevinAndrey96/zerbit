@@ -5,7 +5,7 @@
         <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Buscar"></b-form-input>
       </b-col>
       <b-col md="3">
-        <a href="/physical-therapies/create" class="btn btn-primary">Nuevo</a>
+        <a href="/physical-therapies/create" class="btn btn-primary">Nueva</a>
       </b-col>
     </b-row>
     <b-row>

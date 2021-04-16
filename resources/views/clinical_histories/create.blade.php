@@ -1,16 +1,16 @@
 @extends('layouts.master')
-@section('title', 'Muestras de laboratorio')
+@section('title', 'Historias Clínicas')
 @section('content')
     <div class="container-fluid page__container">
         <div class="container">
             <div class="card">
                 <div class="card-header card-header-large bg-white">
-                    <h4 class="card-header__title">Muestras de laboratorio (Crear)</h4>
+                    <h4 class="card-header__title">Historias clínicas (Crear)</h4>
                 </div>
                 <div class="card-body">
                     <div id="app" class="content">
-                        <physical-signature :patients_list="{{$patients}}"
-                                            :therapists_list="{{$therapists}}"></physical-signature>
+                        <clinical-signature :patients_list="{{$patients}}"
+                                            :therapists_list="{{$therapists}}"></clinical-signature>
                     </div>
                     <script src="{{asset('js/app.js')}}"></script>
                 </div>

@@ -18,9 +18,9 @@ class CreateClinicalHistoriesTable extends Migration
 
             $table->unsignedBigInteger('patient_id');
             $table->unsignedBigInteger('professional_id');
-            $table->text('medical_diagnostic');
-            $table->text('physiotherapist_diagnostic');
-            $table->text('objective');
+            $table->text('medical_diagnostic')->nullable();
+            $table->text('physiotherapist_diagnostic')->nullable();
+            $table->text('objective')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');;

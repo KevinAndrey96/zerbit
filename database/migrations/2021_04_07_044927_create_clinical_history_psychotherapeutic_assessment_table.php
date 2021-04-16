@@ -13,7 +13,7 @@ class CreateClinicalHistoryPsychotherapeuticAssessmentTable extends Migration
      */
     public function up()
     {
-        Schema::create('ch_psychotherapeutic_assessment', function (Blueprint $table) {
+        Schema::create('ch_psychotherapeutic_assessments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('clinical_history_id');
             $table->text('pain');
