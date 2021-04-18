@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @method static create(array $toArray)
+ * @method static find(mixed $input)
  */
 class ClinicalHistory extends Model
 {
@@ -25,6 +26,9 @@ class ClinicalHistory extends Model
         'medical_diagnostic',
         'physiotherapist_diagnostic',
         'objective',
+        'sessions_number',
+        'deductible_payment',
+        'payment_value',
     ];
 
     /**
@@ -56,6 +60,14 @@ class ClinicalHistory extends Model
     public function records(): HasMany
     {
         return $this->hasMany(ChRecord::class);
+    }
+
+    /**
+     * @return HasMany
+     */
+    public function evolutions(): HasMany
+    {
+        return $this->hasMany(ChEvolution::class);
     }
 
     /**

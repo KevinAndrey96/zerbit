@@ -23,7 +23,7 @@ class LabSampleController extends Controller
      */
     public function index()
     {
-        $labSamples = LabSample::all();
+        $labSamples = LabSample::with('patient')->get();
         return view("lab_samples.index",["labSamples" => $labSamples]);
     }
 

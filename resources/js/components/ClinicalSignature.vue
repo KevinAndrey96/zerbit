@@ -30,12 +30,21 @@
         </div>
         <hr>
         <div class="form-group">
-          <label>¿Quién firma?</label><br>
-          <input type="radio" v-model="form.signedByHimself" value="true" id="signed_by_himself" name="signed_by_himself">
-          <label for="signed_by_himself"> Firma propia</label><br>
-          <input type="radio" v-model="form.signedByHimself" value="false" id="signed_by_guardian" name="signed_by_himself">
-          <label for="signed_by_himself"> Firma acudiente</label><br>
+          <label for="sessions_number">Número de sesiones</label><br>
+          <input type="number" id="sessions_number" v-model="form.sessionsNumber" class="form-control">
         </div>
+        <div class="form-group">
+          <label>Pago de deducible</label><br>
+          <input type="radio" v-model="form.deductiblePayment" value="true" id="yes" name="authorized">
+          <label for="yes"> Si</label><br>
+          <input type="radio" v-model="form.deductiblePayment" value="false" id="not" name="authorized">
+          <label for="not"> No</label><br>
+        </div>
+        <div class="form-group">
+          <label for="payment_value">Valor</label><br>
+          <input type="number" id="payment_value" v-model="form.paymentValue" class="form-control">
+        </div>
+
       </tab-content>
       <tab-content title="Paso 2" >
         <h4>Antecedentes</h4>
@@ -161,7 +170,8 @@ export default {
         medicalDiagnostic: '',
         physiotherapistDiagnostic: '',
         objective: '',
-        signedByHimself: true,
+        deductiblePayment: true,
+        paymentValue: 0,
 
         medicalPathological: '',
         surgical: '',
@@ -225,7 +235,7 @@ export default {
         other_valuations: this.form.otherValuations,
       }).then(function (response) {
         console.log(response);
-        //window.location.href = "/generic-signature/clinical/"+response.data.id
+        window.location.href = "/clinical-histories"
       })
           .catch(function (error) {
             alert("Ha ocurrido un error inesperado");

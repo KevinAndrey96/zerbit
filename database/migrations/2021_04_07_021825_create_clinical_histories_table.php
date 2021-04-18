@@ -21,6 +21,9 @@ class CreateClinicalHistoriesTable extends Migration
             $table->text('medical_diagnostic')->nullable();
             $table->text('physiotherapist_diagnostic')->nullable();
             $table->text('objective')->nullable();
+            $table->integer('sessions_number')->nullable();
+            $table->boolean('deductible_payment')->nullable();
+            $table->boolean('payment_value')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');;

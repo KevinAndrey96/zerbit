@@ -21,7 +21,7 @@ class PhysicalTherapyController extends Controller
      */
     public function index()
     {
-        $physicalTherapies = PhysicalTherapy::all();
+        $physicalTherapies = PhysicalTherapy::with(['patient','therapist'])->get();
         return view("physical_therapies.index",["physicalTherapies" => $physicalTherapies]);
     }
 

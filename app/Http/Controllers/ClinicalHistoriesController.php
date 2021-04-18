@@ -13,6 +13,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -39,7 +40,7 @@ class ClinicalHistoriesController extends Controller
 
     /**
      * @param Request $request
-     * @return Request
+     * @return Application|JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function store(Request $request)
     {
@@ -48,7 +49,7 @@ class ClinicalHistoriesController extends Controller
         $chPsychotherapeuticAssessment = ChPsychotherapeuticAssessment::create(
             array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id])
         );
-        return $chPsychotherapeuticAssessment;
+        return response()->json($clinicalHistory);
     }
 
     /**
@@ -60,10 +61,14 @@ class ClinicalHistoriesController extends Controller
     public function show(ClinicalHistory $clinicalHistory)
     {
         $clinicalHistory = ClinicalHistory::find($clinicalHistory->id);
+        $chRecords = $clinicalHistory->records;
+        $chPsychotherapeuticalAssesments = $clinicalHistory->psychotherapeuticalAssesments;
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
                 "clinicalHistory" => $clinicalHistory,
-                "date" => Carbon::now()->format("Y m d")
+                "date" => Carbon::now()->format("Y m d"),
+                "chRecords" => $chRecords,
+                "chPsychotherapeuticalAssesments" => $chPsychotherapeuticalAssesments,
             ]);
         return $pdf->stream();
     }

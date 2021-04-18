@@ -585,6 +585,8 @@ class ComposerStaticInit8cfc0c2d2444ced3955b71974464e9e2
         'App\\Http\\Middleware\\TrustHosts' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustHosts.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
+        'App\\Models\\ChPsychotherapeuticAssessment' => __DIR__ . '/../..' . '/app/Models/ChPsychotherapeuticAssessment.php',
+        'App\\Models\\ChRecord' => __DIR__ . '/../..' . '/app/Models/ChRecord.php',
         'App\\Models\\ClinicalHistory' => __DIR__ . '/../..' . '/app/Models/ClinicalHistory.php',
         'App\\Models\\LabSample' => __DIR__ . '/../..' . '/app/Models/LabSample.php',
         'App\\Models\\Patient' => __DIR__ . '/../..' . '/app/Models/Patient.php',

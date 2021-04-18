@@ -32,6 +32,8 @@ return array(
     'App\\Http\\Middleware\\TrustHosts' => $baseDir . '/app/Http/Middleware/TrustHosts.php',
     'App\\Http\\Middleware\\TrustProxies' => $baseDir . '/app/Http/Middleware/TrustProxies.php',
     'App\\Http\\Middleware\\VerifyCsrfToken' => $baseDir . '/app/Http/Middleware/VerifyCsrfToken.php',
+    'App\\Models\\ChPsychotherapeuticAssessment' => $baseDir . '/app/Models/ChPsychotherapeuticAssessment.php',
+    'App\\Models\\ChRecord' => $baseDir . '/app/Models/ChRecord.php',
     'App\\Models\\ClinicalHistory' => $baseDir . '/app/Models/ClinicalHistory.php',
     'App\\Models\\LabSample' => $baseDir . '/app/Models/LabSample.php',
     'App\\Models\\Patient' => $baseDir . '/app/Models/Patient.php',

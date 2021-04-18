@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ClinicalHistory;
 use App\Models\LabSample;
 use App\Models\PhysicalTherapy;
 use Carbon\Carbon;
@@ -35,12 +36,16 @@ class GenericSignatureController extends Controller
             $labSample->signature_date = Carbon::now();
             $labSample->save();
             return "/lab-samples";
-        }
-        if ($request->input('signatureType') == 'therapy') {
+        } elseif ($request->input('signatureType') == 'therapy') {
             $physicalTherapy = PhysicalTherapy::find($request->input('id'));
             $physicalTherapy->signature = $request->input('dataSignature');
             $physicalTherapy->save();
             return "/physical-therapies";
+        } elseif ($request->input('signatureType') == 'clinical') {
+            $clinicalHistory = ClinicalHistory::find($request->input('id'));
+            $clinicalHistory->signature = $request->input('dataSignature');
+            $clinicalHistory->save();
+            return "/clinical-histories";
         }
     }
 }

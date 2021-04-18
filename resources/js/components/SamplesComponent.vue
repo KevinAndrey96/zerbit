@@ -14,10 +14,22 @@
             striped
             hover
             outlined
+            thead-tr-class="d-none"
             :items="samples"
             :filter="filter"
             :fields="fields"
         >
+          <template v-slot:thead-top="data">
+          <b-tr>
+            <b-th><span>Id</span></b-th>
+            <b-th>Nombre</b-th>
+            <b-th>Apellido</b-th>
+            <b-th>Tipo de prueba</b-th>
+            <b-th>Fecha de firma</b-th>
+            <b-th>Firma</b-th>
+            <b-th>Opciones</b-th>
+          </b-tr>
+          </template>
           <template v-slot:cell(signature)="data">
             <img v-bind:src="data.item.signature" alt="" height="20px">
           </template>
@@ -139,7 +151,7 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "patient_id", "sample_type", "signature_date", "signature", "actions"],
+      fields: ["id", "patient.first_name", "patient.first_surname", "sample_type", "signature_date", "signature", "actions"],
       filter: "",
       samples: this.samples_list,
       createRoute: "/lab-samples",
