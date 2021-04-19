@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * Class ChEvolution
  * @package App\Models
  * @method static create(array $toArray)
+ * @method static find(mixed $input)
  */
 class ChEvolution extends Model
 {

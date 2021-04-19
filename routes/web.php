@@ -52,6 +52,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'store'])->middleware("auth");
     Route::get('/clinical-histories/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'show'])->middleware("auth");
 
+    Route::post('/evolutions', [App\Http\Controllers\EvolutionsController::class, 'store'])->middleware("auth");
+
 });
 
 Route::get('/', function () {

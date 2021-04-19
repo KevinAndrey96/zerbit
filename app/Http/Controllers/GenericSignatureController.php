@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChEvolution;
 use App\Models\ClinicalHistory;
 use App\Models\LabSample;
 use App\Models\PhysicalTherapy;
@@ -45,6 +46,11 @@ class GenericSignatureController extends Controller
             $clinicalHistory = ClinicalHistory::find($request->input('id'));
             $clinicalHistory->signature = $request->input('dataSignature');
             $clinicalHistory->save();
+            return "/clinical-histories";
+        } elseif ($request->input('signatureType') == 'evolution') {
+            $evolution = ChEvolution::find($request->input('id'));
+            $evolution->signature = $request->input('dataSignature');
+            $evolution->save();
             return "/clinical-histories";
         }
     }

@@ -63,12 +63,14 @@ class ClinicalHistoriesController extends Controller
         $clinicalHistory = ClinicalHistory::find($clinicalHistory->id);
         $chRecords = $clinicalHistory->records;
         $chPsychotherapeuticalAssesments = $clinicalHistory->psychotherapeuticalAssesments;
+        $chEvolutions = $clinicalHistory->evolutions;
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
                 "clinicalHistory" => $clinicalHistory,
                 "date" => Carbon::now()->format("Y m d"),
                 "chRecords" => $chRecords,
                 "chPsychotherapeuticalAssesments" => $chPsychotherapeuticalAssesments,
+                "chEvolutions" => $chEvolutions
             ]);
         return $pdf->stream();
     }
