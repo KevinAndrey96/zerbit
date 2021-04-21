@@ -56,6 +56,9 @@ Route::group(['middleware' => ['role:admin']], function () {
 
 });
 
+Route::get('/clients/login', [App\Http\Controllers\ClientController::class, 'login']);
+Route::get('/clients/register', [App\Http\Controllers\ClientController::class, 'register']);
+Route::get('/clients/documents', [App\Http\Controllers\ClientController::class, 'documents']);
 Route::get('/', function () {
     return redirect('/login');
 });
