@@ -10,6 +10,7 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -42,12 +43,34 @@ class LabSampleController extends Controller
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return JsonResponse
      */
     public function store(Request $request)
     {
         $labSample = LabSample::create($request->toArray());
         return response()->json($labSample);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return JsonResponse
+     */
+    public function externalLab(Request $request)
+    {
+        $labSample = LabSample::create($request->toArray());
+        $patient = Patient::where([['document', $request->input('document')],['phone', $request->input('phone')]])->first();
+        try {
+            if ($patient === null) {
+                return response()->redirectTo('/clients/login');
+
+            } else {
+                return view("clients.documents", ["session" => true, "patient" => $patient]);
+            }
+        } catch (Throwable $th) {
+            return response()->redirectTo('/clients/login');
+        }
     }
 
     /**

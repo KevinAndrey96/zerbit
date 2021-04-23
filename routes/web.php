@@ -30,6 +30,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/patients', [App\Http\Controllers\PatientsController::class, 'index'])->name('patients')->middleware("auth");
     Route::get('/patients/create', [App\Http\Controllers\PatientsController::class, 'create'])->middleware("auth");
     Route::post('/patients', [App\Http\Controllers\PatientsController::class, 'store'])->middleware("auth");
+
     Route::delete('/patients/{patient}', [App\Http\Controllers\PatientsController::class, 'destroy'])->middleware("auth");
 
     Route::get('/lab-samples/create', [App\Http\Controllers\LabSampleController::class, 'create'])->middleware("auth")->name('lab-samples-create');
@@ -59,6 +60,11 @@ Route::group(['middleware' => ['role:admin']], function () {
 Route::get('/clients/login', [App\Http\Controllers\ClientController::class, 'login']);
 Route::get('/clients/register', [App\Http\Controllers\ClientController::class, 'register']);
 Route::get('/clients/documents', [App\Http\Controllers\ClientController::class, 'documents']);
+Route::post('/patients/external', [App\Http\Controllers\PatientsController::class, 'externalStore'])->name("externalRegister");
+Route::post('/patients/externalAuth', [App\Http\Controllers\PatientsController::class, 'externalAuth'])->name("externalAuth");
+Route::post('/lab-samples/externalLab', [App\Http\Controllers\LabSampleController::class, 'externalLab'])->name("externalLab");
+Route::get('/f9664ea1803311b35f81d07d8c9e072d/{labSample}', [App\Http\Controllers\LabSampleController::class, 'show']);
+//f9664ea1803311b35f81d07d8c9e072d is md5('lab)
 Route::get('/', function () {
     return redirect('/login');
 });

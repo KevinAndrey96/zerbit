@@ -208,10 +208,13 @@ export default {
         patient_id: this.form.patientID,
         professional_id: this.form.therapistID,
         signed_by_himself: Boolean(this.form.signedByHimself),
+        deductible_payment: Boolean(this.form.deductiblePayment),
 
         medical_diagnostic: this.form.medicalDiagnostic,
         physiotherapist_diagnostic: this.form.physiotherapistDiagnostic,
         objective: this.form.objective,
+        sessions_number: this.form.sessionsNumber,
+        payment_value: this.form.paymentValue,
 
         medical_pathological: this.form.medicalPathological,
         surgical: this.form.surgical,

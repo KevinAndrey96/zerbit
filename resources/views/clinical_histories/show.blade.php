@@ -37,7 +37,7 @@
 <body lang=ES-MX style='word-wrap:break-word'>
 <div class=WordSection1>
     <p class=MsoNormal><span style='color:#4472C4'><img width=130 height=101
-                                                        id="Picture 1" src="/assets/images/logo.png"></span></p>
+                                                        id="Picture 1" src="http://zerbit.co/images/logo.png"></span></p>
     <p class=MsoNormal align=center style='text-align:center'><b><span
                     style='font-size:14.0pt;line-height:107%;color:#4472C4'>HISTORIA CLÍNICA</span></b></p>
     <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
@@ -582,7 +582,7 @@
 <div class="page_break"></div>
 <div class=WordSection1>
     <p class=MsoNormal><span style='color:#4472C4'><img width=130 height=101
-                                                        src="/assets/images/logo.png"></span></p>
+                                                        src="http://zerbit.co/images/logo.png"></span></p>
     <p class=MsoNormal align=center style='text-align:center'><b><span
                     style='font-size:14.0pt;line-height:105%;color:#4472C4'>FORMATO DE EVOLUCIÓN</span></b></p>
     <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
@@ -648,7 +648,7 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>TIPO Y NÚMERO DE DOCUMENTO DE IDENTIDAD:</span></b><span
-                            style='color:#4472C4'> {{strtoupper($clinicalHistory->patient->document_type)}}. {{$clinicalHistory->patient->document_number}}</span></p>
+                            style='color:#4472C4'> {{strtoupper($clinicalHistory->patient->document_type)}}. {{$clinicalHistory->patient->document}}</span></p>
             </td>
         </tr>
         <tr>
@@ -686,6 +686,7 @@
     </table>
     <p class=MsoNormal><span style='color:#4472C4'>&nbsp;</span></p>
     <p class=MsoNormal align=center style='text-align:center'>&nbsp;</p>
+    @foreach($chEvolutions as $evolution)
     <table class=MsoNormalTable border=0 cellspacing=0 cellpadding=0
            style='border-collapse:collapse'>
         <tr>
@@ -700,9 +701,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             lang=EN-US style='font-size:14.0pt;color:#4472C4'>
-                        @foreach($chEvolutions as $evolution)
-                            {{$evolution->evolution_text}},
-                        @endforeach
+
+                            {{$evolution->evolution_text}}
+
                      </span>
                 </p>
             </td>
@@ -717,13 +718,15 @@
             </td>
         </tr>
     </table>
+        <br>
+    @endforeach
     <p class=MsoNormal align=center style='text-align:center'><b><span lang=EN-US
                                                                        style='font-size:14.0pt;line-height:105%;color:#4472C4'>&nbsp;</span></b></p>
 </div>
 <div class="page_break"></div>
 <div class=WordSection1>
     <p class=MsoNormal><span style='color:#4472C4'><img width=130 height=101
-                                                        src="/assets/images/logo.png"></span></p>
+                                                        src="http://zerbit.co/images/logo.png"></span></p>
     <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
            style='border-collapse:collapse;border:none'>
         <tr>
