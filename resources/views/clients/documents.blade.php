@@ -285,11 +285,13 @@
                                     </div>
                                     <hr>
                                     <div class="form-group">
-                                        <label for="">Tipo de muestra</label><br>
+                                        <label for="">Tipo</label><br>
                                         <select name="sample_type" class="form-control">
                                             <option value="Sanguinea">Sanguinea</option>
+                                            <option value="Ginecología">Ginecología</option>
                                             <option value="VIH">VIH</option>
                                             <option value="Ecografía">Ecografía</option>
+                                            <option value="Otra">Otra</option>
                                         </select>
                                     </div>
                                     <hr>

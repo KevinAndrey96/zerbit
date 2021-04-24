@@ -12,6 +12,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Crypt;
 
 class GenericSignatureController extends Controller
 {
@@ -52,6 +53,13 @@ class GenericSignatureController extends Controller
             $evolution->signature = $request->input('dataSignature');
             $evolution->save();
             return "/clinical-histories";
+        } elseif ($request->input('signatureType') == 'labExternal') {
+            $labSample = LabSample::find($request->input('id'));
+            $labSample->signature = $request->input('dataSignature');
+            $labSample->signature_date = Carbon::now();
+            $labSample->save();
+
+            return "/clients/externalAuth/".Crypt::encryptString($labSample->patient->id);
         }
     }
 }

@@ -48,12 +48,19 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index'])->middleware("auth");
     Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store'])->middleware("auth");
 
+    Route::get('/clinical-histories/{filter}', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth");
     Route::get('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth")->name('clinical-histories');
     Route::get('/clinical-histories/create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
     Route::post('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'store'])->middleware("auth");
     Route::get('/clinical-histories/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'show'])->middleware("auth");
 
     Route::post('/evolutions', [App\Http\Controllers\EvolutionsController::class, 'store'])->middleware("auth");
+
+    Route::get('/appointments', [App\Http\Controllers\AppointmentsController::class, 'index'])->middleware("auth")->name('appointments');
+    Route::get('/appointments/create', [App\Http\Controllers\AppointmentsController::class, 'create'])->middleware("auth")->name('appointments-create');
+    Route::post('/appointments', [App\Http\Controllers\AppointmentsController::class, 'store'])->middleware("auth");
+    Route::post('/appointments/reminder', [App\Http\Controllers\AppointmentsController::class, 'reminder'])->middleware("auth");
+    Route::post('/appointments/cancel', [App\Http\Controllers\AppointmentsController::class, 'cancel'])->middleware("auth");
 
 });
 
@@ -62,8 +69,11 @@ Route::get('/clients/register', [App\Http\Controllers\ClientController::class, '
 Route::get('/clients/documents', [App\Http\Controllers\ClientController::class, 'documents']);
 Route::post('/patients/external', [App\Http\Controllers\PatientsController::class, 'externalStore'])->name("externalRegister");
 Route::post('/patients/externalAuth', [App\Http\Controllers\PatientsController::class, 'externalAuth'])->name("externalAuth");
+Route::get('/clients/externalAuth/{patient}', [App\Http\Controllers\PatientsController::class, 'alreadyAuth']);
 Route::post('/lab-samples/externalLab', [App\Http\Controllers\LabSampleController::class, 'externalLab'])->name("externalLab");
 Route::get('/f9664ea1803311b35f81d07d8c9e072d/{labSample}', [App\Http\Controllers\LabSampleController::class, 'show']);
+Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index']);
+
 //f9664ea1803311b35f81d07d8c9e072d is md5('lab)
 Route::get('/', function () {
     return redirect('/login');

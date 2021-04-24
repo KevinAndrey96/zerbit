@@ -10,6 +10,7 @@ use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Crypt;
 use Illuminate\View\View;
 use Spatie\Permission\PermissionRegistrar;
 
@@ -74,7 +75,7 @@ class PatientsController extends Controller
             if ($patient === null) {
                 return response()->redirectTo('/clients/login');
             } else {
-                $labSamples = LabSample::where('patient_id','3')->get();
+                $labSamples = LabSample::where('patient_id', $patient->id)->get();
                 return view("clients.documents", ["session" => true, "patient" => $patient, "labSamples" => $labSamples]);
             }
         } catch (Throwable $th) {
@@ -82,6 +83,26 @@ class PatientsController extends Controller
         }
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param $patient
+     * @return Application|Factory|\Illuminate\Contracts\View\View|RedirectResponse
+     */
+    public function alreadyAuth($patient)
+    {
+        $patient = Patient::find(Crypt::decryptString($patient));
+        try {
+            if ($patient === null) {
+                return response()->redirectTo('/clients/login');
+            } else {
+                $labSamples = LabSample::where('patient_id', $patient->id)->get();
+                return view("clients.documents", ["session" => true, "patient" => $patient, "labSamples" => $labSamples]);
+            }
+        } catch (Throwable $th) {
+            return response()->redirectTo('/clients/login');
+        }
+    }
 
     /**
      * Display the specified resource.

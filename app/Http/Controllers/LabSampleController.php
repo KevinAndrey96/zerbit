@@ -60,13 +60,15 @@ class LabSampleController extends Controller
     public function externalLab(Request $request)
     {
         $labSample = LabSample::create($request->toArray());
-        $patient = Patient::where([['document', $request->input('document')],['phone', $request->input('phone')]])->first();
+        $patient = $labSample->patient;
         try {
             if ($patient === null) {
                 return response()->redirectTo('/clients/login');
 
             } else {
-                return view("clients.documents", ["session" => true, "patient" => $patient]);
+                $labSamples = $patient->labSamples;
+                return view("clients.signature", ["signatureType" => "labExternal", "id" => $labSample->id]);
+                //return view("clients.documents", ["session" => true, "patient" => $patient, "labSamples" => $labSamples]);
             }
         } catch (Throwable $th) {
             return response()->redirectTo('/clients/login');

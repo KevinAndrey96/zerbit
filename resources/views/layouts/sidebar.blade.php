@@ -90,13 +90,8 @@
                         </a>
                         <ul class="sidebar-submenu collapse" id="layouts_menu">
                             <li class="sidebar-menu-item active">
-                                <a class="sidebar-menu-button" href="index.html">
+                                <a class="sidebar-menu-button" href="{{ route('appointments') }}">
                                     <span class="sidebar-menu-text">Ver citas</span>
-                                </a>
-                            </li>
-                            <li class="sidebar-menu-item">
-                                <a class="sidebar-menu-button" href="fluid-dashboard.html">
-                                    <span class="sidebar-menu-text">Crear cita</span>
                                 </a>
                             </li>
                         </ul>

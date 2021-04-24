@@ -24,6 +24,7 @@
               <input type="hidden" name="_token" v-bind:value="csrf">
               <input type="submit" class="btn btn-danger form-control" value="Eliminar">
             </form>
+            <a class="btn btn-info" v-bind:href="clinicalHistoriesRoute+data.item.document">Ver historias clínicas</a>
           </template>
         </b-table>
       </b-col>
@@ -129,6 +130,7 @@ export default {
       patients: this.patients_list,
       createPatientRoute: "/patients",
       deletePatientRoute: "/patients/",
+      clinicalHistoriesRoute: "/clinical-histories/",
       csrf: $('meta[name="csrf-token"]').attr('content'),
     };
   },

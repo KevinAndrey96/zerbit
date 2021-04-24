@@ -27,7 +27,7 @@
 <div style="position:absolute;left:50%;margin-left:-400px;top:0px;width:1200px;height:396px;">
     <div style="position:absolute;left:0px;top:0px">
         <img style="opacity: 0.7;" src="https://zerbit.co/portal/6958c0e6-765b-11eb-8b25-0cc47a792c0a_id_6958c0e6-765b-11eb-8b25-0cc47a792c0a_files/background1.jpg" width=775 height=396></div>
-    <div style="position:absolute;left:5.62px;top:10.90px" class="cls_003"><span class="cls_003">CONSENTIMIENTO INFORMADO DE TOMA DE MUESTRAS DE LABORATORIO CLINICO ZERBIT SAS</span></div>
+    <div style="position:absolute;left:5.62px;top:10.90px" class="cls_003"><span class="cls_003">CONSENTIMIENTO INFORMADO DE LABORATORIO CLINICO ZERBIT SAS</span></div>
     <div style="position:absolute;left:12.33px;top:59.23px" class="cls_002"><span class="cls_002">Fecha: {{$date}}.</span></div>
     <div style="position:absolute;left:620.00px;top:83.57px" class="cls_004"><span class="cls_004">RESULTADOS LAB CLINICO</span></div>
     <div style="position:absolute;left:12.33px;top:95.23px" class="cls_002"><span class="cls_002">Yo</span></div>
@@ -36,14 +36,14 @@
     <div style="position:absolute;left:670.28px;top:103.68px" class="cls_006"><span class="cls_006">Zerbit: teléfono</span></div>
     <div style="position:absolute;left:12.33px;top:107.23px" class="cls_002"><span class="cls_002"> en pleno uso de mis facultades mentales declaro que: he leído y/o me han explicado el documento “CONSENTIMIENTO INFORMADO </span></div>
     <div style="position:absolute;left:655.14px;top:112.68px" class="cls_006"><span class="cls_006">7517440-3178956464.</span></div>
-    <div style="position:absolute;left:12.33px;top:119.23px" class="cls_002"><span class="cls_002"> TOMA DE MUESTRAS DE LABORATORIO CLINICO”, y que para el presente caso se refiere a, toma de muestra: {{$labSample->sample_type}},</span></div>
+    <div style="position:absolute;left:12.33px;top:119.23px" class="cls_002"><span class="cls_002"> DE LABORATORIO CLINICO”, y que para el presente caso se refiere a: {{$labSample->sample_type}},</span></div>
     <div style="position:absolute;left:625.11px;top:121.68px" class="cls_006"><span class="cls_006">Av El Dorado N 68C-61 Oficina 524</span></div>
     <div style="position:absolute;left:12.34px;top:131.23px" class="cls_002"><span class="cls_002">así como sus condiciones, posibles efectos y contraindicaciones.</span></div>
     <div style="position:absolute;left:12.34px;top:143.23px" class="cls_002"><span class="cls_002"></span></div>
     <div style="position:absolute;left:655.70px;top:142.25px" class="cls_004"><span class="cls_004">CONSECUTIVO</span></div>
-    <div style="position:absolute;left:12.34px;top:167.23px" class="cls_002"><span class="cls_002">Comprendo que la toma de muestra es voluntaria y que me puedo retractar de este consentimiento antes de que la muestra sea</span></div>
-    <div style="position:absolute;left:12.34px;top:179.23px" class="cls_002"><span class="cls_002">tomada.</span></div>
-    <div style="position:absolute;left:12.34px;top:203.23px" class="cls_002"><span class="cls_002">Autorizo realizar la toma de muestra:</span></div>
+    <div style="position:absolute;left:12.34px;top:167.23px" class="cls_002"><span class="cls_002">Comprendo que es un proceso voluntario y que me puedo retractar de este consentimiento antes de que el proceso se lleve a cabo</span></div>
+    <div style="position:absolute;left:12.34px;top:179.23px" class="cls_002"><span class="cls_002"></span></div>
+    <div style="position:absolute;left:12.34px;top:203.23px" class="cls_002"><span class="cls_002">Autorizo a realizar el procedimiento:</span></div>
     @if($labSample->authorized)
         <div style="position:absolute;left:165.65px;top:203.23px" class="cls_002"><span class="cls_002">SI_X_</span></div>
         <div style="position:absolute;left:239.22px;top:203.23px" class="cls_002"><span class="cls_002">NO____</span></div>

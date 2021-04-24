@@ -23,9 +23,19 @@ use Illuminate\Http\Response;
  */
 class ClinicalHistoriesController extends Controller
 {
-    public function index()
+    /**
+     * @param string|null $filter
+     * @return Application|Factory|View
+     */
+    public function index(?string $filter = null)
     {
-        $clinicalHistories = ClinicalHistory::all();
+        if ($filter == null) {
+            $clinicalHistories = ClinicalHistory::all();
+        } else {
+            $clinicalHistories = ClinicalHistory::whereHas('patient', function ($query) use ($filter) {
+                return $query->where('document', '=', $filter);
+            })->get();
+        }
         return view("clinical_histories.index", ['clinicalHistories' => $clinicalHistories]);
     }
     /**
