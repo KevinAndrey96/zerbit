@@ -50,7 +50,7 @@ Route::group(['middleware' => ['role:admin']], function () {
 
     Route::get('/clinical-histories/{filter}', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth");
     Route::get('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth")->name('clinical-histories');
-    Route::get('/clinical-histories/create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
+    Route::get('/clinical-histories-create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
     Route::post('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'store'])->middleware("auth");
     Route::get('/clinical-histories/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'show'])->middleware("auth");
 
