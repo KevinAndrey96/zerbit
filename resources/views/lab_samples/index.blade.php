@@ -4,7 +4,7 @@
     <div class="container-fluid page__container">
         <div class="card">
             <div class="card-header card-header-large bg-white">
-                <h4 class="card-header__title">Muestras de laboratorio</h4>
+                <h4 class="card-header__title">Formatos de consentimiento informado</h4>
             </div>
             <div style="padding-top: 15px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>

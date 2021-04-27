@@ -34,6 +34,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::delete('/patients/{patient}', [App\Http\Controllers\PatientsController::class, 'destroy'])->middleware("auth");
 
     Route::get('/lab-samples/create', [App\Http\Controllers\LabSampleController::class, 'create'])->middleware("auth")->name('lab-samples-create');
+    Route::get('/lab-samples/{filter}', [App\Http\Controllers\LabSampleController::class, 'index'])->middleware("auth");
     Route::get('/lab-samples', [App\Http\Controllers\LabSampleController::class, 'index'])->name('lab-samples')->middleware("auth");
     Route::get('/lab-samples/{labSample}', [App\Http\Controllers\LabSampleController::class, 'show'])->middleware("auth");
     Route::post('/lab-samples', [App\Http\Controllers\LabSampleController::class, 'store'])->middleware("auth");
@@ -52,7 +53,7 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth")->name('clinical-histories');
     Route::get('/clinical-histories-create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
     Route::post('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'store'])->middleware("auth");
-    Route::get('/clinical-histories/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'show'])->middleware("auth");
+    Route::get('/clinical-histories-pdf/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'show'])->middleware("auth");
 
     Route::post('/evolutions', [App\Http\Controllers\EvolutionsController::class, 'store'])->middleware("auth");
 

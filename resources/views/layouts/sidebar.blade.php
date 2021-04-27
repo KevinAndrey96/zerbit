@@ -12,7 +12,7 @@
                     </a>
 
                 </div>
-                <div class="sidebar-heading sidebar-m-t">Menú</div>
+                <div class="sidebar-heading sidebar-m-t">Menú {{auth()->user()->role}}</div>
                 <ul class="sidebar-menu">
                     <li class="sidebar-menu-item active open">
                         <a class="sidebar-menu-button" data-toggle="collapse" href="#dashboards_menu">
@@ -26,14 +26,16 @@
                                     <span class="sidebar-menu-text">Pacientes</span>
                                 </a>
                             </li>
+                            @if(auth()->user()->role == "admin")
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('users') }}">
                                     <span class="sidebar-menu-text">Administradores</span>
                                 </a>
                             </li>
+                            @endif
                         </ul>
                     </li>
-
+                    @if(auth()->user()->role == "admin" || auth()->user()->role == "laboratorio")
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" data-toggle="collapse" href="#apps_menu">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">slideshow</i>
@@ -43,29 +45,31 @@
                         <ul class="sidebar-submenu collapse" id="apps_menu">
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('lab-samples-create') }}">
-                                    <span class="sidebar-menu-text">Crear muestra de laboratorio</span>
+                                    <span class="sidebar-menu-text">Crear formato de consentimiento</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('lab-samples') }}">
-                                    <span class="sidebar-menu-text">Ver muestras de laboratorio</span>
+                                    <span class="sidebar-menu-text">Ver consentimientos informados</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if(auth()->user()->role == "admin" || auth()->user()->role == "terapeuta")
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" data-toggle="collapse" href="#pages_menu">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">description</i>
                             <span class="sidebar-menu-text">Historias Clínicas</span>
                             <span class="ml-auto sidebar-menu-toggle-icon"></span>
                         </a>
-                        <ul class="sidebar-submenu collapse" id="pages_menu">
-                            <li class="sidebar-menu-item">
+                        <ul class="sidebar-submenu collapse" id="pages_menu" >
+                            <li class="sidebar-menu-item" style="display:none;">
                                 <a class="sidebar-menu-button" href="{{ route('physical-therapies-create') }}">
                                     <span class="sidebar-menu-text">Crear historial de terapia física</span>
                                 </a>
                             </li>
-                            <li class="sidebar-menu-item">
+                            <li class="sidebar-menu-item" style="display:none;">
                                 <a class="sidebar-menu-button" href="{{ route('physical-therapies') }}">
                                     <span class="sidebar-menu-text">Ver historial de terapias físicas</span>
                                 </a>
@@ -82,6 +86,8 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if(auth()->user()->role == "admin" || auth()->user()->role == "terapeuta")
                     <li class="sidebar-menu-item">
                         <a class="sidebar-menu-button" data-toggle="collapse" href="#layouts_menu">
                             <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">view_compact</i>
@@ -96,7 +102,7 @@
                             </li>
                         </ul>
                     </li>
-
+                    @endif
                 </ul>
             </div>
         </div>

@@ -65,11 +65,13 @@
                     <h4 class="card-header__title">Historias clínicas</h4>
                 </div>
                 <div class="card-body">
-                    <table class="table" id="myTable">
+                    <table class="table-responsive" id="myTable">
                         <thead>
                             <th>ID</th>
+                            <th>Documento</th>
                             <th>Paciente</th>
                             <th>Terapeuta</th>
+                            <th>Fecha</th>
                             <th>Opciones</th>
                         </thead>
                         <tbody>
@@ -77,11 +79,13 @@
                             <tr>
                                 <input type="hidden" value="{{$clinicalHistory->id}}" id="chid">
                                 <td>{{$clinicalHistory->id}}</td>
+                                <td>{{$clinicalHistory->patient->document}}</td>
                                 <td>{{$clinicalHistory->patient->first_name.' '.$clinicalHistory->patient->first_surname}}</td>
                                 <td>{{$clinicalHistory->professional->name}}</td>
+                                <td>{{$clinicalHistory->created_at}}</td>
                                 <td>
                                     <button type="button" id="openModal" class="btn btn-info form-control" data-toggle="modal" data-target="#exampleModal" data-whatever="{{$clinicalHistory->id}}">Crear Evolución</button>
-                                    <a href="/clinical-histories/{{$clinicalHistory->id}}" class="form-control btn btn-primary">Ver PDF</a>
+                                    <a href="/clinical-histories-pdf/{{$clinicalHistory->id}}" class="form-control btn btn-primary">Ver PDF</a>
                                 </td>
                             </tr>
                         @endforeach

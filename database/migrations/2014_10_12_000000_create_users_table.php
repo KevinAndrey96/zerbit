@@ -19,6 +19,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('document');
             $table->string('name');
+            $table->string('role')->default('admin');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

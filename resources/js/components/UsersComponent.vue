@@ -11,13 +11,24 @@
     <b-row>
       <b-col>
         <b-table
+            responsive
             striped
             hover
             outlined
+            thead-tr-class="d-none"
             :items="users"
             :filter="filter"
             :fields="fields"
         >
+          <template v-slot:thead-top="data">
+          <b-tr>
+            <b-th><span>Id</span></b-th>
+            <b-th>Nombre</b-th>
+            <b-th>Correo</b-th>
+            <b-th>Rol</b-th>
+            <b-th>Opciones</b-th>
+          </b-tr>
+          </template>
           <template v-slot:cell(actions)="data">
             <form method="POST" v-bind:action="deleteUserRoute+data.item.id">
               <input type="hidden" name="_method" value="DELETE">
@@ -47,6 +58,30 @@
                   name="name"
                   required
               ></b-form-input>
+            </b-form-group>
+
+            <b-form-group
+                label="Documento"
+                label-for="newUser.document"
+                invalid-feedback="Documento es requerido"
+            >
+              <b-form-input
+                  id="newUser.document"
+                  name="document"
+                  required
+              ></b-form-input>
+            </b-form-group>
+
+            <b-form-group
+                label="Rol"
+                label-for="newUser.role"
+                invalid-feedback="Rol es requerido"
+            >
+              <select name="role" id="" class="form-control">
+                <option value="admin">Administrador</option>
+                <option value="laboratorio">Laboratorio</option>
+                <option value="terapeuta">Terapeuta</option>
+              </select>
             </b-form-group>
 
             <b-form-group
@@ -95,11 +130,13 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "name", "email", "actions"],
+      fields: ["id", "name", "email", "role", "actions"],
       filter: "",
       users: this.users_list,
       newUser: {
         name: '',
+        role: '',
+        document: '',
         email: '',
         password: ''
       },

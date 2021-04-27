@@ -11,20 +11,34 @@
     <b-row>
       <b-col>
         <b-table
+            responsive
             striped
             hover
             outlined
+            thead-tr-class="d-none"
             :items="patients"
             :filter="filter"
             :fields="fields"
         >
+          <template v-slot:thead-top="data">
+          <b-tr>
+            <b-th><span>Id</span></b-th>
+            <b-th>Nombre</b-th>
+            <b-th>Documento</b-th>
+            <b-th>Correo</b-th>
+            <b-th>Teléfono</b-th>
+            <b-th>Dirección</b-th>
+            <b-th>Opciones</b-th>
+          </b-tr>
+          </template>
           <template v-slot:cell(actions)="data">
+            <a class="btn btn-info form-control" v-bind:href="clinicalHistoriesRoute+data.item.document">H. clínicas</a>
+            <a class="btn btn-primary form-control" v-bind:href="labSamplesRoute+data.item.document">Consentimientos</a>
             <form method="POST" v-bind:action="deletePatientRoute+data.item.id">
               <input type="hidden" name="_method" value="DELETE">
               <input type="hidden" name="_token" v-bind:value="csrf">
               <input type="submit" class="btn btn-danger form-control" value="Eliminar">
             </form>
-            <a class="btn btn-info" v-bind:href="clinicalHistoriesRoute+data.item.document">Ver historias clínicas</a>
           </template>
         </b-table>
       </b-col>
@@ -125,12 +139,13 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "first_name", "document", "email", "phone", "address", "guardian", "guardian_relationship", "actions"],
+      fields: ["id", "first_name", "document", "email", "phone", "address", "actions"],
       filter: "",
       patients: this.patients_list,
       createPatientRoute: "/patients",
       deletePatientRoute: "/patients/",
       clinicalHistoriesRoute: "/clinical-histories/",
+      labSamplesRoute: "/lab-samples/",
       csrf: $('meta[name="csrf-token"]').attr('content'),
     };
   },

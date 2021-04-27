@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Exception;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 class UsersController extends Controller
 {
     /**
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return Application|Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
-        app()->make(\Spatie\Permission\PermissionRegistrar::class)->forgetCachedPermissions();
+        app()->make(PermissionRegistrar::class)->forgetCachedPermissions();
         $users = User::all();
         return view("users.index",["users" => $users]);
     }
@@ -25,11 +29,14 @@ class UsersController extends Controller
      * @param Request $request
      * @return RedirectResponse
      */
-    public function create(Request $request): RedirectResponse
+    public function create(Request $request)
     {
         $user = User::create([
             'name' => $request->input("name"),
+            'document' => $request->input("document"),
+            'role' => $request->input("role"),
             'email' => $request->input("email"),
+            'signature' => '',
             'password' => Hash::make($request->input("password")),
         ]);
         $role = Role::findByName('admin');
@@ -39,8 +46,8 @@ class UsersController extends Controller
     }
 
     /**
-     * @param Request $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|View|RedirectResponse
+     * @param User $user
+     * @return Application|Factory|\Illuminate\Contracts\View\View|View|RedirectResponse
      */
     public function edit(User $user): View
     {
@@ -55,7 +62,7 @@ class UsersController extends Controller
     {
         try {
             $user->delete();
-        } catch (\Exception $e) { }
+        } catch (Exception $e) { }
         return response()->redirectTo('/users');
     }
 }

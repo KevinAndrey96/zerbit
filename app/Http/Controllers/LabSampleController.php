@@ -14,17 +14,25 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Throwable;
 
 class LabSampleController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
+     * @param string|null $filter
      * @return Application|Factory|View|Response
      */
-    public function index()
+    public function index(?string $filter = null)
     {
-        $labSamples = LabSample::with('patient')->get();
+        if ($filter == null) {
+            $labSamples = LabSample::with('patient')->get();
+        } else {
+            $labSamples = LabSample::with('patient')->whereHas('patient', function ($query) use ($filter) {
+                return $query->where('document', '=', $filter);
+            })->get();
+        }
         return view("lab_samples.index",["labSamples" => $labSamples]);
     }
 

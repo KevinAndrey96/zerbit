@@ -11,6 +11,7 @@
     <b-row>
       <b-col>
         <b-table
+            responsive
             striped
             hover
             outlined
