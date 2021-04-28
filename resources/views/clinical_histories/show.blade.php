@@ -931,7 +931,7 @@
             </td>
             <td width=312 valign=top style='width:233.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='text-align:center'><span
-                            style='color:#4472C4'><img src="{{$clinicalHistory->professional->signature}}" alt=""> <b>C.C.</b> {{$clinicalHistory->professional->document}}</span></p>
+                            style='color:#4472C4'><img height="50px" src="{{$clinicalHistory->professional->signature}}" alt=""> <b>C.C.</b> {{$clinicalHistory->professional->document}}</span></p>
             </td>
         </tr>
         <tr>

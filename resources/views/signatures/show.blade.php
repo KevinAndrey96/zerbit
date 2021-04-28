@@ -9,7 +9,7 @@
             </div>
             <div style="padding-top: 15px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>
-                <div id="app" class="content">
+                <div id="app" class="content-fluid" style="padding-bottom: 50px">
                     <div style="text-align: center;"><img src="{{ $user->signature }}" alt="{{ $user->id }}" onError="this.onerror=null;this.src='/assets/images/logo.png';"  /></div>
                 </div>
                 <script src="{{asset('js/app.js')}}"></script>

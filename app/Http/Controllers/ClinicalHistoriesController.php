@@ -54,6 +54,7 @@ class ClinicalHistoriesController extends Controller
      */
     public function store(Request $request)
     {
+        print_r("ERRROR");
         $clinicalHistory = ClinicalHistory::create($request->toArray());
         $chRecord = ChRecord::create(array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id]));
         $chPsychotherapeuticAssessment = ChPsychotherapeuticAssessment::create(

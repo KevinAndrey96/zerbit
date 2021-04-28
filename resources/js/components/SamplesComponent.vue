@@ -23,6 +23,7 @@
           <template v-slot:thead-top="data">
           <b-tr>
             <b-th><span>Id</span></b-th>
+            <b-th>Documento</b-th>
             <b-th>Nombre</b-th>
             <b-th>Apellido</b-th>
             <b-th>Tipo de prueba</b-th>
@@ -152,12 +153,12 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "patient.first_name", "patient.first_surname", "sample_type", "signature_date", "signature", "actions"],
+      fields: ["id", "patient.document","patient.first_name", "patient.first_surname", "sample_type", "signature_date", "signature", "actions"],
       filter: "",
       samples: this.samples_list,
       createRoute: "/lab-samples",
       deleteRoute: "/lab-samples/",
-      showRoute: "/lab-samples/",
+      showRoute: "/lab-samples-pdf/",
       csrf: $('meta[name="csrf-token"]').attr('content'),
     };
   },

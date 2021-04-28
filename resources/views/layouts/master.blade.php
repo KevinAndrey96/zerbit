@@ -95,7 +95,8 @@
                                     <div><strong>Opciones</strong></div>
                                 </div>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item active" href="index.html">Firma</a>
+
+                                <a class="dropdown-item active" href="/signatures/{{auth()->user()->id}}">Firma</a>
                                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                     Logout
                                 </a>
