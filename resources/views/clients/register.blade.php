@@ -201,7 +201,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Primer Nombre</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Primer Nombre" name="first_name">
+                                                <input type="text" required class="form-control" id="exampleInputEmail1" placeholder="Primer Nombre" name="first_name">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Segundo Nombre</label>
@@ -211,7 +211,7 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Primer Apellido</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Primer Apellido" name="first_surname">
+                                                <input type="text" required class="form-control" id="exampleInputEmail1" placeholder="Primer Apellido" name="first_surname">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Segundo Apellido</label>
@@ -222,11 +222,11 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Fecha de nacimiento</label>
-                                                <input type="date" class="form-control" id="exampleInputEmail1" placeholder="Fecha de nacimiento" name="birthdate">
+                                                <input type="date" required class="form-control" id="exampleInputEmail1" placeholder="Fecha de nacimiento" name="birthdate">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Estado civil</label>
-                                                <select name="civil_status" class="form-control" id="">
+                                                <select name="civil_status" required class="form-control" id="">
                                                     <option value="soltero">Soltero</option>
                                                     <option value="casado">Casado</option>
                                                     <option value="union libre">Unión libre</option>
@@ -238,31 +238,31 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Genero</label>
-                                                <select name="gender" class="form-control" id="">
+                                                <select name="gender" required class="form-control" id="">
                                                     <option value="Masculino">Masculino</option>
                                                     <option value="Femenino">Femenino</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Eps</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Eps" name="eps">
+                                                <input type="text" required class="form-control" id="exampleInputPassword1" placeholder="Eps" name="eps">
                                             </div>
                                         </div>
                                         <hr>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Correo electrónico</label>
-                                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" name="email">
+                                                <input type="email" required class="form-control" id="exampleInputEmail1" placeholder="Correo electrónico" name="email">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Ocupación</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Ocupación" name="occupation">
+                                                <input type="text" required class="form-control" id="exampleInputPassword1" placeholder="Ocupación" name="occupation">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Tipo de documento</label>
-                                                <select name="document_type" class="form-control" id="">
+                                                <select name="document_type" required class="form-control" id="">
                                                     <option value="cc">CC</option>
                                                     <option value="ce">CE</option>
                                                     <option value="ti">TI</option>
@@ -271,17 +271,17 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Documento</label>
-                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Documento" name="document">
+                                                <input type="number" required class="form-control" id="exampleInputEmail1" placeholder="Documento" name="document">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <label for="exampleInputEmail1">Teléfono</label>
-                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Teléfono" name="phone">
+                                                <input type="number" required class="form-control" id="exampleInputEmail1" placeholder="Teléfono" name="phone">
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="exampleInputPassword1">Dirección</label>
-                                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Dirección" name="address">
+                                                <input type="text" required class="form-control" id="exampleInputPassword1" placeholder="Dirección" name="address">
                                             </div>
                                         </div>
                                         <br>
@@ -290,7 +290,7 @@
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <label for="exampleInputEmail1">Nombre de acudiente (Opcional)</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Nombre de acudiente" name="guardian">
+                                                <input type="text"  class="form-control" id="exampleInputEmail1" placeholder="Nombre de acudiente" name="guardian">
                                             </div>
                                         </div>
                                         <br>

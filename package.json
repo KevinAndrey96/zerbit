@@ -25,6 +25,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "@alfsnd/vue-bootstrap-select": "^0.4.4",
         "bootstrap-vue": "^2.21.2",
         "modal-fullscreen-vue": "^0.1.4",
         "signature_pad": "^3.0.0-beta.4",

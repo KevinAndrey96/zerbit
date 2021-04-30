@@ -37,6 +37,6 @@ class CreateClinicalHistoryRecordsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clinical_histories_records');
+        Schema::dropIfExists('ch_records');
     }
 }

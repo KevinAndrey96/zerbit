@@ -15,9 +15,7 @@
       </div>
       <div class="form-group">
         <label for="patient_id">Paciente</label><br>
-        <select class="form-control selectpicker" v-model="labSampleForm.patientID" data-live-search="true" name="patient_id" id="patient_id">
-          <option v-for="patient in patients" :value="patient.id">{{patient.first_name +' '+ patient.first_surname}}</option>
-        </select>
+        <v-select id="patient_id" :options="patients" v-model="labSampleForm.patientID" searchable/>
       </div>
     </tab-content>
     <tab-content title="Autorizaciones">
@@ -67,10 +65,13 @@
 
 <script>
 import VueFormWizard from 'vue-form-wizard'
+import VSelect from "@alfsnd/vue-bootstrap-select";
+
 export default {
   name: "LabSignature",
   components: {
-    VueFormWizard
+    VueFormWizard,
+    VSelect
   },
   props: {
     patients_list: Array,
@@ -81,7 +82,7 @@ export default {
       patients: this.patients_list,
       labSampleForm: {
         sampleType: "",
-        patientID: 1,
+        patientID: null,
         authSample: true,
         emailDelivery: true,
         signedByHimself: true
@@ -95,15 +96,14 @@ export default {
   methods: {
     onComplete: function(){
       const axios = require('axios');
-
       axios.post('/lab-samples', {
         sample_type: this.labSampleForm.sampleType,
-        patient_id: this.labSampleForm.patientID,
+        patient_id: this.labSampleForm.patientID.value,
         authorized: Boolean(this.labSampleForm.authSample),
         email_delivery: Boolean(this.labSampleForm.emailDelivery),
         signed_by_himself: Boolean(this.labSampleForm.signedByHimself)
       }).then(function (response) {
-            console.log(response);
+            //console.log(response);
             window.location.href = "/generic-signature/labSample/"+response.data.id
           })
           .catch(function (error) {

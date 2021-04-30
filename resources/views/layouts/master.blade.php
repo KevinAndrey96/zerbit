@@ -74,7 +74,7 @@
 
 
                     <!-- Navbar Brand -->
-                    <a href="index.html" class="navbar-brand ">
+                    <a href="/" class="navbar-brand ">
                         <img class="navbar-brand-icon" src="/assets/images/logo.png" width="70" alt="Stack">
                         <span>Zerbit Portal</span>
                     </a>
@@ -142,7 +142,7 @@
 <!-- App Settings FAB -->
 <div id="app-settings">
     <app-settings layout-active="default" :layout-location="{
-      'default': 'index.html',
+      'default': '/',
       'fixed': 'fixed-dashboard.html',
       'fluid': 'fluid-dashboard.html',
       'mini': 'mini-dashboard.html'

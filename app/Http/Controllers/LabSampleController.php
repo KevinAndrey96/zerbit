@@ -44,7 +44,19 @@ class LabSampleController extends Controller
     public function create()
     {
         $patients = Patient::all();
-        return view("lab_samples.create", ['patients' => $patients]);
+        $patients2 = Array();
+        foreach ($patients as $patient) {
+            $patient2 = [
+                "value" => $patient->id,
+                "text" => $patient->document . ' ' .
+                    $patient->first_name . ' ' .
+                    $patient->second_name . ' ' .
+                    $patient->first_surname . ' ' .
+                    $patient->second_surname
+            ];
+            array_push($patients2, $patient2);
+        }
+        return view("lab_samples.create", ['patients' => json_encode($patients2)]);
     }
 
     /**
@@ -67,6 +79,16 @@ class LabSampleController extends Controller
      */
     public function externalLab(Request $request)
     {
+        $sampleTypes = "";
+        foreach ($request->sample_type as $sampleType) {
+            $sampleTypes .= $sampleType.",";
+        }
+        $request->merge(
+            [
+                'sample_type' => $sampleTypes,
+            ]
+        );
+
         $labSample = LabSample::create($request->toArray());
         $patient = $labSample->patient;
         try {

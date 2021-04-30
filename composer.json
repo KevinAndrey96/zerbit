@@ -18,7 +18,8 @@
         "laravel/ui": "^3.2",
         "setasign/fpdf": "^1.8",
         "setasign/fpdi": "^2.3",
-        "spatie/laravel-permission": "^4.0"
+        "spatie/laravel-permission": "^4.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

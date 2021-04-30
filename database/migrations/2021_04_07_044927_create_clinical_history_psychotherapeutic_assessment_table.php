@@ -41,6 +41,6 @@ class CreateClinicalHistoryPsychotherapeuticAssessmentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clinical_history_physiotherapeutic_assesment');
+        Schema::dropIfExists('ch_psychotherapeutic_assessments');
     }
 }

@@ -16,6 +16,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class ClinicalHistoriesController
@@ -43,9 +44,35 @@ class ClinicalHistoriesController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->role == 'terapeuta') {
+            $therapists = User::where('id', Auth::user()->id)->get();
+        } else {
+            $therapists = User::all();
+        }
+        //[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]
+        $therapists2 = Array();
+        foreach ($therapists as $therapist) {
+            $therapist2 = [
+                "value" => $therapist->id,
+                "text" => $therapist->name
+            ];
+            array_push($therapists2, $therapist2);
+        }
         $patients = Patient::all();
-        $therapists = User::all();
-        return view("clinical_histories.create", ['patients' => $patients, 'therapists' => $therapists]);
+        $patients2 = Array();
+        foreach ($patients as $patient) {
+            $patient2 = [
+                "value" => $patient->id,
+                "text" => $patient->document.' '.
+                    $patient->first_name.' '.
+                    $patient->second_name.' '.
+                    $patient->first_surname.' '.
+                    $patient->second_surname
+            ];
+            array_push($patients2, $patient2);
+        }
+
+        return view("clinical_histories.create", ['patients' => json_encode($patients2), 'therapists' => json_encode($therapists2)]);
     }
 
     /**
@@ -54,8 +81,17 @@ class ClinicalHistoriesController extends Controller
      */
     public function store(Request $request)
     {
-        print_r("ERRROR");
-        $clinicalHistory = ClinicalHistory::create($request->toArray());
+        $clinicalHistory = ClinicalHistory::create(
+            $request->only([
+                      'patient_id',
+                      'professional_id',
+                      'medical_diagnostic',
+                      'physiotherapist_diagnostic',
+                      'objective',
+                      'sessions_number',
+                      'deductible_payment',
+                      'payment_value',
+                  ]));
         $chRecord = ChRecord::create(array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id]));
         $chPsychotherapeuticAssessment = ChPsychotherapeuticAssessment::create(
             array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id])

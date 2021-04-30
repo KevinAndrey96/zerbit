@@ -46,9 +46,6 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::post('/physical-therapies', [App\Http\Controllers\PhysicalTherapyController::class, 'store'])->middleware("auth");
     Route::delete('/physical-therapies/{physicalTherapy}', [App\Http\Controllers\PhysicalTherapyController::class, 'destroy'])->middleware("auth");
 
-    Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index'])->middleware("auth");
-    Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store'])->middleware("auth");
-
     Route::get('/clinical-histories/{filter}', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth");
     Route::get('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth")->name('clinical-histories');
     Route::get('/clinical-histories-create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
@@ -74,6 +71,10 @@ Route::get('/clients/externalAuth/{patient}', [App\Http\Controllers\PatientsCont
 Route::post('/lab-samples/externalLab', [App\Http\Controllers\LabSampleController::class, 'externalLab'])->name("externalLab");
 Route::get('/f9664ea1803311b35f81d07d8c9e072d/{labSample}', [App\Http\Controllers\LabSampleController::class, 'show']);
 Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index']);
+
+
+Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index']);
+Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store']);
 
 //f9664ea1803311b35f81d07d8c9e072d is md5('lab)
 Route::get('/', function () {

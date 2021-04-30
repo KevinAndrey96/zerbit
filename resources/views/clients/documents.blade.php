@@ -92,6 +92,15 @@
     <!-- JavaScripts -->
     <script src="http://zerbit.co/js/vendors/modernizr.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/css/bootstrap-select.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/bootstrap-select.min.js"></script>
+
+    <!-- (Optional) Latest compiled and minified JavaScript translation files -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.13.14/dist/js/i18n/defaults-*.min.js"></script>
 </head>
 
 <body class="layout-default">
@@ -286,7 +295,7 @@
                                     <hr>
                                     <div class="form-group">
                                         <label for="">Tipo</label><br>
-                                        <select name="sample_type" class="form-control">
+                                        <select name="sample_type[]" class="selectpicker" multiple>
                                             <option value="Sanguinea">Sanguinea</option>
                                             <option value="Ginecología">Ginecología</option>
                                             <option value="VIH">VIH</option>

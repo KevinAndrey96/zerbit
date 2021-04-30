@@ -12,17 +12,11 @@
       <tab-content title="Paso 1" >
         <div class="form-group">
           <label for="therapist_id">Fisioterapeuta</label><br>
-          <select class="form-control selectpicker" v-model="form.therapistID" data-live-search="true"
-                  name="patient_id" id="therapist_id">
-            <option v-for="therapist in therapists" :value="therapist.id">{{therapist.name}}</option>
-          </select>
+          <v-select id="therapist_id" :options="therapists" v-model="form.therapistID" searchable/>
         </div>
         <div class="form-group">
           <label for="patient_id">Paciente</label><br>
-          <select class="form-control selectpicker" v-model="form.patientID" data-live-search="true"
-                  name="patient_id" id="patient_id">
-            <option v-for="patient in patients" :value="patient.id">{{patient.first_name + ' ' + patient.first_surname}}</option>
-          </select>
+            <v-select id="patient_id" :options="patients" v-model="form.patientID" searchable/>
         </div>
         <div class="form-group">
           <label for="reason">Motivo de consulta de fisioterapeuta</label><br>
@@ -150,10 +144,13 @@
 
 <script>
 import VueFormWizard from 'vue-form-wizard'
+import VSelect from '@alfsnd/vue-bootstrap-select'
+
 export default {
   name: "PhysicalSignature",
   components: {
-    VueFormWizard
+    VueFormWizard,
+    VSelect
   },
   props: {
     patients_list: Array,
@@ -165,8 +162,8 @@ export default {
       patients: this.patients_list,
       therapists: this.therapists_list,
       form: {
-        patientID: 1,
-        therapistID: 1,
+        patientID: null,
+        therapistID: null,
         medicalDiagnostic: '',
         physiotherapistDiagnostic: '',
         objective: '',
@@ -193,20 +190,28 @@ export default {
         balance: '',
         fallingRisk: '',
         otherValuations: '',
+
+        therapist_id: 1,
       },
       csrf: $('meta[name="csrf-token"]').attr('content'),
     }
   },
+  mounted() {
+    $('.selectpicker').selectpicker('render');
+  },
   created() {
-
+    $('.selectpicker').selectpicker('render');
   },
   methods: {
+    onChange:function(){
+      console.log("OKs");
+    },
     onComplete: function(){
       const axios = require('axios');
 
       axios.post('/clinical-histories', {
-        patient_id: this.form.patientID,
-        professional_id: this.form.therapistID,
+        patient_id: this.form.patientID.value,
+        professional_id: this.form.therapistID.value,
         signed_by_himself: Boolean(this.form.signedByHimself),
         deductible_payment: Boolean(this.form.deductiblePayment),
 
