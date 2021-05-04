@@ -13,15 +13,6 @@ class CreatePhysicalTherapiesTable extends Migration
      */
     public function up()
     {
-        /**
-         * 'patient_id',
-        'therapist_id',
-        'sessions_number',
-        'start_date',
-        'finish_date',
-        'signed_by_himself',
-        'signature',
-         */
         Schema::create('physical_therapies', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('patient_id')->unsigned()->index();
@@ -30,7 +21,7 @@ class CreatePhysicalTherapiesTable extends Migration
             $table->date('start_date');
             $table->date('finish_date');
             $table->boolean('signed_by_himself');
-            $table->text('signature')->nullable();
+            $table->mediumText('signature')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients');

@@ -1,6 +1,6 @@
 <template>
   <div id="PhysicalSignature">
-    <form-wizard title="Formato consentimiento terapia física"
+    <form-wizard title="Formato consentimiento Historia clínica"
                  @on-complete="onComplete"
                  subtitle="Por favor rellena los campos solicitados a continuación"
                  next-button-text="Siguiente"

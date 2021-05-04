@@ -37,7 +37,7 @@
 <body lang=ES-MX style='word-wrap:break-word'>
 <div class=WordSection1>
     <p class=MsoNormal><span style='color:#4472C4'><img width=130 height=101
-                                                        id="Picture 1" src="http://zerbit.co/images/logo.png"></span></p>
+                                                        id="Picture 1" src="https://zerbit.co/images/logo.png"></span></p>
     <p class=MsoNormal align=center style='text-align:center'><b><span
                     style='font-size:14.0pt;line-height:107%;color:#4472C4'>HISTORIA CLÍNICA</span></b></p>
     <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
@@ -582,7 +582,7 @@
 <div class="page_break"></div>
 <div class=WordSection1>
     <p class=MsoNormal><span style='color:#4472C4'><img width=130 height=101
-                                                        src="http://zerbit.co/images/logo.png"></span></p>
+                                                        src="https://zerbit.co/images/logo.png"></span></p>
     <p class=MsoNormal align=center style='text-align:center'><b><span
                     style='font-size:14.0pt;line-height:105%;color:#4472C4'>FORMATO DE EVOLUCIÓN</span></b></p>
     <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
@@ -726,7 +726,7 @@
 <div class="page_break"></div>
 <div class=WordSection1>
     <p class=MsoNormal><span style='color:#4472C4'><img width=130 height=101
-                                                        src="http://zerbit.co/images/logo.png"></span></p>
+                                                        src="https://zerbit.co/images/logo.png"></span></p>
     <table class=MsoTableGrid border=1 cellspacing=0 cellpadding=0
            style='border-collapse:collapse;border:none'>
         <tr>

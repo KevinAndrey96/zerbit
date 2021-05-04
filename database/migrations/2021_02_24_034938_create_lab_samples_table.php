@@ -22,7 +22,7 @@ class CreateLabSamplesTable extends Migration
             $table->date('delivery_date')->nullable();
             $table->date('signature_date')->nullable();
             $table->boolean('signed_by_himself');
-            $table->text('signature')->nullable();
+            $table->mediumText('signature')->nullable();
             $table->timestamps();
 
             $table->foreign('patient_id')->references('id')->on('patients')->onDelete('cascade');;

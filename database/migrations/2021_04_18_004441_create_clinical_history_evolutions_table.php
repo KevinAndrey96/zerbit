@@ -16,11 +16,11 @@ class CreateClinicalHistoryEvolutionsTable extends Migration
         Schema::create('ch_evolutions', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('clinical_history_id');
-            $table->text('evolution_text');
-            $table->date('evolution_date');
-            $table->string('start_time');
-            $table->string('end_time');
-            $table->text('signature')->nullable();
+            $table->text('evolution_text')->nullable();;
+            $table->date('evolution_date')->nullable();;
+            $table->string('start_time')->nullable();;
+            $table->string('end_time')->nullable();;
+            $table->mediumText('signature')->nullable();
             $table->text('observation')->nullable();
             $table->timestamps();
 

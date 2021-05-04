@@ -65,24 +65,24 @@
     <title>.:Zerbit:. | Servicios de atención en salud |</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="http://zerbit.co/images/favicon.png" type="image/x-icon">
-    <link rel="icon" href="http://zerbit.co/images/favicon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://zerbit.co/images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="https://zerbit.co/images/favicon.png" type="image/x-icon">
 
     <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
-    <link rel="stylesheet" type="text/css" href="http://zerbit.co/rs-plugin/css/settings.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="https://zerbit.co/rs-plugin/css/settings.css" media="screen" />
 
     <!-- StyleSheets -->
-    <link rel="stylesheet" href="http://zerbit.co/css/ionicons.min.css">
-    <link rel="stylesheet" href="http://zerbit.co/css/bootstrap.min.css">
-    <link rel="stylesheet" href="http://zerbit.co/css/font-awesome.min.css">
-    <link rel="stylesheet" href="http://zerbit.co/css/main.css">
-    <link rel="stylesheet" href="http://zerbit.co/css/style.css">
-    <link rel="stylesheet" href="http://zerbit.co/css/responsive.css">
-    <link rel="stylesheet" href="http://zerbit.co/fonts.css">
+    <link rel="stylesheet" href="https://zerbit.co/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://zerbit.co/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://zerbit.co/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://zerbit.co/css/main.css">
+    <link rel="stylesheet" href="https://zerbit.co/css/style.css">
+    <link rel="stylesheet" href="https://zerbit.co/css/responsive.css">
+    <link rel="stylesheet" href="https://zerbit.co/fonts.css">
 
 
-    <link rel="stylesheet" href="http://zerbit.co/redes/estilos.css">
-    <link rel="stylesheet" href="http://zerbit.co/redes/fonts.css">
+    <link rel="stylesheet" href="https://zerbit.co/redes/estilos.css">
+    <link rel="stylesheet" href="https://zerbit.co/redes/fonts.css">
 
 
     <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
@@ -90,7 +90,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Raleway:200,300,400,500,600,700,800,900" rel="stylesheet">
 
     <!-- JavaScripts -->
-    <script src="http://zerbit.co/js/vendors/modernizr.js"></script>
+    <script src="https://zerbit.co/js/vendors/modernizr.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
 </head>
 
@@ -118,7 +118,7 @@
     <!-- Header -->
     <header class="header-style-2">
         <div class="container">
-            <div class="logo"> <a href="http://zerbit.co/index.html"><img src="http://zerbit.co/images/logo.png" alt=""></a> </div>
+            <div class="logo"> <a href="https://zerbit.co/index.html"><img src="https://zerbit.co/images/logo.png" alt=""></a> </div>
             <div class="head-info">
                 <ul><br><br>
                     <li> <i class="fa fa-phone"></i>
@@ -146,10 +146,10 @@
                 <!-- NAV -->
                 <div class="collapse navbar-collapse" id="nav-open-btn">
                     <ul class="nav">
-                        <li class=" active"> <a href="http://zerbit.co/index.html">Inicio </a>
+                        <li class=" active"> <a href="https://zerbit.co/index.html">Inicio </a>
 
                         </li>
-                        <li><a href="http://zerbit.co/empresa_ips_zerbit.html">Empresa</a></li>
+                        <li><a href="https://zerbit.co/empresa_ips_zerbit.html">Empresa</a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Servicios </a>
                             <ul class="dropdown-menu multi-level">
@@ -159,18 +159,18 @@
                                         <li><a href="citologia_ips_zerbit.html">Citología </a></li>
                                         <li><a href="electrocardiograma_ips_zerbit.html">Electrocardiograma</a></li>
                                     </ul>
-                                <li><a href="http://zerbit.co/laboratorio_clinico_ips_zerbit.html">Laboratorio Clínico </a></li>
-                                <li><a href="http://zerbit.co/terapia_fisica_ips_zerbit.html">Terapia Fisica</a></li>
-                                <li><a href="http://zerbit.co/terapia_ocupacional_zerbit.html">Terapia Ocupacional</a></li>
-                                <li><a href="http://zerbit.co/terapia_lenguaje.html">Terapia Lenguaje</a></li>
-                                <li><a href="http://zerbit.co/nutricion_ips_zerbit.html">Nutrición - Consulta Externa</a></li>
-                                <li><a href="http://zerbit.co/ecografia_ips_zerbit.html">Ecografía</a></li>
-                                <li><a href="http://zerbit.co/masajes_ips_zerbit.html">Masajes</a></li>
+                                <li><a href="https://zerbit.co/laboratorio_clinico_ips_zerbit.html">Laboratorio Clínico </a></li>
+                                <li><a href="https://zerbit.co/terapia_fisica_ips_zerbit.html">Terapia Fisica</a></li>
+                                <li><a href="https://zerbit.co/terapia_ocupacional_zerbit.html">Terapia Ocupacional</a></li>
+                                <li><a href="https://zerbit.co/terapia_lenguaje.html">Terapia Lenguaje</a></li>
+                                <li><a href="https://zerbit.co/nutricion_ips_zerbit.html">Nutrición - Consulta Externa</a></li>
+                                <li><a href="https://zerbit.co/ecografia_ips_zerbit.html">Ecografía</a></li>
+                                <li><a href="https://zerbit.co/masajes_ips_zerbit.html">Masajes</a></li>
                             </ul>
                         </li>
-                        <li><a href="http://zerbit.co/agendar_cita.html">Agendar Cita </a></li>
+                        <li><a href="https://zerbit.co/agendar_cita.html">Agendar Cita </a></li>
                         <li><a href="https://www.synlab.co/servicios/_resultados/view/formLogin.php?error=0" target="new">Resultados</a></li>
-                        <li><a href="http://zerbit.co/contacto_ips_zerbit.html">Contácto </a></li>
+                        <li><a href="https://zerbit.co/contacto_ips_zerbit.html">Contácto </a></li>
 
                     </ul>
                 </div>
@@ -264,18 +264,18 @@
 <script src="/assets/js/select2.js"></script>
  -->
 
-<script src="http://zerbit.co/js/vendors/jquery/jquery.min.js"></script>
-<script src="http://zerbit.co/js/vendors/wow.min.js"></script>
-<script src="http://zerbit.co/js/vendors/bootstrap.min.js"></script>
-<script src="http://zerbit.co/js/vendors/own-menu.js"></script>
-<script src="http://zerbit.co/js/vendors/jquery.sticky.js"></script>
-<script src="http://zerbit.co/js/vendors/owl.carousel.min.js"></script>
-<script src="http://zerbit.co/js/vendors/jquery.magnific-popup.min.js"></script>
+<script src="https://zerbit.co/js/vendors/jquery/jquery.min.js"></script>
+<script src="https://zerbit.co/js/vendors/wow.min.js"></script>
+<script src="https://zerbit.co/js/vendors/bootstrap.min.js"></script>
+<script src="https://zerbit.co/js/vendors/own-menu.js"></script>
+<script src="https://zerbit.co/js/vendors/jquery.sticky.js"></script>
+<script src="https://zerbit.co/js/vendors/owl.carousel.min.js"></script>
+<script src="https://zerbit.co/js/vendors/jquery.magnific-popup.min.js"></script>
 
 <!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
-<script type="text/javascript" src="http://zerbit.co/rs-plugin/js/jquery.tp.t.min.js"></script>
-<script type="text/javascript" src="http://zerbit.co/rs-plugin/js/jquery.tp.min.js"></script>
-<script src="http://zerbit.co/js/main.js"></script>
+<script type="text/javascript" src="https://zerbit.co/rs-plugin/js/jquery.tp.t.min.js"></script>
+<script type="text/javascript" src="https://zerbit.co/rs-plugin/js/jquery.tp.min.js"></script>
+<script src="https://zerbit.co/js/main.js"></script>
 </body>
 
 </html>

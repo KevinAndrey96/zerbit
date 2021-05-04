@@ -76,7 +76,7 @@
 </div>
 <div style="position:absolute;left:50%;margin-left:-400px;top:406px;width:1200px;height:396px;overflow:hidden">
     <div style="position:absolute;left:0px;top:0px">
-        <img style="opacity: 0.2;" src="http://zerbit.co/portal/6958c0e6-765b-11eb-8b25-0cc47a792c0a_id_6958c0e6-765b-11eb-8b25-0cc47a792c0a_files/background2.jpg" width=775 height=396></div>
+        <img style="opacity: 0.2;" src="https://zerbit.co/portal/6958c0e6-765b-11eb-8b25-0cc47a792c0a_id_6958c0e6-765b-11eb-8b25-0cc47a792c0a_files/background2.jpg" width=775 height=396></div>
     <div style="position:absolute;left:99.49px;top:70.90px" class="cls_003"><span class="cls_003">AUTORIZACIÓN PARA EL TRATAMIENTO  DE DATOS PERSONALES.</span></div>
     <div style="position:absolute;left:12.33px;top:131.56px" class="cls_002"><span class="cls_002">Con la firma de este documento autorizo de manera voluntaria, previa, explícita e informada a ZERBIT S.A.S. a usar y tratar mis datos</span></div>
     <div style="position:absolute;left:12.33px;top:143.56px" class="cls_002"><span class="cls_002">personales para los fines relacionados con el desarrollo de su objeto social, en especial para la prestación de servicios de salud. Así</span></div>

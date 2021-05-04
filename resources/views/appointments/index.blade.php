@@ -16,10 +16,10 @@
         });
     </script>
     <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Creación de evolución</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Agendamiento de cita</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -39,11 +39,11 @@
                         </div>
                         <div class="form-group">
                             <label for="end_time">Fecha y hora</label>
-                            <input type="datetime-local" for="end_time" name="datetime" class="form-control" placeholder="Hora fin">
+                            <input type="datetime-local" required for="end_time" name="datetime" class="form-control" placeholder="Hora fin">
                         </div>
                         <div class="form-group">
                             <label for="observation" class="col-form-label">Comentario</label>
-                            <input type="text" for="observation" name="comment" class="form-control" placeholder="Comentario">
+                            <input type="text" required for="observation" name="comment" class="form-control" placeholder="Comentario">
                         </div>
 
                     </div>
@@ -73,7 +73,7 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <table class="table" id="myTable">
+                    <table class="table-responsive" id="myTable">
                         <thead>
                         <th>ID</th>
                         <th>Paciente</th>
@@ -116,7 +116,10 @@
                     </table>
                     <script>
                         $(document).ready( function () {
-                            $('#myTable').DataTable();
+                            $('#myTable').DataTable({
+                                responsive: true,
+                                "pageLength": 10
+                            });
                         } );
 
 

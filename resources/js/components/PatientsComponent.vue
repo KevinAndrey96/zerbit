@@ -15,12 +15,12 @@
             striped
             hover
             outlined
-            thead-tr-class="d-none"
             :items="patients"
             :filter="filter"
             :fields="fields"
+            :filter-included-fields="['actions']">
         >
-          <template v-slot:thead-top="data">
+          <template v-slot:thead-top="data" scope="data">
           <b-tr>
             <b-th><span>Id</span></b-th>
             <b-th>Nombre</b-th>
@@ -31,7 +31,7 @@
             <b-th>Opciones</b-th>
           </b-tr>
           </template>
-          <template v-slot:cell(actions)="data">
+          <template v-slot:cell(actions)="data" scope="data">
             <a class="btn btn-info form-control" v-bind:href="clinicalHistoriesRoute+data.item.document">H. clínicas</a>
             <a class="btn btn-primary form-control" v-bind:href="labSamplesRoute+data.item.document">Consentimientos</a>
             <form method="POST" v-bind:action="deletePatientRoute+data.item.id">
@@ -55,13 +55,13 @@
               <b-form-input id="newPatient.first_name" name="first_name" required></b-form-input>
             </b-form-group>
             <b-form-group label="Segundo Nombre" label-for="newPatient.second_name" invalid-feedback="Nombre es requerido">
-              <b-form-input id="newPatient.name" name="second_name" required></b-form-input>
+              <b-form-input id="newPatient.name" name="second_name"></b-form-input>
             </b-form-group>
             <b-form-group label="Primer Apellido" label-for="newPatient.first_surname" invalid-feedback="Apellido es requerido">
               <b-form-input id="newPatient.first_surname" name="first_surname" required></b-form-input>
             </b-form-group>
             <b-form-group label="Segundo Apellido" label-for="newPatient.second_surname" invalid-feedback="Apellido es requerido">
-              <b-form-input id="newPatient.second_surname" name="second_surname" required></b-form-input>
+              <b-form-input id="newPatient.second_surname" name="second_surname"></b-form-input>
             </b-form-group>
 
             <b-form-group label="Fecha de nacimiento" label-for="newPatient.birthdate" invalid-feedback="Fecha de nacimiento es requerido">
@@ -140,7 +140,7 @@ export default {
   data() {
     return {
       fields: ["id", "first_name", "document", "email", "phone", "address", "actions"],
-      filter: "",
+      filter: ["id", "first_name", "document", "email", "phone", "address", "actions"],
       patients: this.patients_list,
       createPatientRoute: "/patients",
       deletePatientRoute: "/patients/",

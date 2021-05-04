@@ -16,13 +16,13 @@ class CreateClinicalHistoryRecordsTable extends Migration
         Schema::create('ch_records', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('clinical_history_id');
-            $table->text('medical_pathological');
-            $table->text('surgical');
-            $table->text('traumatic');
-            $table->text('allergy');
-            $table->text('family');
-            $table->text('pharmacological');
-            $table->text('others');
+            $table->text('medical_pathological')->nullable();;
+            $table->text('surgical')->nullable();;
+            $table->text('traumatic')->nullable();;
+            $table->text('allergy')->nullable();;
+            $table->text('family')->nullable();;
+            $table->text('pharmacological')->nullable();;
+            $table->text('others')->nullable();;
             $table->timestamps();
 
             $table->foreign('clinical_history_id')->references('id')->on('clinical_histories')->onDelete('cascade');;
