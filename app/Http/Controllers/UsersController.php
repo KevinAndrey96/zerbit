@@ -7,6 +7,7 @@ use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
 use Spatie\Permission\Models\Role;
@@ -64,5 +65,29 @@ class UsersController extends Controller
             $user->delete();
         } catch (Exception $e) { }
         return response()->redirectTo('/users');
+    }
+
+    /**
+     * @return View
+     */
+    public function change(): View
+    {
+        return view("Auth.change");
+    }
+
+    /**
+     * @param Request $request
+     * @return View
+     */
+    public function changePassword(Request $request)
+    {
+        if ($request->input('new') == $request->input('new2')) {
+            if (Hash::check($request->input('actual'), Auth::user()->password)) {
+                Auth::user()->password = Hash::make($request->input('new2'));
+                Auth::user()->save();
+                return response()->redirectTo('/patients');
+            }
+        }
+        return response()->redirectTo('/users/change-password');
     }
 }

@@ -1,4 +1,4 @@
-php <?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -18,7 +18,7 @@ class CreatePatientsTable extends Migration
             $table->id();
             $table->string('first_name');
             $table->string('second_name')->default(' ')->nullable();
-            $table->string('first_surname');
+            $table->string('first_surname')->default(' ')->nullable();;
             $table->string('second_surname')->default(' ')->nullable();
 
             $table->date('birthdate');

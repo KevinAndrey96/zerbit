@@ -15,12 +15,13 @@
             striped
             hover
             outlined
+            thead-tr-class="d-none"
             :items="patients"
             :filter="filter"
             :fields="fields"
-            :filter-included-fields="['actions']">
+            :filter-included-fields="filter.actions">
         >
-          <template v-slot:thead-top="data" scope="data">
+          <template v-slot:thead-top="data" >
           <b-tr>
             <b-th><span>Id</span></b-th>
             <b-th>Nombre</b-th>
@@ -31,7 +32,7 @@
             <b-th>Opciones</b-th>
           </b-tr>
           </template>
-          <template v-slot:cell(actions)="data" scope="data">
+          <template v-slot:cell(actions)="data">
             <a class="btn btn-info form-control" v-bind:href="clinicalHistoriesRoute+data.item.document">H. clínicas</a>
             <a class="btn btn-primary form-control" v-bind:href="labSamplesRoute+data.item.document">Consentimientos</a>
             <form method="POST" v-bind:action="deletePatientRoute+data.item.id">
@@ -73,7 +74,7 @@
             </b-form-group>
 
             <b-form-group label="Genero" label-for="newPatient.gender" invalid-feedback="Genero es requerido">
-              <b-form-select v-model="selected" name="gender" class="mb-3">
+              <b-form-select name="gender" class="mb-3">
                 <b-form-select-option :value="null">Seleccione una opción</b-form-select-option>
                 <b-form-select-option value="male">Masculino</b-form-select-option>
                 <b-form-select-option value="female">Femenino</b-form-select-option>
@@ -90,7 +91,7 @@
             </b-form-group>
 
             <b-form-group label="Tipo de documento" label-for="newPatient.document_type" invalid-feedback="Documento es requerido">
-              <b-form-select v-model="selected" name="document_type" class="mb-3">
+              <b-form-select name="document_type" class="mb-3">
                 <b-form-select-option :value="null">Seleccione una opción</b-form-select-option>
                 <b-form-select-option value="cc">CC</b-form-select-option>
                 <b-form-select-option value="ti">TI</b-form-select-option>
@@ -140,7 +141,7 @@ export default {
   data() {
     return {
       fields: ["id", "first_name", "document", "email", "phone", "address", "actions"],
-      filter: ["id", "first_name", "document", "email", "phone", "address", "actions"],
+      filter: '',
       patients: this.patients_list,
       createPatientRoute: "/patients",
       deletePatientRoute: "/patients/",

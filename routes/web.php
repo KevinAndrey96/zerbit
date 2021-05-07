@@ -21,6 +21,8 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::get('/users', [App\Http\Controllers\UsersController::class, 'index'])->name('users')->middleware("auth");
     Route::post('/users', [App\Http\Controllers\UsersController::class, 'create'])->middleware("auth");
     Route::delete('/users/{user}', [App\Http\Controllers\UsersController::class, 'destroy'])->middleware("auth");
+    Route::get('/users/change-password', [App\Http\Controllers\UsersController::class, 'change'])->name('change')->middleware("auth");
+    Route::post('/users/change-password', [App\Http\Controllers\UsersController::class, 'changePassword'])->middleware("auth");
 
     Route::get('/signatures', [App\Http\Controllers\SignatureController::class, 'index'])->middleware("auth");
     Route::get('/signatures/{user}', [App\Http\Controllers\SignatureController::class, 'show'])->middleware("auth");

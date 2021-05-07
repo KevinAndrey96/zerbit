@@ -46,6 +46,8 @@ class ClinicalHistoriesController extends Controller
     {
         if (Auth::user()->role == 'terapeuta') {
             $therapists = User::where('id', Auth::user()->id)->get();
+        } elseif (Auth::user()->role == 'administrador') {
+            $therapists = User::where('id', Auth::user()->id)->get();
         } else {
             $therapists = User::all();
         }

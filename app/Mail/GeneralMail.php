@@ -18,7 +18,7 @@ class GeneralMail extends Mailable
     /**
      * @var string
      */
-    public string $text;
+    public $text;
 
     /**
      * @var string
