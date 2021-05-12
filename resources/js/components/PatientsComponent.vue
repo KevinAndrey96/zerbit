@@ -136,13 +136,14 @@ export default {
   name: "PatientsComponent",
   props: {
     patients_list: Array,
-    csrf_token: String,
+    role: String,
   },
   data() {
     return {
       fields: ["id", "first_name", "document", "email", "phone", "address", "actions"],
       filter: '',
       patients: this.patients_list,
+      role: this.role,
       createPatientRoute: "/patients",
       deletePatientRoute: "/patients/",
       clinicalHistoriesRoute: "/clinical-histories/",

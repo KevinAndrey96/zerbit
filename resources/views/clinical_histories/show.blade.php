@@ -331,7 +331,7 @@
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><b><span lang=EN-US style='color:#4472C4'>FARMACOLOGICOS</span></b></p>
+                     line-height:normal'><b><span lang=EN-US style='color:#4472C4'>FARMACOLÓGICOS</span></b></p>
             </td>
         </tr>
         <tr>

@@ -42,8 +42,8 @@
                             <textarea class="form-control" id="evolution" name="evolution_text"></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="observation" class="col-form-label">Observación</label>
-                            <input type="text" for="observation" name="observation" class="form-control" placeholder="Observación">
+                            <label for="observation" class="col-form-label">Número de autorización</label>
+                            <input type="text" for="Número de autorización" name="observation" class="form-control" placeholder="Observación">
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -94,7 +94,12 @@
 
                     <script>
                         $(document).ready( function () {
-                            $('#myTable').DataTable();
+                            $('#myTable').DataTable(
+                                {
+                                    responsive: true,
+                                    "pageLength": 3
+                                }
+                            );
                         } );
                     </script>
                 </div>

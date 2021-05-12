@@ -46,7 +46,11 @@ class PatientsController extends Controller
      */
     public function store(Request $request)
     {
-        $patient = Patient::create($request->toArray());
+        try {
+            $patient = Patient::create($request->toArray());
+        } catch (Exception $e) {
+            return redirect()->back()->with('alert','Error creando el paciente, recuerde que el documento, correo electrónico y número de teléfono deben ser datos únicos por persona');
+        }
         return response()->redirectTo('/patients');
     }
 

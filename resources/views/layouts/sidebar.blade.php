@@ -64,12 +64,12 @@
                             <span class="ml-auto sidebar-menu-toggle-icon"></span>
                         </a>
                         <ul class="sidebar-submenu collapse" id="pages_menu" >
-                            <li class="sidebar-menu-item" style="display:none;">
+                            <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('physical-therapies-create') }}">
                                     <span class="sidebar-menu-text">Crear historial de terapia física</span>
                                 </a>
                             </li>
-                            <li class="sidebar-menu-item" style="display:none;">
+                            <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('physical-therapies') }}">
                                     <span class="sidebar-menu-text">Ver historial de terapias físicas</span>
                                 </a>

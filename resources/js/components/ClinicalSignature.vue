@@ -63,7 +63,7 @@
           <input id="family" type="text" class="form-control" v-model="form.family" placeholder="Familiares">
         </div>
         <div class="form-group">
-          <label for="pharmacological">Farmacologicos</label><br>
+          <label for="pharmacological">Farmacológicos</label><br>
           <input id="pharmacological" type="text" class="form-control" v-model="form.pharmacological" placeholder="Farmacologicos">
         </div>
         <div class="form-group">

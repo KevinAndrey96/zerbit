@@ -130,6 +130,13 @@
             </div>
         </div>
     </div>
+    <script>
+        var msg = '{{Session::get('alert')}}';
+        var exist = '{{Session::has('alert')}}';
+        if(exist){
+            alert(msg);
+        }
+    </script>
     <div class="container-fluid page__container">
         <div class="card">
             <div class="card-header card-header-large bg-white">
@@ -166,11 +173,13 @@
                             <td>
                                 <a class="btn btn-info form-control" style="color:white;" href="/clinical-histories/{{$patient->document}}">H. clínicas</a>
                                 <a class="btn btn-primary form-control" style="color:white;" href="/lab-samples/{{$patient->document}}">Consentimientos</a>
-                                <form method="POST" action="/patients/{{$patient->id}}">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    @csrf
-                                    <input type="submit" class="btn btn-danger form-control" value="Eliminar">
-                                </form>
+                                @if(Auth::user()->role == "admin")
+                                    <form method="POST" action="/patients/{{$patient->id}}">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        @csrf
+                                        <input type="submit" class="btn btn-danger form-control" value="Eliminar">
+                                    </form>
+                                @endif
                             </td>
                         </tr>
                     @endforeach
@@ -178,7 +187,10 @@
                 </table>
                 <script>
                     $(document).ready( function () {
-                        $('#myTable').DataTable();
+                        $('#myTable').DataTable({
+                            responsive: true,
+                            "pageLength": 3
+                        });
                     } );
                 </script>
                 <script src="{{asset('js/app.js')}}"></script>

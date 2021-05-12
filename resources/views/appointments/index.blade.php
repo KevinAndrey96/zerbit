@@ -118,7 +118,7 @@
                         $(document).ready( function () {
                             $('#myTable').DataTable({
                                 responsive: true,
-                                "pageLength": 10
+                                "pageLength": 3
                             });
                         } );
 
