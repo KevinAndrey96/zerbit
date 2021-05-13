@@ -6,7 +6,7 @@
             <div class="card-header card-header-large bg-white">
                 <h4 class="card-header__title">Cambiar Contraseña</h4>
             </div>
-            <div style="padding-top: 15px" class="" data-toggle="lists"
+            <div style="padding-top: 160px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>
                 <div style="padding: 30px" id="app" class="content-fluid" style="padding-bottom: 50px">
                     <form action="/users/change-password" method="post">

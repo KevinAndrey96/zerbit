@@ -1,5 +1,5 @@
 <template>
-  <div id="UsersComponent" class="container">
+  <div id="UsersComponent" tyle="padding-top: 160px; !important" class="container">
     <b-row class="mb-3">
       <b-col md="3">
         <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Buscar"></b-form-input>

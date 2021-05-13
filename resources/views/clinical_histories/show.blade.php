@@ -76,7 +76,7 @@
                   border-left:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>DOCUMENTO NÚMERO<br>
-                     1032485</span>
+                     {{$clinicalHistory->patient->document}}</span>
                 </p>
             </td>
         </tr>
@@ -866,12 +866,14 @@
                                 style='color:#4472C4'>FIRMA DEL PACIENTE</span></b></p>
             </td>
         </tr>
+        <p style="display:none">{{$i = 0}}</p>
         @foreach($chEvolutions as $evolution)
+            <p style="display:none">{{$i += 1}}</p>
         <tr>
             <td width=30 valign=top style='width:22.25pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='text-align:center'><span
-                            style='color:#4472C4'>{{$evolution->id}}</span></p>
+                            style='color:#4472C4'>{{$i}}</span></p>
             </td>
             <td width=96 valign=top style='width:1.0in;border-top:none;border-left:none;
                   border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;

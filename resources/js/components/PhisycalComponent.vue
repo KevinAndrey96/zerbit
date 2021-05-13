@@ -23,10 +23,11 @@
           <template v-slot:thead-top="data">
             <b-tr>
               <b-th><span>Id</span></b-th>
+              <b-th>Documento</b-th>
               <b-th>Nombre</b-th>
               <b-th>Apellido</b-th>
-              <b-th>Terapeuta</b-th>
               <b-th># Sesiones</b-th>
+              <b-th>Fecha de firma</b-th>
               <b-th>Firma</b-th>
               <b-th>Opciones</b-th>
             </b-tr>
@@ -58,7 +59,7 @@ export default {
   },
   data() {
     return {
-      fields: ["id", "patient.first_name", "patient.first_surname", "therapist.name", "sessions_number", "signature", "actions"],
+      fields: ["id", "patient.document", "patient.first_name", "patient.first_surname", "sessions_number", "created_at", "signature", "actions"],
       filter: "",
       list: this.list,
       createRoute: "/physical-therapies",
