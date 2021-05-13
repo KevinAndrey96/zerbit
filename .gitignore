@@ -2,3 +2,4 @@
 public/index.php
 app/Providers/AppServiceProvider.php
 .env
+bootstrap/cache/config.php

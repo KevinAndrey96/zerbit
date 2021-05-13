@@ -72,7 +72,7 @@ class UsersController extends Controller
      */
     public function change(): View
     {
-        return view("Auth.change");
+        return view("auth.change");
     }
 
     /**
