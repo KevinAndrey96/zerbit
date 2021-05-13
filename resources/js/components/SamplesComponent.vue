@@ -1,5 +1,11 @@
 <template>
-  <div id="UsersComponent" tyle="padding-top: 160px; !important" class="container">
+  <div id="UsersComponent" class="container overflow-auto">
+    <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+    ></b-pagination>
     <b-row class="mb-3">
       <b-col md="3">
         <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Buscar"></b-form-input>
@@ -11,6 +17,7 @@
     <b-row>
       <b-col>
         <b-table
+            id="my-table"
             responsive
             striped
             hover
@@ -19,6 +26,8 @@
             :items="samples"
             :filter="filter"
             :fields="fields"
+            :per-page="perPage"
+            :current-page="currentPage"
         >
           <template v-slot:thead-top="data">
           <b-tr>
@@ -152,9 +161,12 @@ export default {
     csrf_token: String,
   },
   data() {
+
     return {
       fields: ["id", "patient.document","patient.first_name", "patient.first_surname", "sample_type", "signature_date", "signature", "actions"],
       filter: "",
+      perPage: 5,
+      currentPage: 1,
       samples: this.samples_list,
       createRoute: "/lab-samples",
       deleteRoute: "/lab-samples/",
@@ -170,5 +182,10 @@ export default {
       this.users_list.splice(index, 1);
     }
   },
+  computed: {
+    rows() {
+      return this.samples.length
+    }
+  }
 }
 </script>

@@ -1,5 +1,11 @@
 <template>
   <div id="PhysicalComponent" class="container">
+    <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+    ></b-pagination>
     <b-row class="mb-3">
       <b-col md="3">
         <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Buscar"></b-form-input>
@@ -11,6 +17,10 @@
     <b-row>
       <b-col>
         <b-table
+            id="my-table"
+
+            :per-page="perPage"
+            :current-page="currentPage"
             responsive
             striped
             hover
@@ -61,6 +71,8 @@ export default {
     return {
       fields: ["id", "patient.document", "patient.first_name", "patient.first_surname", "sessions_number", "created_at", "signature", "actions"],
       filter: "",
+      perPage: 5,
+      currentPage: 1,
       list: this.list,
       createRoute: "/physical-therapies",
       deleteRoute: "/physical-therapies/",
@@ -68,7 +80,10 @@ export default {
       csrf: $('meta[name="csrf-token"]').attr('content'),
     };
   },
-  created() {
+  computed: {
+    rows() {
+      return this.list.length
+    }
   },
   methods: {
     deleteItem(id) {

@@ -1,5 +1,11 @@
 <template>
   <div id="PatientsComponent" class="container">
+    <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+    ></b-pagination>
     <b-row class="mb-3">
       <b-col md="3">
         <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Buscar"></b-form-input>
@@ -11,6 +17,9 @@
     <b-row>
       <b-col>
         <b-table
+            id="my-table"
+            :per-page="perPage"
+            :current-page="currentPage"
             responsive
             striped
             hover
@@ -142,6 +151,8 @@ export default {
     return {
       fields: ["id", "first_name", "document", "email", "phone", "address", "actions"],
       filter: '',
+      perPage: 5,
+      currentPage: 1,
       patients: this.patients_list,
       role: this.role,
       createPatientRoute: "/patients",
@@ -153,6 +164,11 @@ export default {
   },
   created() {
 
+  },
+  computed: {
+    rows() {
+      return this.patients.length
+    }
   },
   methods: {
     deleteItem(id) {

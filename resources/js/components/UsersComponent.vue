@@ -1,5 +1,11 @@
 <template>
   <div id="UsersComponent" class="container">
+    <b-pagination
+        v-model="currentPage"
+        :total-rows="rows"
+        :per-page="perPage"
+        aria-controls="my-table"
+    ></b-pagination>
     <b-row class="mb-3">
       <b-col md="3">
         <b-form-input v-model="filter" type="search" id="filterInput" placeholder="Buscar"></b-form-input>
@@ -11,6 +17,7 @@
     <b-row>
       <b-col>
         <b-table
+            id="my-table"
             responsive
             striped
             hover
@@ -19,6 +26,8 @@
             :items="users"
             :filter="filter"
             :fields="fields"
+            :per-page="perPage"
+            :current-page="currentPage"
         >
           <template v-slot:thead-top="data">
           <b-tr>
@@ -140,6 +149,8 @@ export default {
         email: '',
         password: ''
       },
+      perPage: 5,
+      currentPage: 1,
       name: '',
       createUserRoute: "/users",
       deleteUserRoute: "/users/",
@@ -155,5 +166,10 @@ export default {
       this.users_list.splice(index, 1);
     }
   },
+  computed: {
+    rows() {
+      return this.users.length
+    }
+  }
 }
 </script>
