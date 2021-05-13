@@ -64,7 +64,7 @@
         </div>
         <div class="form-group">
           <label for="pharmacological">Farmacológicos</label><br>
-          <input id="pharmacological" type="text" class="form-control" v-model="form.pharmacological" placeholder="Farmacologicos">
+          <input id="pharmacological" type="text" class="form-control" v-model="form.pharmacological" placeholder="Farmacológicos">
         </div>
         <div class="form-group">
           <label for="others">Otros</label><br>
