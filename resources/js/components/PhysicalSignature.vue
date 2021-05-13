@@ -18,10 +18,10 @@
         </div>
         <div class="form-group">
           <label for="patient_id">Paciente</label><br>
-          <select class="form-control selectpicker" v-model="form.patientID" data-live-search="true"
-                  name="patient_id" id="patient_id">
-            <option v-for="patient in patients" :value="patient.id">{{patient.first_name + ' ' + patient.first_surname}}</option>
-          </select>
+          <div class="form-group">
+            <label for="patient_id">Paciente</label><br>
+            <v-select id="patient_id" :options="patients" v-model="form.patientID" searchable/>
+          </div>
         </div>
       </tab-content>
       <tab-content title="Paso 2">

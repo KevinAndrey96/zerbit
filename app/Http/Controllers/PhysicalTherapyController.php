@@ -8,16 +8,18 @@ use App\Models\PhysicalTherapy;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
+use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PhysicalTherapyController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Response
+     * @return Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
@@ -33,7 +35,13 @@ class PhysicalTherapyController extends Controller
     public function create()
     {
         $patients = Patient::all();
-        $therapists = User::all();
+        if (Auth::user()->role == 'terapeuta') {
+            $therapists = User::where('id', Auth::user()->id)->get();
+        } elseif (Auth::user()->role == 'administrador') {
+            $therapists = User::where('id', Auth::user()->id)->get();
+        } else {
+            $therapists = User::all();
+        }
         return view("physical_therapies.create", ['patients' => $patients, 'therapists' => $therapists]);
     }
 
