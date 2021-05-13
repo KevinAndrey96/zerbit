@@ -55,16 +55,16 @@
           <input id="traumatic" type="text" class="form-control" v-model="form.traumatic" placeholder="Traumáticos">
         </div>
         <div class="form-group">
+          <label for="pharmacological">Farmacológicos</label><br>
+          <input id="pharmacological" type="text" class="form-control" v-model="form.pharmacological" placeholder="Farmacológicos">
+        </div>
+        <div class="form-group">
           <label for="allergy">Alergicos</label><br>
           <input id="allergy" type="text" class="form-control" v-model="form.allergy" placeholder="Alergicos">
         </div>
         <div class="form-group">
           <label for="family">Familiares</label><br>
           <input id="family" type="text" class="form-control" v-model="form.family" placeholder="Familiares">
-        </div>
-        <div class="form-group">
-          <label for="pharmacological">Farmacológicos</label><br>
-          <input id="pharmacological" type="text" class="form-control" v-model="form.pharmacological" placeholder="Farmacológicos">
         </div>
         <div class="form-group">
           <label for="others">Otros</label><br>
