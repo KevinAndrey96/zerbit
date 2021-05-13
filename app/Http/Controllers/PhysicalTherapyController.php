@@ -8,6 +8,7 @@ use App\Models\PhysicalTherapy;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -103,10 +104,10 @@ class PhysicalTherapyController extends Controller
      * @param LabSample $labSample
      * @return RedirectResponse
      */
-    public function destroy(LabSample $labSample): RedirectResponse
+    public function destroy(PhysicalTherapy $physicalTherapy): RedirectResponse
     {
         try {
-            $labSample->delete();
+            $physicalTherapy->delete();
         } catch (Exception $e) { }
         return response()->redirectTo('/physical-therapies');
     }
