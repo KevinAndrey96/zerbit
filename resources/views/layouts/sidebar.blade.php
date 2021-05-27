@@ -103,6 +103,30 @@
                         </ul>
                     </li>
                     @endif
+                    <li class="sidebar-menu-item">
+                        <a class="sidebar-menu-button" data-toggle="collapse" href="#account">
+                            <i class="sidebar-menu-icon sidebar-menu-icon--left material-icons">face</i>
+                            <span class="sidebar-menu-text">Mi cuenta</span>
+                            <span class="ml-auto sidebar-menu-toggle-icon"></span>
+                        </a>
+                        <ul class="sidebar-submenu collapse" id="account">
+                            <li class="sidebar-menu-item active">
+                                <a class="sidebar-menu-button" href="/signatures/{{auth()->user()->id}}">
+                                    <span class="sidebar-menu-text">Ver/editar cuenta</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item active">
+                                <a class="sidebar-menu-button" href="{{route('change')}}">
+                                    <span class="sidebar-menu-text">Cambiar contraseña</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-menu-item active">
+                                <a class="sidebar-menu-button" href="{{ route('logout') }}">
+                                    <span class="sidebar-menu-text">Cerrar sesión</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

@@ -99,7 +99,7 @@
                                 <a class="dropdown-item" href="/signatures/{{auth()->user()->id}}">Ver/Editar Firma</a>
                                 <a class="dropdown-item" href="{{route('change')}}">Cambiar contraseña</a>
                                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
-                                    Logout
+                                    Cerrar sesión
                                 </a>
                                 <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     {{ csrf_field() }}
