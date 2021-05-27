@@ -71,7 +71,7 @@
                             </li>
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('physical-therapies') }}">
-                                    <span class="sidebar-menu-text">Ver consentimiento terapia fisica</span>
+                                    <span class="sidebar-menu-text">Ver consentimientos terapia fisica</span>
                                 </a>
                             </li>
                             <li class="sidebar-menu-item">

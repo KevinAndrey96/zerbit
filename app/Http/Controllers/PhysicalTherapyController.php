@@ -35,7 +35,6 @@ class PhysicalTherapyController extends Controller
      */
     public function create()
     {
-        $patients = Patient::all();
         if (Auth::user()->role == 'terapeuta') {
             $therapists = User::where('id', Auth::user()->id)->get();
         } elseif (Auth::user()->role == 'administrador') {
@@ -43,7 +42,21 @@ class PhysicalTherapyController extends Controller
         } else {
             $therapists = User::all();
         }
-        return view("physical_therapies.create", ['patients' => $patients, 'therapists' => $therapists]);
+
+        $patients = Patient::all();
+        $patients2 = Array();
+        foreach ($patients as $patient) {
+            $patient2 = [
+                "value" => $patient->id,
+                "text" => $patient->document.' '.
+                    $patient->first_name.' '.
+                    $patient->second_name.' '.
+                    $patient->first_surname.' '.
+                    $patient->second_surname
+            ];
+            array_push($patients2, $patient2);
+        }
+        return view("physical_therapies.create", ['patients' => json_encode($patients2), 'therapists' => $therapists]);
     }
 
     /**

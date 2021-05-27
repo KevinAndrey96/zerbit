@@ -17,7 +17,6 @@
           </select>
         </div>
         <div class="form-group">
-          <label for="patient_id">Paciente</label><br>
           <div class="form-group">
             <label for="patient_id">Paciente</label><br>
             <v-select id="patient_id" :options="patients" v-model="form.patientID" searchable/>
@@ -88,10 +87,13 @@
 
 <script>
 import VueFormWizard from 'vue-form-wizard'
+import VSelect from '@alfsnd/vue-bootstrap-select'
+
 export default {
   name: "PhysicalSignature",
   components: {
-    VueFormWizard
+    VueFormWizard,
+    VSelect
   },
   props: {
     patients_list: Array,
@@ -103,7 +105,7 @@ export default {
       patients: this.patients_list,
       therapists: this.therapists_list,
       form: {
-        patientID: 1,
+        patientID: null,
         therapistID: 1,
         sessionsNumber: 1,
         startDate: "2020-10-01",
@@ -119,7 +121,7 @@ export default {
     onComplete: function(){
       const axios = require('axios');
       axios.post('/physical-therapies', {
-        patient_id: this.form.patientID,
+        patient_id: this.form.patientID.value,
         therapist_id: this.form.therapistID,
         sessions_number: this.form.sessionsNumber,
         start_date: this.form.startDate,

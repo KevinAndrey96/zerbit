@@ -5,7 +5,7 @@
     <div class="container">
         <div class="card">
         <div class="card-header card-header-large bg-white">
-            <h4 class="card-header__title">Muestras de laboratorio (Crear)</h4>
+            <h4 class="card-header__title">Terapias físicas (Crear)</h4>
         </div>
         <div class="card-body">
             <div id="app" class="content">
