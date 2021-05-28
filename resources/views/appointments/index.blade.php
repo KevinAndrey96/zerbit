@@ -42,8 +42,8 @@
                             <input type="datetime-local" required for="end_time" name="datetime" class="form-control" placeholder="Hora fin">
                         </div>
                         <div class="form-group">
-                            <label for="observation" class="col-form-label">Comentario</label>
-                            <input type="text" required for="observation" name="comment" class="form-control" placeholder="Comentario">
+                            <label for="observation" class="col-form-label">Número de autorización</label>
+                            <input type="text" required for="observation" name="comment" class="form-control" placeholder="Número de autorización">
                         </div>
 
                     </div>

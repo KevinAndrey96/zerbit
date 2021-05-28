@@ -40,7 +40,7 @@ class PhysicalTherapyController extends Controller
         } elseif (Auth::user()->role == 'administrador') {
             $therapists = User::where('id', Auth::user()->id)->get();
         } else {
-            $therapists = User::all();
+            $therapists = User::where('id', Auth::user()->id)->get();
         }
 
         $patients = Patient::all();

@@ -49,7 +49,7 @@ class ClinicalHistoriesController extends Controller
         } elseif (Auth::user()->role == 'administrador') {
             $therapists = User::where('id', Auth::user()->id)->get();
         } else {
-            $therapists = User::all();
+            $therapists = User::where('id', Auth::user()->id)->get();
         }
         //[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]
         $therapists2 = Array();

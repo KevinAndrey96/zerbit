@@ -171,9 +171,12 @@
                             <td>{{$patient->phone}}</td>
                             <td>{{$patient->address}}</td>
                             <td>
+                                @if(Auth::user()->role != "laboratorio")
                                 <a class="btn btn-info form-control" style="color:white;" href="/clinical-histories/{{$patient->document}}">H. clínicas</a>
-                                <a class="btn btn-primary form-control" style="color:white;" href="/lab-samples/{{$patient->document}}">Consentimientos</a>
-                                @if(Auth::user()->role == "admin")
+                                @endif
+                                    <a class="btn btn-primary form-control" style="color:white;" href="/lab-samples/{{$patient->document}}">Consentimientos</a>
+
+                                    @if(Auth::user()->role == "admin")
                                     <form method="POST" action="/patients/{{$patient->id}}">
                                         <input type="hidden" name="_method" value="DELETE">
                                         @csrf
