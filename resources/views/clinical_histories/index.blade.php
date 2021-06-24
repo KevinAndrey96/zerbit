@@ -43,7 +43,7 @@
                         </div>
                         <div class="form-group">
                             <label for="observation" class="col-form-label">Número de autorización</label>
-                            <input type="text" for="Número de autorización" name="observation" class="form-control" placeholder="Observación">
+                            <input type="text" for="Número de autorización" name="observation" class="form-control" placeholder="Observación" required>
                         </div>
                 </div>
                 <div class="modal-footer">
@@ -97,7 +97,9 @@
                             $('#myTable').DataTable(
                                 {
                                     responsive: true,
-                                    "pageLength": 3
+                                    "pageLength": 5,
+                                    "pagingType": "simple",
+                                    "order": [[ 0, 'desc' ]]
                                 }
                             );
                         } );

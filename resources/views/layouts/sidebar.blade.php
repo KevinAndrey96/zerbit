@@ -121,9 +121,12 @@
                                 </a>
                             </li>
                             <li class="sidebar-menu-item active">
-                                <a class="sidebar-menu-button" href="{{ route('logout') }}">
+                                <a class="sidebar-menu-button" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                     <span class="sidebar-menu-text">Cerrar sesión</span>
                                 </a>
+                                <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </li>
                         </ul>
                     </li>

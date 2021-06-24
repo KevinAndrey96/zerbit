@@ -31,7 +31,7 @@ class ClinicalHistoriesController extends Controller
     public function index(?string $filter = null)
     {
         if ($filter == null) {
-            $clinicalHistories = ClinicalHistory::all();
+            $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')->get();
         } else {
             $clinicalHistories = ClinicalHistory::whereHas('patient', function ($query) use ($filter) {
                 return $query->where('document', '=', $filter);
@@ -109,17 +109,13 @@ class ClinicalHistoriesController extends Controller
      */
     public function show(ClinicalHistory $clinicalHistory)
     {
-        $clinicalHistory = ClinicalHistory::find($clinicalHistory->id);
-        $chRecords = $clinicalHistory->records;
-        $chPsychotherapeuticalAssesments = $clinicalHistory->psychotherapeuticalAssesments;
-        $chEvolutions = $clinicalHistory->evolutions;
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
                 "clinicalHistory" => $clinicalHistory,
                 "date" => Carbon::now()->format("Y m d"),
-                "chRecords" => $chRecords,
-                "chPsychotherapeuticalAssesments" => $chPsychotherapeuticalAssesments,
-                "chEvolutions" => $chEvolutions
+                "chRecords" => $clinicalHistory->records,
+                "chPsychotherapeuticalAssesments" => $clinicalHistory->psychotherapeuticalAssesments,
+                "chEvolutions" => $clinicalHistory->evolutions
             ]);
         return $pdf->stream();
     }
