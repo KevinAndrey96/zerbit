@@ -57,7 +57,8 @@
         </div>
     </div>
 
-    <div id="top-card" class="container-fluid page__container">
+    <div class="container-fluid page__container">
+
         <div class="container">
 
             <div class="card">
@@ -120,7 +121,7 @@
                                 "pageLength": 3,
                                 "pagingType": "simple",
                                 "order": [[ 0, 'desc' ]]
-                            }).responsive.recalc();
+                            });
                         } );
 
 
