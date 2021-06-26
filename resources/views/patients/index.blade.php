@@ -137,13 +137,22 @@
             alert(msg);
         }
     </script>
-    <div class="container-fluid page__container">
+    <style>
+        @media only screen and (max-height: 600px) {
+            #top-card {
+                padding-top: 200px;
+            }
+        }
+        @media only screen and (max-height: 850px) {
+            #top-card {
+                padding-top: 100px;
+            }
+        }
+    </style>
+    <div id="top-card" class="container-fluid page__container">
         <div class="card">
             <div class="card-header card-header-large bg-white">
                 <h4 class="card-header__title">Pacientes</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-                    Nuevo paciente
-                </button>
             </div>
             <div style="padding: 30px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>

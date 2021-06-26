@@ -56,8 +56,19 @@
         </div>
     </div>
 
-    <div class="container-fluid page__container">
-
+    <style>
+        @media only screen and (max-height: 600px) {
+            #top-card {
+                padding-top: 200px;
+            }
+        }
+        @media only screen and (max-height: 850px) {
+            #top-card {
+                padding-top: 100px;
+            }
+        }
+    </style>
+    <div id="top-card" class="container-fluid page__container">
         <div class="container">
 
             <div class="card">

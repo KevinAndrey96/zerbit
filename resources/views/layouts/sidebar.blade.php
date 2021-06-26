@@ -26,6 +26,11 @@
                                     <span class="sidebar-menu-text">Pacientes</span>
                                 </a>
                             </li>
+                            <li class="sidebar-menu-item">
+                                <a class="sidebar-menu-button" href="/patients/create">
+                                    <span class="sidebar-menu-text">Crear Paciente</span>
+                                </a>
+                            </li>
                             @if(auth()->user()->role == "admin")
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('users') }}">
