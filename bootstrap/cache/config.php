@@ -477,7 +477,7 @@
         'port' => '465',
         'encryption' => 'ssl',
         'username' => 'no-reply@zerbit.co',
-        'password' => 'fkvurt#22-87',
+        'password' => 'fkvurt2287123',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
