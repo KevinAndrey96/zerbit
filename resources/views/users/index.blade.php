@@ -177,7 +177,7 @@
                     $(document).ready( function () {
                         $('#myTable').DataTable({
                             responsive: true,
-                            "pageLength": 3,
+                            "pageLength": 5,
                             "pagingType": "simple",
                             "order": [[ 0, 'desc' ]]
                         }).responsive.recalc();
