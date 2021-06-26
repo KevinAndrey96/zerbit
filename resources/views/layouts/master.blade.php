@@ -36,7 +36,9 @@
     <noscript><img height="1" width="1" style="display:none"
                    src="https://www.facebook.com/tr?id=327167911228268&ev=PageView&noscript=1"/></noscript>
     <!-- End Facebook Pixel Code -->
-
+    <!-- jQuery Modal -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     <!-- Flatpickr -->
     <link type="text/css" href="/assets/css/vendor-flatpickr.css" rel="stylesheet">
     <link type="text/css" href="/assets/css/vendor-flatpickr.rtl.css" rel="stylesheet">

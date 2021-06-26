@@ -120,7 +120,7 @@
                                 "pageLength": 3,
                                 "pagingType": "simple",
                                 "order": [[ 0, 'desc' ]]
-                            });
+                            }).responsive.recalc();
                         } );
 
 

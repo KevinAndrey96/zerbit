@@ -204,7 +204,7 @@
                             "pageLength": 3,
                             "pagingType": "simple",
                             "order": [[ 0, 'desc' ]]
-                        });
+                        }).responsive.recalc();
                     } );
                 </script>
                 <script src="{{asset('js/app.js')}}"></script>

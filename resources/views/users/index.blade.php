@@ -80,12 +80,72 @@
         <div class="card">
             <div class="card-header card-header-large bg-white">
                 <h4 class="card-header__title">Usuarios</h4>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                     Nuevo usuario
-                </button>
+                </button>-->
+                <!-- Modal HTML embedded directly into document -->
+                <div id="ex1" class="modal">
+                    <form method="POST" action="/users">
+                        @csrf
+                        <div class="form-group">
+                            <label>Nombre</label>
+
+                        <input class="form-control" type="text"
+                               id="newUser.name"
+                               name="name"
+                               required
+                        >
+                        </div>
+                        <div class="form-group">
+                            <label>Documento</label>
+
+                        <input class="form-control" type="text"
+                               id="newUser.document"
+                               name="document"
+                               required
+                        >
+                        </div>
+                        <div class="form-group">
+                            <label>Rol</label>
+
+                        <select name="role" id="" class="form-control">
+                            <option value="admin">Administrador</option>
+                            <option value="laboratorio">Laboratorio</option>
+                            <option value="terapeuta">Terapeuta</option>
+                        </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Correo Electrónico</label>
+                            <input class="form-control"
+                                   id="newUser.email"
+                                   type="email"
+                                   name="email"
+                                   required
+                            >
+                        </div>
+                        <div class="form-group">
+                            <label>Contraseña</label>
+
+
+                        <input class="form-control"
+                               id="newUser.password"
+                               type="password"
+                               name="password"
+                               required
+                        >
+                        </div>
+                        <br><br>
+                        <input class="form-control" type="submit" class="btn btn-primary form-control" value="Crear Usuario">
+                    </form>
+                    <a href="#" rel="modal:close">Cerrar</a>
+                </div>
+
+                <!-- Link to open the modal -->
+
             </div>
             <div style="padding: 30px" class="" data-toggle="lists"
                  data-lists-values='["js-lists-values-employee-name"]'>
+                <p><a href="#ex1" rel="modal:open">Nuevo usuario</a></p>
                 <table class="table-responsive datatable" id="myTable">
                     <thead>
                     <th>Nombre</th>
@@ -120,7 +180,7 @@
                             "pageLength": 3,
                             "pagingType": "simple",
                             "order": [[ 0, 'desc' ]]
-                        });
+                        }).responsive.recalc();
                     } );
                 </script>
                 <script src="{{asset('js/app.js')}}"></script>
