@@ -78,6 +78,8 @@ Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\Gene
 Route::get('/generic-signature/{signatureType}/{id}', [App\Http\Controllers\GenericSignatureController::class, 'index']);
 Route::post('/generic-signature', [App\Http\Controllers\GenericSignatureController::class, 'store']);
 
+Route::get('/cache', [App\Http\Controllers\CacheController::class, 'index']);
+
 //f9664ea1803311b35f81d07d8c9e072d is md5('lab)
 Route::get('/', function () {
     return redirect('/login');
