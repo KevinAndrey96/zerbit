@@ -4,7 +4,7 @@
     'name' => 'Zerbit',
     'env' => 'production',
     'debug' => true,
-    'url' => 'https://portal.zerbit.co',
+    'url' => 'https://zerbit.co',
     'asset_url' => NULL,
     'timezone' => 'America/Bogota',
     'locale' => 'en',
@@ -269,7 +269,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '67.205.184.22',
+        'host' => '67.210.244.177',
         'port' => '3306',
         'database' => 'zerbit_portal',
         'username' => 'zerbit_portal',
@@ -289,7 +289,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '67.205.184.22',
+        'host' => '67.210.244.177',
         'port' => '3306',
         'database' => 'zerbit_portal',
         'username' => 'zerbit_portal',
@@ -304,7 +304,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '67.205.184.22',
+        'host' => '67.210.244.177',
         'port' => '3306',
         'database' => 'zerbit_portal',
         'username' => 'zerbit_portal',
@@ -355,7 +355,7 @@
       array (
         'driver' => 'local',
         'root' => 'C:\\Zerbit\\storage\\app/public',
-        'url' => 'https://portal.zerbit.co/storage',
+        'url' => 'https://zerbit.co/storage',
         'visibility' => 'public',
       ),
       's3' => 

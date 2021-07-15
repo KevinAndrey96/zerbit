@@ -17,6 +17,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class ClinicalHistoriesController
@@ -31,11 +32,15 @@ class ClinicalHistoriesController extends Controller
     public function index(?string $filter = null)
     {
         if ($filter == null) {
-            $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')->get();
+            $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')
+                ->limit(50)
+                ->get();
         } else {
             $clinicalHistories = ClinicalHistory::whereHas('patient', function ($query) use ($filter) {
                 return $query->where('document', '=', $filter);
-            })->get();
+            })
+                ->limit(50)
+                ->get();
         }
         return view("clinical_histories.index", ['clinicalHistories' => $clinicalHistories]);
     }
@@ -98,6 +103,19 @@ class ClinicalHistoriesController extends Controller
         $chPsychotherapeuticAssessment = ChPsychotherapeuticAssessment::create(
             array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id])
         );
+
+        // Generate PDF
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadView('clinical_histories.show', [
+                "clinicalHistory" => $clinicalHistory,
+                "date" => Carbon::now()->format("Y m d"),
+                "chRecords" => $clinicalHistory->records,
+                "chPsychotherapeuticalAssesments" => $clinicalHistory->psychotherapeuticalAssesments,
+                "chEvolutions" => $clinicalHistory->evolutions
+            ]);
+        $id = $clinicalHistory->id;
+        Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
+
         return response()->json($clinicalHistory);
     }
 
@@ -109,14 +127,21 @@ class ClinicalHistoriesController extends Controller
      */
     public function show(ClinicalHistory $clinicalHistory)
     {
-        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
-            ->loadView('clinical_histories.show', [
-                "clinicalHistory" => $clinicalHistory,
-                "date" => Carbon::now()->format("Y m d"),
-                "chRecords" => $clinicalHistory->records,
-                "chPsychotherapeuticalAssesments" => $clinicalHistory->psychotherapeuticalAssesments,
-                "chEvolutions" => $clinicalHistory->evolutions
-            ]);
-        return $pdf->stream();
+        $id = $clinicalHistory->id;
+        //return Storage::disk('public')->download("clinical_histories/$id.pdf", "$id.pdf");
+        $clinicalHistories = ClinicalHistory::all();
+        foreach ($clinicalHistories as $clinicalHistory) {
+            $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+                ->loadView('clinical_histories.show', [
+                    "clinicalHistory" => $clinicalHistory,
+                    "date" => Carbon::now()->format("Y m d"),
+                    "chRecords" => $clinicalHistory->records,
+                    "chPsychotherapeuticalAssesments" => $clinicalHistory->psychotherapeuticalAssesments,
+                    "chEvolutions" => $clinicalHistory->evolutions
+                ]);
+            $id = $clinicalHistory->id;
+            Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
+        }
+        return "Ok";
     }
 }
