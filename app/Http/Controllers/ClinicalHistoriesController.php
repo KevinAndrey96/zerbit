@@ -33,13 +33,11 @@ class ClinicalHistoriesController extends Controller
     {
         if ($filter == null) {
             $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')
-                ->limit(50)
                 ->get();
         } else {
             $clinicalHistories = ClinicalHistory::whereHas('patient', function ($query) use ($filter) {
                 return $query->where('document', '=', $filter);
             })
-                ->limit(50)
                 ->get();
         }
         return view("clinical_histories.index", ['clinicalHistories' => $clinicalHistories]);
@@ -129,9 +127,9 @@ class ClinicalHistoriesController extends Controller
     {
         $id = $clinicalHistory->id;
         return Storage::disk('public')->download("clinical_histories/$id.pdf", "$id.pdf");
-        /*$clinicalHistories = ClinicalHistory::all();
+        $clinicalHistories = ClinicalHistory::all();
         foreach ($clinicalHistories as $clinicalHistory) {
-            if ($clinicalHistory->id < 43) {
+            if ($clinicalHistory->id <= 55) {
                 continue;
             }
             $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
@@ -145,6 +143,6 @@ class ClinicalHistoriesController extends Controller
             $id = $clinicalHistory->id;
             Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
         }
-        return "Ok";*/
+        return "Ok";
     }
 }
