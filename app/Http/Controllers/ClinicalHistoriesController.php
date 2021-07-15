@@ -128,9 +128,12 @@ class ClinicalHistoriesController extends Controller
     public function show(ClinicalHistory $clinicalHistory)
     {
         $id = $clinicalHistory->id;
-        //return Storage::disk('public')->download("clinical_histories/$id.pdf", "$id.pdf");
-        $clinicalHistories = ClinicalHistory::all();
+        return Storage::disk('public')->download("clinical_histories/$id.pdf", "$id.pdf");
+        /*$clinicalHistories = ClinicalHistory::all();
         foreach ($clinicalHistories as $clinicalHistory) {
+            if ($clinicalHistory->id < 43) {
+                continue;
+            }
             $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
                 ->loadView('clinical_histories.show', [
                     "clinicalHistory" => $clinicalHistory,
@@ -142,6 +145,6 @@ class ClinicalHistoriesController extends Controller
             $id = $clinicalHistory->id;
             Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
         }
-        return "Ok";
+        return "Ok";*/
     }
 }
