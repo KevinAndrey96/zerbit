@@ -15,8 +15,8 @@
             document.getElementById('clinical_history_id').value = chid
         });
     </script>
-    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Creación de evolución</h5>
@@ -26,16 +26,16 @@
                 </div>
                 <form action="/evolutions" method="POST">
 
-                <div class="modal-body">
-                    @csrf
+                    <div class="modal-body">
+                        @csrf
                         <input type="hidden" id="clinical_history_id" name="clinical_history_id" value="">
                         <div class="form-group">
                             <label for="start_time">Hora inicio</label>
-                                <input for="start_time" type="time" name="start_time" class="form-control" placeholder="Hora inicio">
+                            <input for="start_time" type="time" name="start_time" class="form-control" placeholder="Hora inicio">
                         </div>
                         <div class="form-group">
                             <label for="end_time">Hora fin</label>
-                                <input type="time" for="end_time" name="end_time" class="form-control" placeholder="Hora fin">
+                            <input type="time" for="end_time" name="end_time" class="form-control" placeholder="Hora fin">
                         </div>
                         <div class="form-group">
                             <label for="evolution" class="col-form-label">Evolución</label>
@@ -45,42 +45,26 @@
                             <label for="observation" class="col-form-label">Número de autorización</label>
                             <input type="text" for="Número de autorización" name="observation" class="form-control" placeholder="Observación" required>
                         </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="submit" class="btn btn-primary">Crear evolución</button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary">Crear</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    </div>
                 </form>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
 
             </div>
         </div>
     </div>
 
-    <style>
-        @media only screen and (max-height: 600px) {
-            #top-card {
-                padding-top: 200px;
-            }
-        }
-        @media only screen and (max-height: 850px) {
-            #top-card {
-                padding-top: 100px;
-            }
-        }
-    </style>
-    <div id="top-card" class="container-fluid page__container"><style>
-            @media only screen and (max-height: 600px) {
-                #top-card {
-                    padding-top: 200px;
-                }
-            }
-            @media only screen and (max-height: 850px) {
-                #top-card {
-                    padding-top: 100px;
-                }
-            }
-        </style>
-        <div id="top-card" class="container-fluid page__container">
+    <div class="container-fluid page__container">
+
         <div class="container">
 
             <div class="card">
@@ -90,12 +74,12 @@
                 <div class="card-body">
                     <table class="table-responsive" id="myTable">
                         <thead>
-                            <th>ID</th>
-                            <th>Documento</th>
-                            <th>Paciente</th>
-                            <th>Terapeuta</th>
-                            <th>Fecha</th>
-                            <th>Opciones</th>
+                        <th>ID</th>
+                        <th>Documento</th>
+                        <th>Paciente</th>
+                        <th>Terapeuta</th>
+                        <th>Fecha</th>
+                        <th>Opciones</th>
                         </thead>
                         <tbody>
                         @foreach($clinicalHistories as $clinicalHistory)
@@ -107,8 +91,9 @@
                                 <td>{{$clinicalHistory->professional->name}}</td>
                                 <td>{{$clinicalHistory->created_at}}</td>
                                 <td>
-                                    <button type="button" id="openModal" class="btn btn-info form-control" data-toggle="modal" data-target="#exampleModal" data-whatever="{{$clinicalHistory->id}}">Crear Evolución</button>
+                                    <button type="button" id="openModal" class="btn btn-info form-control" data-toggle="modal" data-target="#exampleModalCenter" data-whatever="{{$clinicalHistory->id}}">Crear Evolución</button>
                                     <a href="/clinical-histories-pdf/{{$clinicalHistory->id}}" class="form-control btn btn-primary">Ver PDF</a>
+                                    <a href="/clinical-histories-pdf/refresh/{{$clinicalHistory->id}}" class="form-control btn btn-warning">Actualizar PDF</a>
                                 </td>
                             </tr>
                         @endforeach

@@ -49,10 +49,12 @@ Route::group(['middleware' => ['role:admin']], function () {
     Route::delete('/physical-therapies/{physicalTherapy}', [App\Http\Controllers\PhysicalTherapyController::class, 'destroy'])->middleware("auth");
 
     Route::get('/clinical-histories/{filter}', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth");
+    Route::get('/clinical-histories-a', [App\Http\Controllers\ClinicalHistoriesController::class, 'indexa'])->middleware("auth")->name('clinical-histories-a');;
     Route::get('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'index'])->middleware("auth")->name('clinical-histories');
     Route::get('/clinical-histories-create', [App\Http\Controllers\ClinicalHistoriesController::class, 'create'])->middleware("auth")->name('clinical-histories-create');
     Route::post('/clinical-histories', [App\Http\Controllers\ClinicalHistoriesController::class, 'store'])->middleware("auth");
     Route::get('/clinical-histories-pdf/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'show'])->middleware("auth");
+    Route::get('/clinical-histories-pdf/refresh/{clinicalHistory}', [App\Http\Controllers\ClinicalHistoriesController::class, 'refresh'])->middleware("auth");
 
     Route::post('/evolutions', [App\Http\Controllers\EvolutionsController::class, 'store'])->middleware("auth");
 

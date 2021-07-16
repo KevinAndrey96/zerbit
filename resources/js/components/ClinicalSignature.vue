@@ -208,7 +208,7 @@ export default {
     },
     onComplete: function(){
       const axios = require('axios');
-
+      $(':button').prop('disabled', true);
       axios.post('/clinical-histories', {
         patient_id: this.form.patientID.value,
         professional_id: this.form.therapistID.value,

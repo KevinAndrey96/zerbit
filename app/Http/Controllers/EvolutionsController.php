@@ -14,7 +14,7 @@ class EvolutionsController extends Controller
     {
         $chEvolution = ChEvolution::create(array_merge($request->toArray(), ['evolution_date' => Carbon::now()]));
         // Generate PDF
-        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+        /*$pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
                 "clinicalHistory" => $chEvolution->clinicalHistory,
                 "date" => Carbon::now()->format("Y m d"),
@@ -24,7 +24,7 @@ class EvolutionsController extends Controller
             ]);
         $id = $chEvolution->clinicalHistory->id;
         Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
-
+*/
         return redirect('/generic-signature/evolution/'.$chEvolution->id);
     }
 }

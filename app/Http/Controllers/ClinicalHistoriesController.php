@@ -42,6 +42,20 @@ class ClinicalHistoriesController extends Controller
         }
         return view("clinical_histories.index", ['clinicalHistories' => $clinicalHistories]);
     }
+
+    /**
+     * @param string|null $filter
+     * @return Application|Factory|View
+     */
+    public function indexa()
+    {
+        $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')
+            ->limit(10)
+            ->get();
+
+        return view("clinical_histories.index", ['clinicalHistories' => $clinicalHistories]);
+    }
+
     /**
      * @return Application|Factory|View
      */
@@ -144,5 +158,20 @@ class ClinicalHistoriesController extends Controller
             Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
         }
         return "Ok";
+    }
+    public function refresh(ClinicalHistory $clinicalHistory)
+    {
+        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+            ->loadView('clinical_histories.show', [
+                "clinicalHistory" => $clinicalHistory,
+                "date" => Carbon::now()->format("Y m d"),
+                "chRecords" => $clinicalHistory->records,
+                "chPsychotherapeuticalAssesments" => $clinicalHistory->psychotherapeuticalAssesments,
+                "chEvolutions" => $clinicalHistory->evolutions
+            ]);
+        $id = $clinicalHistory->id;
+        Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
+        //return Storage::disk('public')->download("clinical_histories/$id.pdf", "$id.pdf");
+        return redirect('/clinical-histories');
     }
 }

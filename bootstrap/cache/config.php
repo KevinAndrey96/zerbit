@@ -269,7 +269,7 @@
       array (
         'driver' => 'mysql',
         'url' => NULL,
-        'host' => '67.210.244.177',
+        'host' => '67.205.184.22',
         'port' => '3306',
         'database' => 'zerbit_portal',
         'username' => 'zerbit_portal',
@@ -289,7 +289,7 @@
       array (
         'driver' => 'pgsql',
         'url' => NULL,
-        'host' => '67.210.244.177',
+        'host' => '67.205.184.22',
         'port' => '3306',
         'database' => 'zerbit_portal',
         'username' => 'zerbit_portal',
@@ -304,7 +304,7 @@
       array (
         'driver' => 'sqlsrv',
         'url' => NULL,
-        'host' => '67.210.244.177',
+        'host' => '67.205.184.22',
         'port' => '3306',
         'database' => 'zerbit_portal',
         'username' => 'zerbit_portal',
