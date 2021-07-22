@@ -93,14 +93,23 @@
                                 <td>
                                     <button type="button" id="openModal" class="btn btn-info form-control" data-toggle="modal" data-target="#exampleModalCenter" data-whatever="{{$clinicalHistory->id}}">Crear Evolución</button>
                                     <a href="/clinical-histories-pdf/{{$clinicalHistory->id}}" class="form-control btn btn-primary">Ver PDF</a>
-                                    <a href="/clinical-histories-pdf/refresh/{{$clinicalHistory->id}}" class="form-control btn btn-warning">Actualizar PDF</a>
+                                    <a onclick="loading({{$clinicalHistory->id}})" href="/clinical-histories-pdf/refresh/{{$clinicalHistory->id}}" class="form-control btn btn-warning">
+                                        <p style="display:block;" id="text-number-{{$clinicalHistory->id}}" >Actualizar PDF</p>
+                                        <div class="spinner-border"  style="display:none; text-align: center;" id="spinner-number-{{$clinicalHistory->id}}" role="status">
+                                            <div style="text-align: center;"><span class="sr-only">Loading...</span></div>
+                                        </div></a>
                                 </td>
                             </tr>
                         @endforeach
                         </tbody>
+
                     </table>
 
                     <script>
+                        function loading(chid) {
+                            document.getElementById('spinner-number-'+chid).style.display = 'block';
+                            document.getElementById('text-number-'+chid).style.display = 'none';
+                        }
                         $(document).ready( function () {
                             $('#myTable').DataTable(
                                 {

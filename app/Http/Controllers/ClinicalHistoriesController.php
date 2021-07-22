@@ -117,7 +117,7 @@ class ClinicalHistoriesController extends Controller
         );
 
         // Generate PDF
-        $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
+        /*$pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
                 "clinicalHistory" => $clinicalHistory,
                 "date" => Carbon::now()->format("Y m d"),
@@ -127,7 +127,7 @@ class ClinicalHistoriesController extends Controller
             ]);
         $id = $clinicalHistory->id;
         Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
-
+*/
         return response()->json($clinicalHistory);
     }
 
