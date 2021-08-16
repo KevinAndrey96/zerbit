@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Storage;
 class CacheController extends Controller
 {
     public function index() {
+        Artisan::call('storage:link');
         //Artisan::call("optimize");
         $evolutions = ChEvolution::all();
         foreach ($evolutions as $evolution) {
