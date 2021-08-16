@@ -32,11 +32,13 @@ class ChEvolution extends Model
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $hidden = [];
+    protected $hidden = [
+        'signature'
+    ];
 
     /**
      * @return BelongsTo

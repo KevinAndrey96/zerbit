@@ -25,6 +25,16 @@ class EvolutionsController extends Controller
         $id = $chEvolution->clinicalHistory->id;
         Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
 */
+        //get the base-64 from data
+        $base64_str = substr($chEvolution->signature, strpos($chEvolution->signature, ",")+1);
+
+        //decode base64 string
+        $image = base64_decode($base64_str);
+        Storage::disk('public')->put('signatures/'.$chEvolution->id.'.png', $image);
+        $storagePath = Storage::disk('public')->getDriver()->getAdapter()->getPathPrefix();
+        $chEvolution->signature = $storagePath;
+        $chEvolution->save();
+
         return redirect('/generic-signature/evolution/'.$chEvolution->id);
     }
 }
