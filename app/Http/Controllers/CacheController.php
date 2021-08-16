@@ -18,10 +18,10 @@ use Symfony\Component\Process\Process;
 class CacheController extends Controller
 {
     public function index() {
-        $process = new Process(['cp', 'repositories/zerbit3/storage/app/public/signatures/1.png portal.zerbit.co/storage/1.png']);
+        //$process = new Process(['cp', 'repositories/zerbit3/storage/app/public/signatures/1.png portal.zerbit.co/storage/1.png']);
 
-        $process->run();
-        //Artisan::call("optimize");
+        //$process->run();
+        Artisan::call("optimize");
         /*$evolutions = ChEvolution::all();
         foreach ($evolutions as $evolution) {
             $base64_str = substr($evolution->signature, strpos($evolution->signature, ",")+1);
