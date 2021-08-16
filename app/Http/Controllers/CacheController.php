@@ -9,6 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Artisan;
 use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\Process\Process;
 
 /**
  * Class CacheController
@@ -17,9 +18,11 @@ use Illuminate\Support\Facades\Storage;
 class CacheController extends Controller
 {
     public function index() {
-        Artisan::call('storage:link');
+        $process = new Process(['cp', 'repositories/zerbit3/storage/app/public/signatures/1.png portal.zerbit.co/storage/1.png']);
+
+        $process->run();
         //Artisan::call("optimize");
-        $evolutions = ChEvolution::all();
+        /*$evolutions = ChEvolution::all();
         foreach ($evolutions as $evolution) {
             $base64_str = substr($evolution->signature, strpos($evolution->signature, ",")+1);
 
@@ -29,7 +32,7 @@ class CacheController extends Controller
             $evolution->signature = sprintf('%s.png', $evolution->id);
             //print($evolution->signature);
             $evolution->save();
-        }
+        }*/
         print('clear');
     }
 }
