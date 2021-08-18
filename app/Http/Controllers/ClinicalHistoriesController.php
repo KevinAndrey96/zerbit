@@ -51,7 +51,7 @@ class ClinicalHistoriesController extends Controller
      */
     public function indexa()
     {
-        $clinicalHistories = ClinicalHistory::where('id', 26)->orderBy('id', 'DESC')
+        $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')
             ->limit(10)
             ->get();
 
