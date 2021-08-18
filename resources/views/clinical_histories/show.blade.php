@@ -273,19 +273,17 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
                      line-height:normal'><span lang=EN-US style='color:#4472C4'>
-                     @foreach($chRecords as $chRecord)
-                            {{$chRecord->medical_pathological}},
-                        @endforeach
-                     </span>
+                        {{$medicalPathological}}
+                 </span>
                 </p>
             </td>
             <td width=312 valign=top style='width:233.75pt;border-top:none;border-left:
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><span lang=EN-US style='color:#4472C4'>@foreach($chRecords as $chRecord)
-                            {{$chRecord->surgical}},
-                        @endforeach</span>
+                     line-height:normal'><span lang=EN-US style='color:#4472C4'>
+                            {{$surgical}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -306,18 +304,18 @@
             <td width=312 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><span lang=EN-US style='color:#4472C4'>@foreach($chRecords as $chRecord)
-                            {{$chRecord->traumatic}},
-                        @endforeach</span>
+                     line-height:normal'><span lang=EN-US style='color:#4472C4'>
+                        {{$traumatic}}
+                    </span>
                 </p>
             </td>
             <td width=312 valign=top style='width:233.75pt;border-top:none;border-left:
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><span lang=EN-US style='color:#4472C4'>@foreach($chRecords as $chRecord)
-                            {{$chRecord->allergy}},
-                        @endforeach</span>
+                     line-height:normal'><span lang=EN-US style='color:#4472C4'>
+                        {{$allergy}}
+                    </span>
                 </p>
             </td>
         </tr>
@@ -338,18 +336,18 @@
             <td width=312 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><span lang=EN-US style='color:#4472C4'>@foreach($chRecords as $chRecord)
-                            {{$chRecord->family}},
-                        @endforeach</span>
+                     line-height:normal'><span lang=EN-US style='color:#4472C4'>
+                            {{$family}},
+                        </span>
                 </p>
             </td>
             <td width=312 valign=top style='width:233.75pt;border-top:none;border-left:
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><span lang=EN-US style='color:#4472C4'>@foreach($chRecords as $chRecord)
-                            {{$chRecord->pharmacological}},
-                        @endforeach</span>
+                     line-height:normal'><span lang=EN-US style='color:#4472C4'>
+                            {{$pharmacological}},
+                        </span>
                 </p>
             </td>
         </tr>
@@ -370,9 +368,9 @@
             <td width=312 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='margin-bottom:0in;text-align:center;
-                     line-height:normal'><span lang=EN-US style='color:#4472C4'>@foreach($chRecords as $chRecord)
-                            {{$chRecord->others}},
-                        @endforeach</span>
+                     line-height:normal'><span lang=EN-US style='color:#4472C4'>
+                            {{$others}},
+                        </span>
                 </p>
             </td>
             <td width=312 valign=top style='width:233.75pt;border-top:none;border-left:
@@ -398,9 +396,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>DOLOR: </span></b><span lang=EN-US
                                                                                          style='color:#4472C4'>
-                     @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->pain}},
-                        @endforeach
+                            {{$pain}}
                      </span>
                 </p>
             </td>
@@ -410,9 +406,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>EDEMA:</span></b><span lang=EN-US
-                                                                                        style='color:#4472C4'> @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->edema}},
-                        @endforeach</span>
+                                                                                        style='color:#4472C4'>
+                            {{$edema}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -421,9 +417,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>MOVILIDAD ARTICULAR:</span></b><span
-                            lang=EN-US style='color:#4472C4'> @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->joint_mobility}},
-                        @endforeach</span>
+                            lang=EN-US style='color:#4472C4'>
+                            {{$jointMobility}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -432,9 +428,10 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>SENSIBILIDAD:</span></b><span lang=EN-US
-                                                                                               style='color:#4472C4'>@foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->sensitivity}},
-                        @endforeach</span>
+                                                                                               style='color:#4472C4'>
+
+                            {{$sensitivity}}
+                       </span>
                 </p>
             </td>
         </tr>
@@ -443,9 +440,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>SISTEMA INTEGUMENTARIO:</span></b><span
-                            style='color:#4472C4'>@foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->integumentary_system}},
-                        @endforeach</span>
+                            style='color:#4472C4'>
+                            {{$integumentarySystem}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -454,9 +451,8 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>FUERZA MUSCULAR:</span></b><span style='color:#4472C4'>
-                     @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->muscular_strength}},
-                        @endforeach</span>
+                            {{$muscularStrength}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -465,9 +461,10 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>FLEXIBILIDAD:</span></b><span lang=EN-US
-                                                                                               style='color:#4472C4'> @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->flexibility}},
-                        @endforeach</span>
+                                                                                               style='color:#4472C4'>
+
+                            {{$flexibility}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -476,9 +473,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>POSTURA:</span></b><span lang=EN-US
-                                                                                          style='color:#4472C4'> @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->posture}},
-                        @endforeach</span>
+                                                                                          style='color:#4472C4'>
+                            {{$posture}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -487,9 +484,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>MARCHA:</span></b><span lang=EN-US
-                                                                                         style='color:#4472C4'> @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->march}},
-                        @endforeach</span>
+                                                                                         style='color:#4472C4'>
+                            {{$march}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -497,9 +494,9 @@
             <td width=623 valign=top style='width:467.5pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
-                                style='color:#4472C4'>EQUILIBRIO:</span></b><span style='color:#4472C4'> @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->balance}},
-                        @endforeach</span>
+                                style='color:#4472C4'>EQUILIBRIO:</span></b><span style='color:#4472C4'>
+                            {{$balance}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -508,9 +505,8 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>RIESGO DE CAIDA:</span></b><span style='color:#4472C4'>
-                     @foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->falling_risk}},
-                        @endforeach</span>
+                            {{$fallingRisk}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -519,9 +515,9 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='color:#4472C4'>OTRAS VALORACIONES:</span></b><span
-                            lang=EN-US style='color:#4472C4'>@foreach($chPsychotherapeuticalAssesments as $chPsychotherapeuticalAssesment)
-                            {{$chPsychotherapeuticalAssesment->other_valuations}},
-                        @endforeach</span>
+                            lang=EN-US style='color:#4472C4'>
+                            {{$otherValuations}}
+                        </span>
                 </p>
             </td>
         </tr>
@@ -910,9 +906,7 @@
     <p class=MsoNormal style='text-align:justify'><b><span lang=EN-US
                                                            style='color:#4472C4'>OBSERVACIONES:</span></b><span lang=EN-US
                                                                                                                 style='color:#4472C4'>
-        @foreach($chEvolutions as $evolution)
-            {{$evolution->observation}},
-        @endforeach
+            {{$observations}},
         </span>
     </p>
     <p class=MsoNormal align=center style='text-align:center'><span

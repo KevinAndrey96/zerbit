@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @package App\Models
  * @method static create(array $toArray)
  * @method static find(mixed $input)
+ * @method static where(string $string, $id)
  */
 class ChEvolution extends Model
 {

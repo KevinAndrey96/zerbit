@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ChEvolution;
 use App\Models\ChPsychotherapeuticAssessment;
 use App\Models\ChRecord;
 use App\Models\ClinicalHistory;
@@ -10,6 +11,7 @@ use App\Models\PhysicalTherapy;
 use App\Models\User;
 use Barryvdh\DomPDF\Facade as PDF;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
@@ -49,7 +51,7 @@ class ClinicalHistoriesController extends Controller
      */
     public function indexa()
     {
-        $clinicalHistories = ClinicalHistory::orderBy('id', 'DESC')
+        $clinicalHistories = ClinicalHistory::where('id', 26)->orderBy('id', 'DESC')
             ->limit(10)
             ->get();
 
@@ -159,15 +161,91 @@ class ClinicalHistoriesController extends Controller
         }
         return "Ok";
     }
-    public function refresh(ClinicalHistory $clinicalHistory)
+    public function refresh(int $clinicalHistory)
     {
+        $clinicalHistory = ClinicalHistory::findOrFail($clinicalHistory);
+        $observations = '';
+        $lastImage = '0.png';
+        foreach ($clinicalHistory->evolutions as $evolution) {
+            $observations .= $evolution->observation . ',';
+            try {
+                getimagesize("https://portal.zerbit.co/storage/signatures/" . $evolution->signature);
+                $lastImage = $evolution->signature;
+            } catch (Exception $e) {
+                $evolution->signature = $lastImage;
+                $evolution->save();
+            }
+        }
+
+        $medicalPathological = '';
+        $surgical = '';
+        $traumatic = '';
+        $allergy = '';
+        $family = '';
+        $pharmacological = '';
+        $others = '';
+        foreach($clinicalHistory->records as $record) {
+            $medicalPathological = $record->medical_pathological . ',';
+            $surgical = $record->surgical . ',';
+            $traumatic = $record->traumatic . ',';
+            $allergy = $record->allergy . ',';
+            $pharmacological = $record->pharmacological . ',';
+            $others = $record->others . ',';
+        }
+
+        $pain = '';
+        $edema = '';
+        $jointMobility = '';
+        $sensitivity = '';
+        $integumentarySystem = '';
+        $muscularStrength = '';
+        $flexibility = '';
+        $posture = '';
+        $march = '';
+        $balance = '';
+        $fallingRisk = '';
+        $otherValuations = '';
+        foreach($clinicalHistory->psychotherapeuticalAssesments as $psychotherapeuticalAssessment) {
+            $pain = $psychotherapeuticalAssessment->pain . ',';
+            $edema = $psychotherapeuticalAssessment->edema . ',';
+            $jointMobility = $psychotherapeuticalAssessment->joint_mobility . ',';
+            $sensitivity = $psychotherapeuticalAssessment->sensitivity . ',';
+            $integumentarySystem = $psychotherapeuticalAssessment->integumentary_system . ',';
+            $muscularStrength = $psychotherapeuticalAssessment->muscular_strength . ',';
+            $flexibility = $psychotherapeuticalAssessment->flexibility . ',';
+            $posture = $psychotherapeuticalAssessment->posture . ',';
+            $march = $psychotherapeuticalAssessment->march . ',';
+            $balance = $psychotherapeuticalAssessment->balance . ',';
+            $fallingRisk = $psychotherapeuticalAssessment->falling_risk . ',';
+            $otherValuations = $psychotherapeuticalAssessment->other_valuations . ',';
+        }
+
+        //return json_encode($clinicalHistory->evolutions);
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
-                "clinicalHistory" => $clinicalHistory,
-                "date" => Carbon::now()->format("Y m d"),
-                "chRecords" => $clinicalHistory->records,
-                "chPsychotherapeuticalAssesments" => $clinicalHistory->psychotherapeuticalAssesments,
-                "chEvolutions" => $clinicalHistory->evolutions
+                'clinicalHistory' => $clinicalHistory,
+                'date' => Carbon::now()->format('Y m d'),
+                'chEvolutions' => $clinicalHistory->evolutions,
+                'observations' => $observations,
+                'medicalPathological' => $medicalPathological,
+                'surgical' => $surgical,
+                'traumatic' => $traumatic,
+                'allergy' => $allergy,
+                'family' => $family,
+                'pharmacological' => $pharmacological,
+                'others' => $others,
+                'pain' => $pain,
+                'edema' => $edema,
+                'jointMobility' => $jointMobility,
+                'sensitivity' => $sensitivity,
+                'integumentarySystem' => $integumentarySystem,
+                'muscularStrength' => $muscularStrength,
+                'flexibility' => $flexibility,
+                'posture' => $posture,
+                'march' => $march,
+                'balance' => $balance,
+                'fallingRisk' => $fallingRisk,
+                'otherValuations' => $otherValuations,
             ]);
         $id = $clinicalHistory->id;
         Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());
