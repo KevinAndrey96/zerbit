@@ -132,7 +132,21 @@ export default {
         window.location.href = "/generic-signature/therapy/"+response.data.id
       })
           .catch(function (error) {
-            alert("Ha ocurrido un error inesperado");
+            axios.post('/physical-therapies', {
+              patient_id: this.form.patientID.value,
+              therapist_id: this.form.therapistID,
+              sessions_number: this.form.sessionsNumber,
+              start_date: this.form.startDate,
+              finish_date: this.form.finishDate,
+              signed_by_himself: Boolean(this.form.signedByHimself),
+            }).then(function (response) {
+              console.log(response);
+              window.location.href = "/generic-signature/therapy/"+response.data.id
+            })
+                .catch(function (error) {
+                  window.location.reload();
+                  console.log(error);
+                });
             console.log(error);
           });
     },

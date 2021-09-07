@@ -96,6 +96,7 @@ export default {
   methods: {
     onComplete: function(){
       const axios = require('axios');
+      $(':button').prop('disabled', true);
       axios.post('/lab-samples', {
         sample_type: this.labSampleForm.sampleType,
         patient_id: this.labSampleForm.patientID.value,
@@ -107,7 +108,20 @@ export default {
             window.location.href = "/generic-signature/labSample/"+response.data.id
           })
           .catch(function (error) {
-            alert("Ha ocurrido un error inesperado");
+            axios.post('/lab-samples', {
+              sample_type: this.labSampleForm.sampleType,
+              patient_id: this.labSampleForm.patientID.value,
+              authorized: Boolean(this.labSampleForm.authSample),
+              email_delivery: Boolean(this.labSampleForm.emailDelivery),
+              signed_by_himself: Boolean(this.labSampleForm.signedByHimself)
+            }).then(function (response) {
+              //console.log(response);
+              window.location.href = "/generic-signature/labSample/"+response.data.id
+            })
+                .catch(function (error) {
+                  console.log(error);
+                  window.location.reload();
+                });
             console.log(error);
           });
     },

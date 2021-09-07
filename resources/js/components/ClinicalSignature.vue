@@ -246,7 +246,46 @@ export default {
         window.location.href = "/clinical-histories"
       })
           .catch(function (error) {
-            alert("Ha ocurrido un error inesperado");
+            axios.post('/clinical-histories', {
+              patient_id: this.form.patientID.value,
+              professional_id: this.form.therapistID.value,
+              signed_by_himself: Boolean(this.form.signedByHimself),
+              deductible_payment: Boolean(this.form.deductiblePayment),
+
+              medical_diagnostic: this.form.medicalDiagnostic,
+              physiotherapist_diagnostic: this.form.physiotherapistDiagnostic,
+              objective: this.form.objective,
+              sessions_number: this.form.sessionsNumber,
+              payment_value: this.form.paymentValue,
+
+              medical_pathological: this.form.medicalPathological,
+              surgical: this.form.surgical,
+              traumatic: this.form.traumatic,
+              allergy: this.form.allergy,
+              family: this.form.family,
+              pharmacological: this.form.pharmacological,
+              others: this.form.others,
+
+              pain: this.form.pain,
+              edema: this.form.edema,
+              joint_mobility: this.form.jointMobility,
+              sensitivity: this.form.sensitivity,
+              integumentary_system: this.form.integumentarySystem,
+              muscular_strength: this.form.muscularStrength,
+              flexibility: this.form.flexibility,
+              posture: this.form.posture,
+              march: this.form.march,
+              balance: this.form.balance,
+              falling_risk: this.form.fallingRisk,
+              other_valuations: this.form.otherValuations,
+            }).then(function (response) {
+              console.log(response);
+              window.location.href = "/clinical-histories"
+            })
+                .catch(function (error) {
+                  window.location.reload();
+                  console.log(error);
+                });
             console.log(error);
           });
     },

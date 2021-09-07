@@ -102,7 +102,17 @@ class ClinicalHistoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $clinicalHistory = ClinicalHistory::create(
+        $clinicalHistory = ClinicalHistory::updateOrCreate(
+            $request->only([
+                               'patient_id',
+                               'professional_id',
+                               'medical_diagnostic',
+                               'physiotherapist_diagnostic',
+                               'objective',
+                               'sessions_number',
+                               'deductible_payment',
+                               'payment_value',
+                           ]),
             $request->only([
                       'patient_id',
                       'professional_id',
