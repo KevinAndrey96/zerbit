@@ -11,6 +11,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @method static create(array $toArray)
  * @method static find(mixed $input)
  * @method static orderBy(string $string, string $string1)
+ * @method static findOrFail(int $clinicalHistory)
  * @property mixed id
  */
 class ClinicalHistory extends Model

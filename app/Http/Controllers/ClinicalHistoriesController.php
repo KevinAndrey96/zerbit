@@ -19,6 +19,7 @@ use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -171,15 +172,27 @@ class ClinicalHistoriesController extends Controller
         }
         return "Ok";
     }
+
     public function refresh(int $clinicalHistory)
     {
-        $clinicalHistory = ClinicalHistory::findOrFail($clinicalHistory);
+        //$clinicalHistory = ClinicalHistory::with('evolutions', 'records', 'psychotherapeuticalAssesments')->where('id', $clinicalHistory)->first();
+        /** @var ClinicalHistory $clinicalHistory */
+        $clinicalHistory = DB::table('clinical_histories')
+            ->where('id', $clinicalHistory)
+            ->first();
+
         $observations = '';
         $lastImage = '0.png';
-        foreach ($clinicalHistory->evolutions as $evolution) {
+
+        $clinicalHistory_evolutions = DB::table('ch_evolutions')
+            ->where('clinical_history_id', $clinicalHistory->id)
+            ->orderBy('id', 'ASC')
+            ->get();
+
+        foreach ($clinicalHistory_evolutions as $evolution) {
             $observations .= $evolution->observation . ',';
             try {
-                getimagesize("https://portal.zerbit.co/storage/signatures/" . $evolution->signature);
+                getimagesize('https://portal.zerbit.co/storage/signatures/' . $evolution->signature);
                 $lastImage = $evolution->signature;
             } catch (Exception $e) {
                 $evolution->signature = $lastImage;
@@ -194,7 +207,11 @@ class ClinicalHistoriesController extends Controller
         $family = '';
         $pharmacological = '';
         $others = '';
-        foreach($clinicalHistory->records as $record) {
+
+        $clinicalHistory_records = DB::table('ch_records')
+            ->where('clinical_history_id', $clinicalHistory->id)
+            ->get();
+        foreach($clinicalHistory_records as $record) {
             $medicalPathological = $record->medical_pathological . ',';
             $surgical = $record->surgical . ',';
             $traumatic = $record->traumatic . ',';
@@ -215,7 +232,11 @@ class ClinicalHistoriesController extends Controller
         $balance = '';
         $fallingRisk = '';
         $otherValuations = '';
-        foreach($clinicalHistory->psychotherapeuticalAssesments as $psychotherapeuticalAssessment) {
+
+        $clinicalHistory_psychotherapeuticalAssesments = DB::table('ch_psychotherapeutic_assessments')
+            ->where('clinical_history_id', $clinicalHistory->id)
+            ->get();
+        foreach($clinicalHistory_psychotherapeuticalAssesments as $psychotherapeuticalAssessment) {
             $pain = $psychotherapeuticalAssessment->pain . ',';
             $edema = $psychotherapeuticalAssessment->edema . ',';
             $jointMobility = $psychotherapeuticalAssessment->joint_mobility . ',';
@@ -229,13 +250,21 @@ class ClinicalHistoriesController extends Controller
             $fallingRisk = $psychotherapeuticalAssessment->falling_risk . ',';
             $otherValuations = $psychotherapeuticalAssessment->other_valuations . ',';
         }
-
+        $patient = DB::table('patients')
+            ->where('id', $clinicalHistory->patient_id)
+            ->first();
+        //dd($patient->guardian);
+        $professional = DB::table('users')
+            ->where('id', $clinicalHistory->professional_id)
+            ->first();
         //return json_encode($clinicalHistory->evolutions);
         $pdf = PDF::setOptions(['isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])
             ->loadView('clinical_histories.show', [
                 'clinicalHistory' => $clinicalHistory,
+                'patient' => $patient,
+                'professional' => $professional,
                 'date' => Carbon::now()->format('Y m d'),
-                'chEvolutions' => $clinicalHistory->evolutions,
+                'chEvolutions' => $clinicalHistory_evolutions,
                 'observations' => $observations,
                 'medicalPathological' => $medicalPathological,
                 'surgical' => $surgical,

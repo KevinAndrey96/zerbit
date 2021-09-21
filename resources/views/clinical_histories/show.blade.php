@@ -47,7 +47,7 @@
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='font-size:12.0pt;color:#4472C4'>NÚMERO DE HISTORIA CLÍNICA (Documento de
-                     identidad): {{$clinicalHistory->patient->document}}</span>
+                     identidad): {{$patient->document}}</span>
                 </p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='font-size:12.0pt;color:#4472C4'>&nbsp;</span></p>
@@ -70,13 +70,13 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>TIPO DE DOCUMENTO</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->document_type)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->document_type)}}</span></p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
                   border-left:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>DOCUMENTO NÚMERO<br>
-                     {{$clinicalHistory->patient->document}}</span>
+                     {{$patient->document}}</span>
                 </p>
             </td>
         </tr>
@@ -85,7 +85,7 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>PRIMER NOMBRE<br>
-                     {{strtoupper($clinicalHistory->patient->first_name)}}</span>
+                     {{strtoupper($patient->first_name)}}</span>
                 </p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
@@ -94,7 +94,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>SEGUNDO NOMBRE</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->second_name)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->second_name)}}</span></p>
             </td>
         </tr>
         <tr>
@@ -103,14 +103,14 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>PRIMER APELLIDO</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->first_surname)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->first_surname)}}</span></p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>SEGUNDO APELLIDO<br>
-                     {{strtoupper($clinicalHistory->patient->second_surname)}}</span>
+                     {{strtoupper($patient->second_surname)}}</span>
                 </p>
             </td>
         </tr>
@@ -120,7 +120,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>FECHA DE NACIMIENTO: D/M/A</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->birthdate)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->birthdate)}}</span></p>
             </td>
             <td width=156 valign=top style='width:116.85pt;border-top:none;border-left:
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -128,7 +128,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>EDAD:</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{ date('Y') - substr($clinicalHistory->patient->birthdate, 0, 4)}} AÑOS</span></p>
+                            style='color:#4472C4'>{{ date('Y') - substr($patient->birthdate, 0, 4)}} AÑOS</span></p>
             </td>
             <td width=156 valign=top style='width:116.9pt;border-top:none;border-left:
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -136,7 +136,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>ESTADO CIVIL</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->civil_status)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->civil_status)}}</span></p>
             </td>
         </tr>
         <tr>
@@ -145,14 +145,14 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>DIRECCIÓN DE DOMICILIO:</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->address)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->address)}}</span></p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>TELÉFONO:<br>
-                     {{strtoupper($clinicalHistory->patient->phone)}}</span>
+                     {{strtoupper($patient->phone)}}</span>
                 </p>
             </td>
         </tr>
@@ -162,14 +162,14 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>SEXO</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->gender)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->gender)}}</span></p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>EPS<br>
-                     {{strtoupper($clinicalHistory->patient->eps)}}</span>
+                     {{strtoupper($patient->eps)}}</span>
                 </p>
             </td>
         </tr>
@@ -179,7 +179,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>OCUPACIÓN DEL PACIENTE</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->occupation)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($patient->occupation)}}</span></p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -194,7 +194,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>NOMBRE DEL RESPONSABLE</span><br>
                     <span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->guardian_name)}}</span>
+                            style='color:#4472C4'>{{strtoupper($patient->guardian)}}</span>
                 </p>
             </td>
             <td width=156 valign=top style='width:116.85pt;border-top:none;border-left:
@@ -203,7 +203,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>TELÉFONO</span><br>
                     <span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->guardian_phone)}}</span>
+                            style='color:#4472C4'>{{strtoupper($patient->guardian_phone)}}</span>
                 </p>
             </td>
             <td width=156 valign=top style='width:116.9pt;border-top:none;border-left:
@@ -212,7 +212,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>PARENTESCO</span><br>
                     <span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->guardian_relationship)}}</span>
+                            style='color:#4472C4'>{{strtoupper($patient->guardian_relationship)}}</span>
                 </p>
             </td>
         </tr>
@@ -222,7 +222,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>MÉDICO TRATANTE</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($clinicalHistory->professional->name)}}</span></p>
+                            style='color:#4472C4'>{{strtoupper($professional->name)}}</span></p>
             </td>
             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -245,7 +245,7 @@
             <td width=623 valign=top style='width:467.5pt;border:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            lang=EN-US style='font-size:14.0pt;color:#4472C4'>{{strtoupper($clinicalHistory->reason)}}.</span></p>
+                            lang=EN-US style='font-size:14.0pt;color:#4472C4'>{{strtoupper($clinicalHistory->objective)}}.</span></p>
             </td>
         </tr>
     </table>
@@ -567,13 +567,13 @@
             none'>&nbsp;</span></span></u></b></p>
     <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
             color:#4472C4'>NOMBRE DEL PROFESIONAL</span></b><span style='font-size:12.0pt;
-            line-height:107%;color:#4472C4'>: {{$clinicalHistory->professional->name}}</span></p>
+            line-height:107%;color:#4472C4'>: {{$professional->name}}</span></p>
     <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
             color:#4472C4'>FIRMA DEL PROFESIONAL: </span></b><span style='font-size:12.0pt;
-            line-height:107%;color:#4472C4'><img height="50px" src="{{$clinicalHistory->professional->signature}}" alt=""></span></p>
+            line-height:107%;color:#4472C4'><img height="50px" src="{{$professional->signature}}" alt=""></span></p>
     <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
             color:#4472C4'>C.C DEL PROFESIONAL: </span></b><span style='font-size:12.0pt;
-            line-height:107%;color:#4472C4'>{{$clinicalHistory->professional->document}}</span></p>
+            line-height:107%;color:#4472C4'>{{$professional->document}}</span></p>
 </div>
 <div class="page_break"></div>
 <div class=WordSection1>
@@ -610,7 +610,7 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>PRIMER NOMBRE:</span></b><span style='color:#4472C4'>
-                     {{strtoupper($clinicalHistory->patient->first_name)}}</span>
+                     {{strtoupper($patient->first_name)}}</span>
                 </p>
             </td>
             <td width=311 valign=top style='width:233.55pt;border-top:none;border-left:
@@ -618,7 +618,7 @@
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>SEGUNDO NOMBRE:</span></b><span style='color:#4472C4'>
-                     {{strtoupper($clinicalHistory->patient->second_name)}}</span>
+                     {{strtoupper($patient->second_name)}}</span>
                 </p>
             </td>
         </tr>
@@ -627,7 +627,7 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>PRIMER APELLIDO:</span></b><span style='color:#4472C4'>
-                     </span><span lang=EN-US style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->first_surname)}}</span>
+                     </span><span lang=EN-US style='color:#4472C4'>{{strtoupper($patient->first_surname)}}</span>
                 </p>
             </td>
             <td width=311 valign=top style='width:233.55pt;border-top:none;border-left:
@@ -635,7 +635,7 @@
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>SEGUNDO APELLIDO:</span></b><span style='color:#4472C4'>
-                     {{strtoupper($clinicalHistory->patient->second_surname)}}</span>
+                     {{strtoupper($patient->second_surname)}}</span>
                 </p>
             </td>
         </tr>
@@ -644,20 +644,20 @@
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 style='color:#4472C4'>TIPO Y NÚMERO DE DOCUMENTO DE IDENTIDAD:</span></b><span
-                            style='color:#4472C4'> {{strtoupper($clinicalHistory->patient->document_type)}}. {{$clinicalHistory->patient->document}}</span></p>
+                            style='color:#4472C4'> {{strtoupper($patient->document_type)}}. {{$patient->document}}</span></p>
             </td>
         </tr>
         <tr>
             <td width=311 valign=top style='width:233.45pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
-                                style='color:#4472C4'>EDAD:</span></b><span style='color:#4472C4'> {{ date('Y') - substr($clinicalHistory->patient->birthdate, 0, 4)}} AÑOS</span></p>
+                                style='color:#4472C4'>EDAD:</span></b><span style='color:#4472C4'> {{ date('Y') - substr($patient->birthdate, 0, 4)}} AÑOS</span></p>
             </td>
             <td width=311 valign=top style='width:233.55pt;border-top:none;border-left:
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
-                                style='color:#4472C4'>EPS:</span></b><span style='color:#4472C4'> {{strtoupper($clinicalHistory->patient->eps)}}</span></p>
+                                style='color:#4472C4'>EPS:</span></b><span style='color:#4472C4'> {{strtoupper($patient->eps)}}</span></p>
             </td>
         </tr>
         <tr>
@@ -708,7 +708,7 @@
             <td width=623 valign=top style='width:467.5pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
-                                lang=EN-US style='font-size:14.0pt;color:#4472C4'>FIRMA DEL PROFESIONAL: <img height="50px" src="{{$clinicalHistory->professional->signature}}" alt=""></span></b></p>
+                                lang=EN-US style='font-size:14.0pt;color:#4472C4'>FIRMA DEL PROFESIONAL: <img height="50px" src="{{$professional->signature}}" alt=""></span></b></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='font-size:14.0pt;color:#4472C4'>&nbsp;</span></b></p>
             </td>
@@ -740,7 +740,7 @@
             </td>
             <td width=210 colspan=3 valign=top style='width:157.6pt;border:solid windowtext 1.0pt;
                   border-left:none;padding:0in 5.4pt 0in 5.4pt'>
-                <p class=MsoNormal><span style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->first_name.' '.$clinicalHistory->patient->second_name.' '.$clinicalHistory->patient->first_surname.' '.$clinicalHistory->patient->second_surname)}}</span></p>
+                <p class=MsoNormal><span style='color:#4472C4'>{{strtoupper($patient->first_name.' '.$patient->second_name.' '.$patient->first_surname.' '.$patient->second_surname)}}</span></p>
             </td>
         </tr>
         <tr>
@@ -752,7 +752,7 @@
             <td width=210 colspan=3 valign=top style='width:157.6pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
-                <p class=MsoNormal><span style='color:#4472C4'>{{strtoupper($clinicalHistory->patient->document_type.' '.$clinicalHistory->patient->document)}}</span></p>
+                <p class=MsoNormal><span style='color:#4472C4'>{{strtoupper($patient->document_type.' '.$patient->document)}}</span></p>
             </td>
         </tr>
         <tr>
@@ -777,7 +777,7 @@
             <td width=103 rowspan=2 valign=top style='width:77.15pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt;height:.25in'>
-                <p class=MsoNormal><span style='color:#4472C4'> <br> {{strtoupper($clinicalHistory->professional->name)}}</span></p>
+                <p class=MsoNormal><span style='color:#4472C4'> <br> {{strtoupper($professional->name)}}</span></p>
             </td>
             <td width=104 rowspan=2 valign=top style='width:77.8pt;border-top:none;
                   border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
@@ -923,11 +923,11 @@
         <tr>
             <td width=312 valign=top style='width:233.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='text-align:center'><span
-                            style='color:#4472C4'>{{$clinicalHistory->professional->name}}</span></p>
+                            style='color:#4472C4'>{{$professional->name}}</span></p>
             </td>
             <td width=312 valign=top style='width:233.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='text-align:center'><span
-                            style='color:#4472C4'><img height="50px" src="{{$clinicalHistory->professional->signature}}" alt=""> <b>C.C.</b> {{$clinicalHistory->professional->document}}</span></p>
+                            style='color:#4472C4'><img height="50px" src="{{$professional->signature}}" alt=""> <b>C.C.</b> {{$professional->document}}</span></p>
             </td>
         </tr>
         <tr>
