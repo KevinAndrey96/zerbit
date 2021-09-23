@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @method static create(array $toArray)
  * @method static find(mixed $input)
  * @method static where(string $string, $id)
+ * @method static findOrFail($id)
  */
 class ChEvolution extends Model
 {

@@ -195,6 +195,7 @@ class ClinicalHistoriesController extends Controller
                 getimagesize('https://portal.zerbit.co/storage/signatures/' . $evolution->signature);
                 $lastImage = $evolution->signature;
             } catch (Exception $e) {
+                $evolution = ChEvolution::findOrFail($evolution->id);
                 $evolution->signature = $lastImage;
                 $evolution->save();
             }
