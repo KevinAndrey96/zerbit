@@ -182,7 +182,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Zerbit\\storage\\framework/cache/data',
+        'path' => '/home/zerbit/repositories/zerbit6/storage/framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -349,12 +349,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Zerbit\\storage\\app',
+        'root' => '/home/zerbit/repositories/zerbit6/storage/app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Zerbit\\storage\\app/public',
+        'root' => '/home/zerbit/repositories/zerbit6/storage/app/public',
         'url' => 'https://zerbit.co/storage',
         'visibility' => 'public',
       ),
@@ -371,7 +371,7 @@
     ),
     'links' => 
     array (
-      'C:\\Zerbit\\public\\storage' => 'C:\\Zerbit\\storage\\app/public',
+      '/home/zerbit/repositories/zerbit6/public/storage' => '/home/zerbit/repositories/zerbit6/storage/app/public',
     ),
   ),
   'hashing' => 
@@ -405,13 +405,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Zerbit\\storage\\logs/laravel.log',
+        'path' => '/home/zerbit/repositories/zerbit6/storage/logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Zerbit\\storage\\logs/laravel.log',
+        'path' => '/home/zerbit/repositories/zerbit6/storage/logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -461,7 +461,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Zerbit\\storage\\logs/laravel.log',
+        'path' => '/home/zerbit/repositories/zerbit6/storage/logs/laravel.log',
       ),
     ),
   ),
@@ -518,7 +518,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Zerbit\\resources\\views/vendor/mail',
+        0 => '/home/zerbit/repositories/zerbit6/resources/views/vendor/mail',
       ),
     ),
   ),
@@ -645,7 +645,7 @@
     'lifetime' => '120',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Zerbit\\storage\\framework/sessions',
+    'files' => '/home/zerbit/repositories/zerbit6/storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -665,9 +665,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Zerbit\\resources\\views',
+      0 => '/home/zerbit/repositories/zerbit6/resources/views',
     ),
-    'compiled' => 'C:\\Zerbit\\storage\\framework\\views',
+    'compiled' => '/home/zerbit/repositories/zerbit6/storage/framework/views',
   ),
   'dompdf' => 
   array (
@@ -675,10 +675,10 @@
     'orientation' => 'portrait',
     'defines' => 
     array (
-      'font_dir' => 'C:\\Zerbit\\storage\\fonts/',
-      'font_cache' => 'C:\\Zerbit\\storage\\fonts/',
-      'temp_dir' => 'C:\\Users\\Andrey\\AppData\\Local\\Temp',
-      'chroot' => 'C:\\Zerbit',
+      'font_dir' => '/home/zerbit/repositories/zerbit6/storage/fonts/',
+      'font_cache' => '/home/zerbit/repositories/zerbit6/storage/fonts/',
+      'temp_dir' => '/tmp',
+      'chroot' => '/home/zerbit/repositories/zerbit6',
       'enable_font_subsetting' => false,
       'pdf_backend' => 'CPDF',
       'default_media_type' => 'screen',
