@@ -207,6 +207,7 @@ export default {
       console.log("OKs");
     },
     onComplete: function(){
+      window.alert("la firma se está guardando por favor espere un momento hasta que sea redireccionado a la página principal, no cierre esta ventana hasta que el proceso termine. Gracias")
       const axios = require('axios');
       $(':button').prop('disabled', true);
       axios.post('/clinical-histories', {
@@ -283,6 +284,7 @@ export default {
               window.location.href = "/clinical-histories"
             })
                 .catch(function (error) {
+                  window.alert('Ha ocurrido un error, por favor vuelva a dibujar su firma')
                   window.location.reload();
                   console.log(error);
                 });

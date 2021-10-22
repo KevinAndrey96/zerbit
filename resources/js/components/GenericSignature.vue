@@ -29,6 +29,7 @@ export default {
     },
     save() {
       const { isEmpty, data } = this.$refs.signaturePad.saveSignature();
+      window.alert("la firma se está guardando por favor espere un momento hasta que sea redireccionado a la página principal, no cierre esta ventana hasta que el proceso termine. Gracias")
       console.log("sending signature")
       axios.post('/generic-signature', {
         id: this.id,
@@ -38,7 +39,18 @@ export default {
         console.log(response)
         window.location.href = response.data
       }).catch(function (error) {
-        console.log(error);
+        axios.post('/generic-signature', {
+          id: this.id,
+          signatureType: this.stype,
+          dataSignature: data
+        }).then(function (response) {
+          console.log(response)
+          window.location.href = response.data
+        }).catch(function (error) {
+          window.alert('Ha ocurrido un error, por favor vuelva a dibujar su firma')
+          window.location.reload();
+          console.log(error);
+        });
       });
     }
   }
