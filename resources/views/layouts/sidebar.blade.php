@@ -91,7 +91,7 @@
                             </li>
                             <li class="sidebar-menu-item">
                                 <a class="sidebar-menu-button" href="{{ route('clinical-histories-a') }}">
-                                    <span class="sidebar-menu-text">Ver ultimas h. clínicas</span>
+                                    <span class="sidebar-menu-text">Ver últimas h. clínicas</span>
                                 </a>
                             </li>
                         </ul>
