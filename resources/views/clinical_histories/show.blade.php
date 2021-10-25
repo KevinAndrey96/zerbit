@@ -893,7 +893,7 @@
                   none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='text-align:center'><span
-                            style='color:#4472C4'><img src="{{'https://portal.zerbit.co/storage/signatures/' . $evolution->signature}}" height="50px" alt=""></span></p>
+                            style='color:#4472C4'><img src="{{'https://portal.zerbit.co/storage/signatures/' . $evolution->signature}}" height="100px" alt=""></span></p>
             </td>
         </tr>
             @endforeach
