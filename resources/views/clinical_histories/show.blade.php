@@ -52,7 +52,7 @@
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='font-size:12.0pt;color:#4472C4'>&nbsp;</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='font-size:12.0pt;color:#4472C4'>FECHA DE APERTURA DE LA H.C      D/M/A:
+                            style='font-size:12.0pt;color:#4472C4'>FECHA DE APERTURA DE LA H.C      A/M/D:
                           {{substr($clinicalHistory->created_at, 0, 10)}}</span>
                 </p>
             </td>
@@ -118,7 +118,7 @@
             <td width=312 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>FECHA DE NACIMIENTO: D/M/A</span></p>
+                            style='color:#4472C4'>FECHA DE NACIMIENTO: A/M/D</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>{{strtoupper($patient->birthdate)}}</span></p>
             </td>
@@ -217,21 +217,22 @@
             </td>
         </tr>
         <tr>
-            <td width=312 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
+        <td width=312 valign=top style='width:233.75pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
-                <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>MÉDICO TRATANTE</span></p>
-                <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{strtoupper($professional->name)}}</span></p>
-            </td>
-            <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
-                  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
-                  padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>DIAGNOSTICO MÉDICO</span></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
                             style='color:#4472C4'>{{strtoupper($clinicalHistory->medical_diagnostic)}}</span></p>
             </td>
+             <td width=312 colspan=2 valign=top style='width:233.75pt;border-top:none;
+                  border-left:none;border-bottom:solid windowtext 1.0pt;border-right:solid windowtext 1.0pt;
+                  padding:0in 5.4pt 0in 5.4pt'>
+                <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+                            style='color:#4472C4'></span></p>
+                <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
+                            style='color:#4472C4'></span></p>
+            </td>
+         
         </tr>
     </table>
     <p class=MsoNormal><span style='color:#4472C4'>&nbsp;</span></p>
@@ -570,7 +571,7 @@
             line-height:107%;color:#4472C4'>: {{$professional->name}}</span></p>
     <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
             color:#4472C4'>FIRMA DEL PROFESIONAL: </span></b><span style='font-size:12.0pt;
-            line-height:107%;color:#4472C4'><img height="50px" src="{{$professional->signature}}" alt=""></span></p>
+            line-height:107%;color:#4472C4'><img height="150px" src="{{$professional->signature}}" alt=""></span></p>
     <p class=MsoNormal><b><span style='font-size:12.0pt;line-height:107%;
             color:#4472C4'>C.C DEL PROFESIONAL: </span></b><span style='font-size:12.0pt;
             line-height:107%;color:#4472C4'>{{$professional->document}}</span></p>
@@ -591,7 +592,7 @@
             </td>
             <td width=378 valign=top style='width:283.25pt;border:solid windowtext 1.0pt;
                   border-left:none;padding:0in 5.4pt 0in 5.4pt'>
-                <p class=MsoNormal><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>{{$clinicalHistory->id}}</span></p>
+                <p class=MsoNormal><span style='font-size:14.0pt;line-height:105%;color:#4472C4'>{{strtoupper($patient->document_type)}}. {{$patient->document}}</span></p>
             </td>
         </tr>
     </table>
@@ -708,7 +709,7 @@
             <td width=623 valign=top style='width:467.5pt;border:solid windowtext 1.0pt;
                   border-top:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
-                                lang=EN-US style='font-size:14.0pt;color:#4472C4'>FIRMA DEL PROFESIONAL: <img height="50px" src="{{$professional->signature}}" alt=""></span></b></p>
+                                lang=EN-US style='font-size:14.0pt;color:#4472C4'>FIRMA DEL PROFESIONAL: <img height="150px" src="{{$professional->signature}}" alt=""></span></b></p>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><b><span
                                 lang=EN-US style='font-size:14.0pt;color:#4472C4'>&nbsp;</span></b></p>
             </td>
@@ -927,7 +928,7 @@
             </td>
             <td width=312 valign=top style='width:233.75pt;border:none;padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal align=center style='text-align:center'><span
-                            style='color:#4472C4'><img height="50px" src="{{$professional->signature}}" alt=""> <b>C.C.</b> {{$professional->document}}</span></p>
+                            style='color:#4472C4'><img height="150px" src="{{$professional->signature}}" alt=""> <b>C.C.</b> {{$professional->document}}</span></p>
             </td>
         </tr>
         <tr>
