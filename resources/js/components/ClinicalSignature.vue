@@ -134,8 +134,8 @@
           <textarea class="form-control" v-model="form.physiotherapistDiagnostic" name="" id="physiotherapistDiagnostic" cols="30" rows="10"></textarea>
         </div>
         <div class="form-group">
-          <label for="objective">Objetivo y plan de tratamiento fisioterapeutico</label><br>
-          <textarea class="form-control" name="" v-model="form.objective2" id="objective" cols="30" rows="10"></textarea>
+          <label for="objective2">Objetivo y plan de tratamiento fisioterapeutico</label><br>
+          <textarea class="form-control" name="" v-model="form.objective2" id="objective2" cols="30" rows="10"></textarea>
         </div>
       </tab-content>
     </form-wizard>
