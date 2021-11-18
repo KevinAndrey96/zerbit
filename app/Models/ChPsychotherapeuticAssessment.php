@@ -34,6 +34,7 @@ class ChPsychotherapeuticAssessment extends Model
         'balance',
         'falling_risk',
         'other_valuations',
+        'objective2',
     ];
 
     /**

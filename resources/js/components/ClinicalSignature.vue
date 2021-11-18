@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           <label for="reason">Motivo de consulta de fisioterapeuta</label><br>
-          <textarea id="reason" v-model="form.reason" class="form-control"></textarea>
+          <textarea id="reason" v-model="form.objective" class="form-control"></textarea>
         </div>
         <hr>
         <div class="form-group">
@@ -135,7 +135,7 @@
         </div>
         <div class="form-group">
           <label for="objective">Objetivo y plan de tratamiento fisioterapeutico</label><br>
-          <textarea class="form-control" name="" v-model="form.objective" id="objective" cols="30" rows="10"></textarea>
+          <textarea class="form-control" name="" v-model="form.objective2" id="objective" cols="30" rows="10"></textarea>
         </div>
       </tab-content>
     </form-wizard>
@@ -190,7 +190,7 @@ export default {
         balance: '',
         fallingRisk: '',
         otherValuations: '',
-
+        objective2: '',
         therapist_id: 1,
       },
       csrf: $('meta[name="csrf-token"]').attr('content'),
@@ -219,6 +219,7 @@ export default {
         medical_diagnostic: this.form.medicalDiagnostic,
         physiotherapist_diagnostic: this.form.physiotherapistDiagnostic,
         objective: this.form.objective,
+        objective2: this.form.objective2,
         sessions_number: this.form.sessionsNumber,
         payment_value: this.form.paymentValue,
 
@@ -256,6 +257,7 @@ export default {
               medical_diagnostic: this.form.medicalDiagnostic,
               physiotherapist_diagnostic: this.form.physiotherapistDiagnostic,
               objective: this.form.objective,
+              objective2: this.form.objective2,
               sessions_number: this.form.sessionsNumber,
               payment_value: this.form.paymentValue,
 

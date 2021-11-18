@@ -71,7 +71,7 @@ class ClinicalHistoriesController extends Controller
         } else {
             $therapists = User::where('id', Auth::user()->id)->get();
         }
-        //[{value: 1, text: 'Item 1'}, {value: 2, text: 'Item 2'}]
+
         $therapists2 = Array();
         foreach ($therapists as $therapist) {
             $therapist2 = [
@@ -105,25 +105,25 @@ class ClinicalHistoriesController extends Controller
     {
         $clinicalHistory = ClinicalHistory::updateOrCreate(
             $request->only([
-                               'patient_id',
-                               'professional_id',
-                               'medical_diagnostic',
-                               'physiotherapist_diagnostic',
-                               'objective',
-                               'sessions_number',
-                               'deductible_payment',
-                               'payment_value',
-                           ]),
+                   'patient_id',
+                   'professional_id',
+                   'medical_diagnostic',
+                   'physiotherapist_diagnostic',
+                   'objective',
+                   'sessions_number',
+                   'deductible_payment',
+                   'payment_value',
+               ]),
             $request->only([
-                      'patient_id',
-                      'professional_id',
-                      'medical_diagnostic',
-                      'physiotherapist_diagnostic',
-                      'objective',
-                      'sessions_number',
-                      'deductible_payment',
-                      'payment_value',
-                  ]));
+                  'patient_id',
+                  'professional_id',
+                  'medical_diagnostic',
+                  'physiotherapist_diagnostic',
+                  'objective',
+                  'sessions_number',
+                  'deductible_payment',
+                  'payment_value',
+              ]));
         $chRecord = ChRecord::create(array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id]));
         $chPsychotherapeuticAssessment = ChPsychotherapeuticAssessment::create(
             array_merge($request->toArray(), ['clinical_history_id' => $clinicalHistory->id])
@@ -182,7 +182,6 @@ class ClinicalHistoriesController extends Controller
             ->first();
 
         $observations = '';
-        $lastImage = '0.png';
 
         $clinicalHistory_evolutions = DB::table('ch_evolutions')
             ->where('clinical_history_id', $clinicalHistory->id)
@@ -191,14 +190,9 @@ class ClinicalHistoriesController extends Controller
 
         foreach ($clinicalHistory_evolutions as $evolution) {
             $observations .= $evolution->observation . ',';
-            try {
-                getimagesize('https://portal.zerbit.co/storage/signatures/' . $evolution->signature);
-                $lastImage = $evolution->signature;
-            } catch (Exception $e) {
-                $evolution = ChEvolution::findOrFail($evolution->id);
-                $evolution->signature = $lastImage;
-                $evolution->save();
-            }
+            $evolution = ChEvolution::findOrFail($evolution->id);
+            $evolution->signature = $evolution->id . '.png';
+            $evolution->save();
         }
 
         $medicalPathological = '';
@@ -233,6 +227,7 @@ class ClinicalHistoriesController extends Controller
         $balance = '';
         $fallingRisk = '';
         $otherValuations = '';
+        $objective2 = '';
 
         $clinicalHistory_psychotherapeuticalAssesments = DB::table('ch_psychotherapeutic_assessments')
             ->where('clinical_history_id', $clinicalHistory->id)
@@ -250,6 +245,7 @@ class ClinicalHistoriesController extends Controller
             $balance = $psychotherapeuticalAssessment->balance . ',';
             $fallingRisk = $psychotherapeuticalAssessment->falling_risk . ',';
             $otherValuations = $psychotherapeuticalAssessment->other_valuations . ',';
+            $objective2 = $psychotherapeuticalAssessment->objective2 . ',';
         }
         $patient = DB::table('patients')
             ->where('id', $clinicalHistory->patient_id)
@@ -286,6 +282,7 @@ class ClinicalHistoriesController extends Controller
                 'balance' => $balance,
                 'fallingRisk' => $fallingRisk,
                 'otherValuations' => $otherValuations,
+                'objective2' => $objective2,
             ]);
         $id = $clinicalHistory->id;
         Storage::disk('public')->put("clinical_histories/$id.pdf", $pdf->output());

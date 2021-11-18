@@ -555,7 +555,7 @@
             <td width=623 valign=top style='width:467.5pt;border:solid windowtext 1.0pt;
                   padding:0in 5.4pt 0in 5.4pt'>
                 <p class=MsoNormal style='margin-bottom:0in;line-height:normal'><span
-                            style='color:#4472C4'>{{$clinicalHistory->objective}}</span></p>
+                            style='color:#4472C4'>{{$objective2}}</span></p>
             </td>
         </tr>
     </table>
